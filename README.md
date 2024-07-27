@@ -35,6 +35,7 @@ I felt it reasonable to look into how it might be to discover the location of al
 - ImHex: https://imhex.werwolv.net/ [Modern Hex Viewer]
 - PCSX-Redux: https://github.com/grumpycoders/pcsx-redux [PSX emulator with Debugger]
 - BizHawk: https://github.com/TASEmulators/BizHawk [Multi-platform emulator with many tools like a RAM watcher]
+- No$PSX: https://www.problemkaputt.de/psx.htm [Very detailed PSX Debugger]
 - Ghidra: https://github.com/NationalSecurityAgency/ghidra/ [Decompiler]
 
 ### File Structure 

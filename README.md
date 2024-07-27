@@ -37,6 +37,8 @@ I felt it reasonable to look into how it might be to discover the location of al
 - BizHawk: https://github.com/TASEmulators/BizHawk [Multi-platform emulator with many tools like a RAM watcher]
 - No$PSX: https://www.problemkaputt.de/psx.htm [Very detailed PSX Debugger]
 - Ghidra: https://github.com/NationalSecurityAgency/ghidra/ [Decompiler]
+- DeepL: https://www.deepl.com/en/translator [Quick Text translator]
+- iLoveOCR: https://www.iloveocr.com [To get Screengrabs of the game translated easy]
 
 ### File Structure 
 ```

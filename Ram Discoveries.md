@@ -1,3 +1,4 @@
+# Text Notes
 ### Intro text Crawl: 
 - Text: 
 ```
@@ -45,3 +46,29 @@
 
 ### Player Name
 - Stored in RAM [breakpoint]: `8001e4e8`
+
+# Image Notes
+- Doesn't appear that palette data can be easily tracked.
+  - Game tracks images in 'binary color code'(?)
+  - no use in looking for images in VRAM
+- images stored in 8 bpp
+- Palette data appears to be stored in the `SCPS_101.05`
+
+# Ghidra discoveries
+ Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
+ ```
+ SYSTEM.CNF: // ram:00000000-ram:0000003c 
+ OVR.BIN: // ram:00000000-ram:000d8fff 
+ PDADOC.BIN: //ram:00000000-ram:0019e7ff 
+ PDADOWN.BIN // ram:00000000-ram:000d8fff 
+ SCPS_101.05 [Has the main() function, mutlitple ram locations]
+   - main // ram:80010000-ram:8009e30f 
+   - cache // ram:1f800000-ram:1f8003ff 
+ SND.BIN // ram:00000000-ram:0044ffff 
+ ONMOVR.BIN // ram:00000000-ram:0001279b 
+ CHR.BIN // ram:00000000-ram:0039a7ff 
+ MAP.BIN // ram:00000000-ram:010d9fff 
+ PDADOWN.EXE [Another main() function]
+   - main // ram:80010000-ram:80037dbf 
+   - cache // ram:1f800000-ram:1f8003ff 
+ ```

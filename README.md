@@ -10,6 +10,14 @@ A guide [referenced by Sean Seanson] also is useful in playing the game: https:/
 So far, we're in the exploratory phase. Brightis is an action RPG, and thus doesn't have much in the way of dialogue and a reasonable amount of text with very little of it stored in images.  
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
+## Roadmap
+- [ ] Figure out the file compression [assumed to be LZSS but more research needed]
+- [ ] Dump the text wholesale from the code [current tools will work with this]
+- [ ] Get a bulk translation
+- [ ] Get the text reinserted [Atlas may be our best bet]
+- [ ] Test the game through 
+- [ ] Figure out how to create an IPS patch 
+
 ### Discoveries
 - The game appears encoded using a Shift-JIS table for the kanji & the on-screen English characters.
 - The game is compressed, so text is split throughout various .BIN files
@@ -25,7 +33,10 @@ I felt it reasonable to look into how it might be to discover the location of al
     - There are character tables [starting at `0x0002AD00`] which can be used to test encodings. 
   - SCPS_101.05
     - A common library file from what I've looked up. Starting at `0x0008EB20` this contains location names, a list of enemies, some menu text, along with other info that would be useful as a guide of sorts to other files. 
-- `ED00.STR` & `OP00.STR` are the Ending & Opening video files, respectively. 
+- `ED00.STR` & `OP00.STR` are the Ending & Opening video files, respectively.
+- Other potentially useful info
+  - Redump info: http://redump.org/disc/9919/
+  - PSX file types & Common compressions. https://psx-spx.consoledev.net/cdromfileformats/
 
 ### Tools we're using 
 - CDMage: https://www.romhacking.net/utilities/1435/ [Used to open the main .BIN]

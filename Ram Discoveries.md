@@ -1,16 +1,4 @@
 # Text Notes
-### Intro text Crawl: 
-- Text: 
-```
-世の国々が大陸内の番権笠争った 			The nations of the world fought for dominion over the continent
-永き戦乱に疲抽し。									Tired of the long warfare.
-土族ら世代全貸邊 きっか(ま皮 				The generations of the earthly tribes lent their skins to the war.
-休戦へと流れ 											Toward a truce
-天った冨と国力を回復すべく興和を使い 	to restore the wealth and power of the country.
-```
- - location in RAM: TBD
- - location in ROM/file: TBD
- - how to trigger in game: Opening text [start of game]
 
 ### Talking with the Wizard, Wado:
 - Text: 
@@ -53,6 +41,19 @@
   - no use in looking for images in VRAM
 - images stored in 8 bpp
 - Palette data appears to be stored in the `SCPS_101.05`
+
+### Intro text Crawl: 
+- Text: 
+```
+世の国々が大陸内の番権笠争った 			The nations of the world fought for dominion over the continent
+永き戦乱に疲抽し。									Tired of the long warfare.
+土族ら世代全貸邊 きっか(ま皮 				The generations of the earthly tribes lent their skins to the war.
+休戦へと流れ 											Toward a truce
+天った冨と国力を回復すべく興和を使い 	to restore the wealth and power of the country.
+```
+ - location in RAM: `0x8007F080`
+ - location in ROM/file: Part of a texture (Displayed as 'QuadSemiTex')
+ - how to trigger in game: Opening text [start of game]
 
 # Ghidra discoveries
  Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 

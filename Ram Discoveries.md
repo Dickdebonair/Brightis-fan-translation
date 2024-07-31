@@ -8,7 +8,7 @@
 どうじゃ・・・立てるか?			How about [it]... can you stand?
 ```
  - location in RAM: `0x8015c9c8`
- - location in ROM/file: TBD
+ - location in ROM/file: `0x1D064`[OVR.BIN]
  - how to trigger in game: intro to game with Wado.
 
 ### Other Misc. text 

@@ -27,7 +27,8 @@ I felt it reasonable to look into how it might be to discover the location of al
   - ONMOVR.BIN
     - Another collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"]. The smallest of the files.
   - OVR.BIN
-    - Appears to be for Player data & menus. Words like "GOLD/SKILL/EXP" are here, It also includes Shop data, special moves, and appears to be everything related to what the player can do, both in the context of the game world and meta. 
+    - Appears to be for Player data & menus. Words like "GOLD/SKILL/EXP" are here, It also includes Shop data, special moves, and appears to be everything related to what the player can do, both in the context of the game world and meta.
+    - The intro text, where the player speaks to the Wizard and performs the Tutorial is also found here. 
   - PDADOWN.EXE
     - Most of the written kanji appears to be towards the bottom [starting at `0x000285D0`] and looks to be regarding the pocketstation game.
     - There are character tables [starting at `0x0002AD00`] which can be used to test encodings. 
@@ -50,6 +51,7 @@ I felt it reasonable to look into how it might be to discover the location of al
 - Ghidra: https://github.com/NationalSecurityAgency/ghidra/ [Decompiler]
 - DeepL: https://www.deepl.com/en/translator [Quick Text translator]
 - iLoveOCR: https://www.iloveocr.com [To get Screengrabs of the game translated easy]
+- Cloe: https://github.com/blueaxis/Cloe [Useful for copying kanji locally & quickly]
 
 ### File Structure 
 ```

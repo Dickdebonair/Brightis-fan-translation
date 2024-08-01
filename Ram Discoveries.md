@@ -1,4 +1,7 @@
 # Text Notes
+- Text is (mostly) readable using a Shift-JIS table
+  - Command codse are hex under `20`
+  - New line is `0A`
 
 ### Talking with the Wizard, Wado:
 - Text: 

@@ -1,7 +1,8 @@
 # Text Notes
 - Text is (mostly) readable using a Shift-JIS table
   - Command codse are hex under `20`
-  - New line is `0A`
+   - New line (appears to be) `0B 0F`
+   - Keep an eye on `07`, `05`, `04`
 
 ### Talking with the Wizard, Wado:
 - Text: 
@@ -44,6 +45,10 @@
   - no use in looking for images in VRAM
 - images stored in 8 bpp
 - Palette data appears to be stored in the `SCPS_101.05`
+- Game uses Standard TIM matches.
+  - found many Magic Tag hex sequences
+    - `(A magic tag "0×10000000" is basically what Identifies if it is an image or not)`
+  - The next 8 bytes tell you the size of the file.
 
 ### Intro text Crawl: 
 - Text: 

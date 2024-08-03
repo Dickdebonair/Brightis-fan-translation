@@ -1,9 +1,15 @@
 # Text Notes
 - Text is (mostly) readable using a Shift-JIS table
+- Game will regularly use `8140` [ShiftJIS blank space] to indent text
+### Command Codes
   - Command codse are hex under `20`
    - New line (appears to be) `0B 0F`
-   - Keep an eye on `07`, `05`, `04`
-
+   - `07`: Regular line breaking without the screen stopping
+   - `04`: Line break with a stop button then text on a new text box
+     - Following text will appear in a new text box. [scrolling]
+   - `05`: Line break with a stop button but text continue in same text box
+   - [?] `01`: Loading the text box
+   - [?] `03`: Unload the text box
 ### Talking with the Wizard, Wado:
 - Text: 
 ```

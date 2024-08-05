@@ -10,13 +10,12 @@
    - `05`: Line break with a stop button but text continue in same text box
    - [?] `01`: Loading the text box
    - [?] `03`: Unload the text box
-### Talking with the Wizard, Wado:
-- Text: 
-```
-ワドー										WADO.
-気がついたようじゃな。			I see you've noticed [me].
-どうじゃ・・・立てるか?			How about [it]... can you stand?
-```
+### Talking with the Wizard, Wadoh:
+| JP | Translation |
+| ---      | ---       |
+|ワドー | Wado/Wadoh |
+|気がついたようじゃな。| I see you've noticed [me].|
+|どうじゃ・・・立てるか?	| How about [it]... can you stand?|
  - location in RAM: `0x8015c9c8`
  - location in ROM/file: `0x1D064`[OVR.BIN]
  - how to trigger in game: intro to game with Wado.
@@ -57,14 +56,13 @@
   - The next 8 bytes tell you the size of the file.
 
 ### Intro text Crawl: 
-- Text: 
-```
-世の国々が大陸内の番権笠争った 			The nations of the world fought for dominion over the continent
-永き戦乱に疲抽し。									Tired of the long warfare.
-土族ら世代全貸邊 きっか(ま皮 				The generations of the earthly tribes lent their skins to the war.
-休戦へと流れ 											Toward a truce
-天った冨と国力を回復すべく興和を使い 	to restore the wealth and power of the country.
-```
+| JP | Translation |
+| ---      | ---       |
+| 世の国々が大陸内の番権笠争った  | Long ago, all the kingdoms of the world fought for control of the continent- |
+|永き戦乱に疲抽し。 | Tired of the long warfare.| 
+|土族ら世代全貸邊 きっか(ま皮 | The generations of the earthly tribes lent their skins to the war. |
+|休戦へと流れ | Toward a truce |
+|天った冨と国力を回復すべく興和を使い |	to restore the wealth and power of the country.|
  - location in RAM: `0x8007F080`
  - location in ROM/file: Part of a texture (Displayed as 'QuadSemiTex')
  - how to trigger in game: Opening text [start of game]

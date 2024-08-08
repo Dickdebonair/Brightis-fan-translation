@@ -11,7 +11,8 @@ So far, we're in the exploratory phase. Brightis is an action RPG, and thus does
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
 ## Roadmap
-- [ ] Figure out the file compression [assumed to be LZSS but more research needed]
+- [x] Figure out the file compression [use the decompress.py in the Scripts folder]
+- [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files]
 - [ ] Dump the text wholesale from the code [current tools will work with this]
 - [ ] Get a bulk translation
 - [ ] Get the text reinserted [Atlas may be our best bet]
@@ -24,20 +25,24 @@ I felt it reasonable to look into how it might be to discover the location of al
 - We've located text in 5 main files:
 	- CHR.BIN
 	  - Second largest file. Through blind stumbling, I've found lines of spoken dialogue here, so I believe this is where most of it resides. 
-  - ONMOVR.BIN
-    - Another collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"]. The smallest of the files.
   - OVR.BIN
+    - Another collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"].
+    - Has a large amount of readable kanji interspliced with formatting command codes & other data
+  - ONMOVR.BIN
     - Appears to be for Player data & menus. Words like "GOLD/SKILL/EXP" are here, It also includes Shop data, special moves, and appears to be everything related to what the player can do, both in the context of the game world and meta.
     - The intro text, where the player speaks to the Wizard and performs the Tutorial is also found here. 
   - PDADOWN.EXE
     - Most of the written kanji appears to be towards the bottom [starting at `0x000285D0`] and looks to be regarding the pocketstation game.
     - There are character tables [starting at `0x0002AD00`] which can be used to test encodings. 
   - SCPS_101.05
-    - A common library file from what I've looked up. Starting at `0x0008EB20` this contains location names, a list of enemies, some menu text, along with other info that would be useful as a guide of sorts to other files. 
+    - The MAIN executable for the game, containing common library files.  Starting at `0x0008EB20` this contains location names, a list of enemies, some menu text, along with other info that would be useful as a guide of sorts to other files. 
 - `ED00.STR` & `OP00.STR` are the Ending & Opening video files, respectively.
+
 - Other potentially useful info
   - Redump info: http://redump.org/disc/9919/
   - PSX file types & Common compressions. https://psx-spx.consoledev.net/cdromfileformats/
+  - Game Manual: https://archive.org/details/BrightisManual/mode/2up
+  - Walkthrough: https://gamefaqs.gamespot.com/ps/576111-brightis/faqs/80425 
 
 ### Tools we're using 
 - CDMage: https://www.romhacking.net/utilities/1435/ [Used to open the main .BIN]

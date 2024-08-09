@@ -11,12 +11,21 @@ So far, we're in the exploratory phase. Brightis is an action RPG, and thus does
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
 ## Roadmap
-- [x] Figure out the file compression [use the decompress.py in the Scripts folder]
+- [ ] Figure out the file compression [use the decompress.py in the Scripts folder]
+  - [x] Get a basic decompression figured out
+  - [ ] Determine Compression function to be able to reinsert files
+  - [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS101.05`]
 - [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files]
+  - [ ] OVR.BIN
+  - [ ] ONMOVR.BIN
+  - [ ] PDADOC.BIN
 - [ ] Dump the text wholesale from the code [current tools will work with this]
+- [ ] Font hacking to add english support + Variable width
 - [ ] Get a bulk translation
 - [ ] Get the text reinserted [Atlas may be our best bet]
-- [ ] Test the game through 
+- [ ] Test the game through
+- [ ] Locate all the images with text
+  - [ ] Primarily related to the PocketStation game [located in PDADOC.BIN]
 - [ ] Figure out how to create an IPS patch 
 
 ### Discoveries
@@ -24,9 +33,9 @@ I felt it reasonable to look into how it might be to discover the location of al
 - The game is compressed, so text is split throughout various .BIN files
 - We've located text in 5 main files:
 	- CHR.BIN
-	  - Second largest file. Through blind stumbling, I've found lines of spoken dialogue here, so I believe this is where most of it resides. 
+	  - Second largest file. Fairly unsure of the full contents
   - OVR.BIN
-    - Another collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"].
+    - Largest collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"].
     - Has a large amount of readable kanji interspliced with formatting command codes & other data
   - ONMOVR.BIN
     - Appears to be for Player data & menus. Words like "GOLD/SKILL/EXP" are here, It also includes Shop data, special moves, and appears to be everything related to what the player can do, both in the context of the game world and meta.

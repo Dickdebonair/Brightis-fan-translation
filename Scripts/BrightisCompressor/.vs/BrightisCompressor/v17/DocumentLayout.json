@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|g:\\taleshacking\\brightis\\brightiscompressor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|g:\\taleshacking\\brightis\\brightiscompressor\\brightiscompressor.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|solutionrelative:brightiscompressor.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|g:\\taleshacking\\brightis\\brightiscompressor\\compressor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71991B4B-B929-4FE6-8E14-46E9FA635599}|BrightisCompressor.csproj|solutionrelative:compressor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080D1096-6DB4-41CF-AE80-3D211E62907B}|..\\Testing\\Testing.csproj|g:\\taleshacking\\brightis\\testing\\comptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BrightisCompressor",
+              "DocumentMoniker": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\BrightisCompressor.csproj",
+              "RelativeDocumentMoniker": "BrightisCompressor.csproj",
+              "ToolTip": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\BrightisCompressor.csproj",
+              "RelativeToolTip": "BrightisCompressor.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-18T02:14:51.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAqwDcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T01:56:30.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Compressor.cs",
+              "DocumentMoniker": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\Compressor.cs",
+              "RelativeDocumentMoniker": "Compressor.cs",
+              "ToolTip": "G:\\TalesHacking\\Brightis\\BrightisCompressor\\Compressor.cs",
+              "RelativeToolTip": "Compressor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T13:31:00.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompTests.cs",
+              "DocumentMoniker": "G:\\TalesHacking\\Brightis\\Testing\\CompTests.cs",
+              "RelativeDocumentMoniker": "..\\Testing\\CompTests.cs",
+              "ToolTip": "G:\\TalesHacking\\Brightis\\Testing\\CompTests.cs",
+              "RelativeToolTip": "..\\Testing\\CompTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T13:32:04.815Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "profiles": {
+    "Decompress 2D800": {
+      "commandName": "Project",
+      "commandLineArgs": "-d OVR_2D800c.Bin OVR_2D800d2.Bin"
+    },
+    "Compress 2D800": {
+      "commandName": "Project",
+      "commandLineArgs": "-c OVR_2D800d.Bin OVR_2D800c.Bin "
+    },
+    "Decompress 93800": {
+      "commandName": "Project",
+      "commandLineArgs": "-d OVR_93800c.Bin OVR_93800d2.Bin "
+    },
+    "Compress 93800": {
+      "commandName": "Project",
+      "commandLineArgs": "-c OVR_93800d.Bin OVR_93800c.Bin "
+    },
+    "File not existing": {
+      "commandName": "Project",
+      "commandLineArgs": "-d patate.bin paul.bin"
+    }
+  }
+}

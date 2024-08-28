@@ -1,6 +1,10 @@
 # Text Notes
 - Text is (mostly) readable using a Shift-JIS table
 - Game will regularly use `8140` [ShiftJIS blank space] to indent text
+- code used to read the text for the first scene is in one overlay inside ONMOVR.BIN at `0x2E38D`
+- Some files seem to be normally compressed in `OVR.BIN` while other text are compressed using different methods.
+- Pointers are used differently across files.
+	- ONMOVR.BIN appears to use Immediate Pointers. [Use Immediate Pointer Finder to assist]
 ### Command Codes
   - Command codse are hex under `20`
    - New line (appears to be) `0B 0F`
@@ -43,6 +47,7 @@
 
 ### Player Name
 - Stored in RAM [breakpoint]: `8001e4e8`
+- default name: Al Ted `アル・テッド`
 
 # Image Notes
 - Doesn't appear that palette data can be easily tracked.
@@ -66,6 +71,7 @@
  - location in RAM: `0x8007F080`
  - location in ROM/file: Part of a texture (Displayed as 'QuadSemiTex')
  - how to trigger in game: Opening text [start of game]
+ - the remainder is saved in the spreadsheet. Will be made public at a later date
 
 # Ghidra discoveries
  Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
@@ -85,3 +91,7 @@
    - main // ram:80010000-ram:80037dbf 
    - cache // ram:1f800000-ram:1f8003ff 
  ```
+
+We've also found two functions key in determining how the game works. 
+One is `FUN_80020170` in `SCPS101.05` which we've confirmed is the game's decompress function for files. 
+The other is `FUN_8007d334` in the same file which we believe is how the game is loading images/textures.

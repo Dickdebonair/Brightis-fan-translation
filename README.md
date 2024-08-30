@@ -11,21 +11,68 @@ So far, we're in the exploratory phase. Brightis is an action RPG, and thus does
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
 ## Roadmap
-- [ ] Figure out the file compression [use the decompress.py in the Scripts folder]
-  - [x] Get a basic decompression figured out
-  - [ ] Determine Compression function to be able to reinsert files
-  - [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS101.05`]
-- [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files]
-  - [ ] OVR.BIN
-  - [ ] ONMOVR.BIN
-  - [ ] PDADOC.BIN
+- [ ] Figure out the file compression 
+	- [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS_101.05`]
+		- FUN_80020170(decompress) 
+		- FUN_8007d334(LoadImage)
+	- [x] Get basic text decompression figured out  
+		- [build the `BrightisCompressor` in the Scripts folder]
+		- FUN_80020170(decompress) in `SCPS_101.05` in game files
+	- [ ] Get basic image decompression figured out  
+		- related to FUN_8007d334(LoadImage) in `SCPS_101.05`
+	- [ ] Determine Compression function to be able to reinsert files
+		- Use `BrightisCompressor` & FUN_80020170(decompress)
+- [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files] use the [spreadsheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing)
+	- [ ] OVR.BIN (Main Overlay/dialogue text file)
+		- Some text translated in OVR.BIN 
+		- Need to move over to OVR.BINv2 [More complete dump]
+		- File uses Immediate Pointers, need pointer tables
+	- [ ] ONMOVR.BIN (has player info/stats)
+		- File uses Immediate Pointers, need pointer tables
+	- [ ] PDADOC.BIN 
+	- [ ] SCPS_101.05 (main executable; has common menu text)
+		- File is not compressed
 - [ ] Dump the text wholesale from the code [current tools will work with this]
+	- CHR.BIN
+		- uncertain about full usage 
+	- ED00.STR (skip)
+		- Video files. no words
+	- MAP.BIN
+		- Main environment file. unknown if it has text
+	- ONMOVR.BIN
+		- Player stats, magic, moves, etc
+	- OP00.STR (skip)
+		- Video file. no words
+	- OVR.BIN
+		- Has the majority of the text in game
+	- PDADOC.BIN
+		- Appears uncompressed. Dumped using SJIS-Dump
+	- PDADOWN.BIN
+		- used in the PocketStation game
+	- PDADOWN.exe
+		- used in the PocketStation game
+	- SCPS_101.05
+		- main function; uncompressed
+		- Dumped using SJIS-Dump
+	- SND.BIN
+		- Unknown usage; hundreds of Unknown functions
+	- SYSTEM.CNF (Skip)
+		- Boot info doc. Readable ASCII in english. 
 - [ ] Font hacking to add english support + Variable width
+	- Game uses full width JP text from Shift-JIS Table. Need to convert. 
+	- [ ] research how to convert the game to use varible width
 - [ ] Get a bulk translation
-- [ ] Get the text reinserted [Atlas may be our best bet]
+	- use the [spreadsheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing)
+- [ ] Get the text reinserted
+	- abcde is the popular option. Will attempt to use that 
+	- [ ] create working extraction script for abcde with pointers
+	- [ ] create working insertion script for abcde with pointers
 - [ ] Test the game through
+	- Building a save file at each dungeon/before each cutscene
+	- save states are in the Github for multiple emulators
 - [ ] Locate all the images with text
-  - [ ] Primarily related to the PocketStation game [located in PDADOC.BIN]
+  - Primarily found to the PocketStation game [located in PDADOWN.BIN/EXE]
+  - Most text not written is in fantasy font/language
 - [ ] Figure out how to create an IPS patch 
 
 ### Discoveries

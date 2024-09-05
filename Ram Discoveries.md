@@ -74,9 +74,9 @@
  - the remainder is saved in the spreadsheet. Will be made public at a later date
 
 # Ghidra discoveries
- Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
+Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
  ```
- SYSTEM.CNF: // ram:00000000-ram:0000003c 
+ SYSTEM.CNF: // ram:00000000-ram:0000003c ()
  OVR.BIN: // ram:00000000-ram:000d8fff 
  PDADOC.BIN: //ram:00000000-ram:0019e7ff 
  PDADOWN.BIN // ram:00000000-ram:000d8fff 
@@ -93,5 +93,9 @@
  ```
 
 We've also found two functions key in determining how the game works. 
-One is `FUN_80020170` in `SCPS101.05` which we've confirmed is the game's decompress function for files. 
-The other is `FUN_8007d334` in the same file which we believe is how the game is loading images/textures.
+- One is `FUN_80020170` in `SCPS101.05` which we've confirmed is the game's decompress function for files. 
+- The other is `FUN_8007d334` in the same file which we believe is how the game is loading images/textures.
+- We suspect `FUN_8001bad8` in `SCPS_101.05` is used to draw Japanese characters from the main text box Overlay.
+	- `FUN_8001bc9c` for English/ASCII characters (such as enemy names in the top right)
+ 
+These can be found using the decompilations in the `Decrypted Files/Ghidra` folder, and browsing them in Ghidra. 

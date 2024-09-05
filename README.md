@@ -10,6 +10,8 @@ A guide [referenced by Sean Seanson] also is useful in playing the game: https:/
 So far, we're in the exploratory phase. Brightis is an action RPG, and thus doesn't have much in the way of dialogue and a reasonable amount of text with very little of it stored in images.  
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
+If you'd like to do some investigation/help: [Looking here may help](https://github.com/Dickdebonair/Brightis-fan-translation/blob/main/Ram%20Discoveries.md) in finding specifics & details. 
+
 ## Roadmap
 - [ ] Figure out the file compression 
 	- [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS_101.05`]

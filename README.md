@@ -24,7 +24,7 @@ If you'd like to do some investigation/help: [Looking here may help](https://git
 		- related to FUN_8007d334(LoadImage) in `SCPS_101.05`
 	- [ ] Determine Compression function to be able to reinsert files
 		- Use `BrightisCompressor` & FUN_80020170(decompress)
-- [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files] use the [spreadsheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing)
+- [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files] use the
 	- [ ] OVR.BIN (Main Overlay/dialogue text file)
 		- Some text translated in OVR.BIN 
 		- Need to move over to OVR.BINv2 [More complete dump]
@@ -64,7 +64,7 @@ If you'd like to do some investigation/help: [Looking here may help](https://git
 	- Game uses full width JP text from Shift-JIS Table. Need to convert. 
 	- [ ] research how to convert the game to use varible width
 - [ ] Get a bulk translation
-	- use the [spreadsheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing)
+	- use the [spreadsheet (TBA)]
 - [ ] Get the text reinserted
 	- abcde is the popular option. Will attempt to use that 
 	- [ ] create working extraction script for abcde with pointers

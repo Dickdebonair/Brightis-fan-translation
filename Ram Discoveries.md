@@ -14,6 +14,16 @@
    - `05`: Line break with a stop button but text continue in same text box
    - [?] `01`: Loading the text box
    - [?] `03`: Unload the text box
+### Controlling the Text Overlay
+Certain aspects of the characters can be changed in RAM
+- `8001c0c0` - Set Character Width
+- `8001c0c4` - Set Character Height (from top)
+- `8001c0c8` - Set Character Height (from bottom)
+- `8001c0d0` - Set Font total height (will squish character)
+- `8001c09d` / `8001c070` / `8001c060` - Set Character boldness
+- `8001c09c` - Set Character Aliasing
+- `8001c06c`  / `8001c05`c - Set Character Transparency
+- `8001c0b8` - Character kerning
 ### Talking with the Wizard, Wadoh:
 | JP | Translation |
 | ---      | ---       |

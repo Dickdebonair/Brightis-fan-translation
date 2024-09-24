@@ -11,6 +11,7 @@ So far, we're in the exploratory phase. Brightis is an action RPG, and thus does
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
 If you'd like to do some investigation/help: [Looking here may help](https://github.com/Dickdebonair/Brightis-fan-translation/blob/main/Ram%20Discoveries.md) in finding specifics & details. 
+If you DO discover anything, please contact me on RomHacking.net at `Tank120` or at my email. `dickdebonair@outlook.com`
 
 ## Roadmap
 - [ ] Figure out the file compression 

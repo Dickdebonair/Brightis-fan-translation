@@ -14,6 +14,9 @@
    - `05`: Line break with a stop button but text continue in same text box
    - [?] `01`: Loading the text box
    - [?] `03`: Unload the text box
+   - `1E` appears to be used regularly when at the end of a scene that needs to transition
+   - `・・.` used to placehold the player's name
+    - hex: `81 45 81 45 FF FF`
 ### Controlling the Text Overlay
 Certain aspects of the characters can be changed in RAM
 - `8001c0c0` - Set Character Width

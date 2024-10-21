@@ -88,6 +88,30 @@ Certain aspects of the characters can be changed in RAM
  - how to trigger in game: Opening text [start of game]
  - the remainder is saved in the spreadsheet. Will be made public at a later date
 
+# Pointers & Text offsets
+After we've gotten a dump of `OVR.BIN`, we started working on listing the decompressed pointers. Due to the decompression tool at the time [as of Oct 21st], it is split into 61 parts, by sector, with the trailing zeros removed. There ***may*** be issues in some parts, but this is a starting point. 
+Due to this, we've noticed pointers being stored in different methods: 
+- **Trailing** *[or default/following/etc.]* - following toward the end of the file, or near the top in some cases. 
+- **Embedded** - Pointers are stuck in the middle of the assembly code.
+
+We're currently using these methods to determine the allignment of pointers to the text:
+- **Trailing**
+
+`(default RAM starting position) - (pointer value) = (Text starting location)`
+i.e. `80158180 - 80158138 = 48`  
+so our line starts at an offset of 48.
+
+- **Embedded**
+
+Since it's much trickier, and seems to be done for Dialogue heavy cutscenes/events. a snippet of code has been graciously provided by esperknight on how to determine the position. 
+```
+        if ((PtrValue & 0x8000) >> 15 == 1)
+        {
+            int ActualPtrValue = (PtrValue & 0xFFFF0000) + ((PtrValue & 0xFFFF) + -0x10000);
+            PtrValue += PtrValue - ActualPtrValue;
+        }
+```
+The current WIP allignment of text to pointers can be found here: https://github.com/Dickdebonair/Brightis-fan-translation/blob/9d96fd76c2a1c1a95d0f0471e9687712716e156d/Brightis%20Pointers%20%26%20WIP%20translations%20%5BOct%2021st%202024%5D.xlsx
 # Ghidra discoveries
 Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
  ```

@@ -7,6 +7,7 @@
 	- ONMOVR.BIN appears to use Immediate Pointers. [Use Immediate Pointer Finder to assist]
 ### Command Codes
   - Command codse are hex under `20`
+  - Start of text blocks always begin with `BD 27`
    - New line (appears to be) `0B 0F`
    - `07`: Regular line breaking without the screen stopping
    - `04`: Line break with a stop button then text on a new text box
@@ -61,6 +62,7 @@ Certain aspects of the characters can be changed in RAM
 ### Player Name
 - Stored in RAM [breakpoint]: `8001e4e8`
 - default name: Al Ted `アル・テッド`
+	- Hex `83 41 83 8B 81 45 83 65 83 62 83 68 `
 
 # Image Notes
 - Doesn't appear that palette data can be easily tracked.

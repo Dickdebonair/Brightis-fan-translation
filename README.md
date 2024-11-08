@@ -14,88 +14,43 @@ If you'd like to do some investigation/help: [Looking here may help](https://git
 If you DO discover anything, please contact me on RomHacking.net at `Tank120` or at my email. `dickdebonair@outlook.com`
 
 ## Roadmap
+Check the projects tab to get a more up-to-date view of where we're at.
+Please also contribute against the issues we have here! We can always improve!
 - [ ] Figure out the file compression 
 	- [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS_101.05`]
-		- FUN_80020170(decompress) 
-		- FUN_8007d334(LoadImage)
 	- [x] Get basic text decompression figured out  
-		- [build the `BrightisCompressor` in the Scripts folder]
-		- FUN_80020170(decompress) in `SCPS_101.05` in game files
 	- [ ] Get basic image decompression figured out  
 		- related to FUN_8007d334(LoadImage) in `SCPS_101.05`
 	- [ ] Determine Compression function to be able to reinsert files
-		- Use `BrightisCompressor` & FUN_80020170(decompress)
 - [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files] use the
 	- [ ] OVR.BIN (Main Overlay/dialogue text file)
-		- Some text translated in OVR.BIN 
-		- Need to move over to OVR.BINv2 [More complete dump]
-		- File uses Immediate Pointers, need pointer tables
 	- [ ] ONMOVR.BIN (has player info/stats)
-		- File uses Immediate Pointers, need pointer tables
 	- [ ] PDADOC.BIN 
 	- [ ] SCPS_101.05 (main executable; has common menu text)
-		- File is not compressed
 - [ ] Dump the text wholesale from the code [current tools will work with this]
 	- CHR.BIN
-		- uncertain about full usage 
-	- ED00.STR (skip)
-		- Video files. no words
+	- ED00.STR (video file; skip)
 	- MAP.BIN
-		- Main environment file. unknown if it has text
 	- ONMOVR.BIN
-		- Player stats, magic, moves, etc
-	- OP00.STR (skip)
-		- Video file. no words
+	- OP00.STR (video file; skip)
 	- OVR.BIN
-		- Has the majority of the text in game
 	- PDADOC.BIN
-		- Appears uncompressed. Dumped using SJIS-Dump
 	- PDADOWN.BIN
-		- used in the PocketStation game
 	- PDADOWN.exe
-		- used in the PocketStation game
 	- SCPS_101.05
-		- main function; uncompressed
-		- Dumped using SJIS-Dump
 	- SND.BIN
-		- Unknown usage; hundreds of Unknown functions
-	- SYSTEM.CNF (Skip)
-		- Boot info doc. Readable ASCII in english. 
+	- SYSTEM.CNF (config file; Skip)
 - [ ] Font hacking to add english support + Variable width
-	- Game uses full width JP text from Shift-JIS Table. Need to convert. 
-	- [ ] research how to convert the game to use varible width
-- [ ] Get a bulk translation
-	- use the [spreadsheet (TBA)]
+- [ ] Get a bulk translation (Excel file above will have where we are so far)
 - [ ] Get the text reinserted
-	- abcde is the popular option. Will attempt to use that 
-	- [ ] create working extraction script for abcde with pointers
-	- [ ] create working insertion script for abcde with pointers
 - [ ] Test the game through
-	- Building a save file at each dungeon/before each cutscene
-	- save states are in the Github for multiple emulators
 - [ ] Locate all the images with text
-  - Primarily found to the PocketStation game [located in PDADOWN.BIN/EXE]
-  - Most text not written is in fantasy font/language
 - [ ] Figure out how to create an IPS patch 
 
 ### Discoveries
 - The game appears encoded using a Shift-JIS table for the kanji & the on-screen English characters.
 - The game is compressed, so text is split throughout various .BIN files
-- We've located text in 5 main files:
-	- CHR.BIN
-	  - Second largest file. Fairly unsure of the full contents
-  - OVR.BIN
-    - Largest collection of text, both dialogue & Enemy data [names are displayed as ASCII such as "HONEYBEE"].
-    - Has a large amount of readable kanji interspliced with formatting command codes & other data
-  - ONMOVR.BIN
-    - Appears to be for Player data & menus. Words like "GOLD/SKILL/EXP" are here, It also includes Shop data, special moves, and appears to be everything related to what the player can do, both in the context of the game world and meta.
-    - The intro text, where the player speaks to the Wizard and performs the Tutorial is also found here. 
-  - PDADOWN.EXE
-    - Most of the written kanji appears to be towards the bottom [starting at `0x000285D0`] and looks to be regarding the pocketstation game.
-    - There are character tables [starting at `0x0002AD00`] which can be used to test encodings. 
-  - SCPS_101.05
-    - The MAIN executable for the game, containing common library files.  Starting at `0x0008EB20` this contains location names, a list of enemies, some menu text, along with other info that would be useful as a guide of sorts to other files. 
-- `ED00.STR` & `OP00.STR` are the Ending & Opening video files, respectively.
+- We've located text in 5 main files. There's probably more, but refer to the issues/project tab for more details
 
 - Other potentially useful info
   - Redump info: http://redump.org/disc/9919/
@@ -103,7 +58,7 @@ If you DO discover anything, please contact me on RomHacking.net at `Tank120` or
   - Game Manual: https://archive.org/details/BrightisManual/mode/2up
   - Walkthrough: https://gamefaqs.gamespot.com/ps/576111-brightis/faqs/80425 
 
-### Tools we're using 
+### Tools we're using (that we haven't made)
 - CDMage: https://www.romhacking.net/utilities/1435/ [Used to open the main .BIN]
 - Immediate Pointer Finder: https://www.romhacking.net/utilities/1671/ [Used in looking for pointers]
 - Cartographer: https://www.romhacking.net/utilities/647/ [Script dumper with limited success]

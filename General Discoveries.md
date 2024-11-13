@@ -8,7 +8,6 @@
 ### Decompression notes (and what to look out for)
 (Discovered by Onepiecefreak)
 - If the data is coincidentally set up in a way that displacements never go out of the start of the buffer, you can decompress any buffer given to it.
-- A patch of 00's would just be a collection of raw flags that have a count of 0.
 - For repetition you only need 2 bytes along with a properly set up bit pattern in the flag for it.  
 So you most likely end up with either a seqeuence of raws until you hit the offset, or sliding window pairs that don't go back too much by coincidence
 - Just being able to be decompressed is never a sure-fire way to declare something compressed
@@ -49,9 +48,7 @@ Which makes the value at `0x0` the count for that size-offset table.
 - The same pattern appears in other BIN files
 - The size and offsets are shifted, so they can't be taken directly.
 - It also seems like the shift logic is different per file, but if you just shift them correctly you WILL be at the start of data.
-- We cannot say if that table is part of the .BIN file itself, or if this is just part of one of the many parts in that file.
-  - Given this table is not compressed, but its parts are, I'd say this table is for the whole .BIN
-  - (while table assumption is sound, it could be just part of one blob in the .BIN of many, which supports other assumptions)
+- We cannot say that table is ALWAYS part of the .BIN file itself, or if this is just part of one of the many parts in that file.
 #### Determining the Table - OVR.BIN
 We believe it could be: 
 ```
@@ -59,7 +56,10 @@ One size-offset pair is split into two 2-byte values, little endian.
 Left value is the size, right value is the offset. In the OVR, shift left the offset by 10, shift left the size by 2
 ```
 - Other .BIN files might use other shift values, un-researched currently
-- those parts are then compressed as well
+- other parts are compressed as well
+- loaded by `sub_8001E208` in `SCPS_101.05`
+- Confirmed that table IS for the whole BIN, it's part of its structure
+- And there seems to be a hard cap for `0x3F` sectors in OVR.BIN
 
 ![OVR BIN table](https://github.com/user-attachments/assets/e8e31fa6-09e4-4188-9caf-719532a4d140)
 
@@ -158,5 +158,7 @@ We've found some functions key in determining how the game works.
   - it can be assumed that there ISN'T necessarily a global lookup table to all the blobs in the BIN files, but the game might just hardcode the offset and sizes where it needs it.
     - Need to find all the references to `sub_8001F57C`, collect the size offset pairs, and later patch them, if any of the blobs changed in size or offset.  
 Maybe by a script or something
-
+- `sub_8001E208` is used to load the blobs from `OVR.BIN`
+  - Used this to confirm that the table in `OVR.BIN` encapsulates the whole file.
+  - there seems to be a hard cap for 0x3F sectors in `OVR.BIN`
 These functions can be found using the decompilations in the `Decrypted Files/Ghidra` folder, and browsing them in Ghidra or IDA. 

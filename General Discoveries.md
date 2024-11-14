@@ -161,4 +161,6 @@ Maybe by a script or something
 - `sub_8001E208` is used to load the blobs from `OVR.BIN`
   - Used this to confirm that the table in `OVR.BIN` encapsulates the whole file.
   - there seems to be a hard cap for 0x3F sectors in `OVR.BIN`
+- `sub_8001e504` loads textures with magic identifier `TEX` from either `CHR.BIN` or `MAP.BIN`. 
+  - these textures type may only be in those two BIN files.
 These functions can be found using the decompilations in the `Decrypted Files/Ghidra` folder, and browsing them in Ghidra or IDA. 

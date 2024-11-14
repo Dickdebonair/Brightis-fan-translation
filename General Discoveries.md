@@ -1,31 +1,40 @@
 # Text Notes
+
 - Text is (mostly) readable using a Shift-JIS table
 - Game will regularly use `8140` [ShiftJIS blank space] to indent text
 - code used to read the text for the first scene is in one overlay inside ONMOVR.BIN at `0x2E38D`
 - Some files seem to be normally compressed in `OVR.BIN` while other text are compressed using different methods.
 - Pointers are used differently across files.
-	- ONMOVR.BIN appears to use Immediate Pointers.
+  - ONMOVR.BIN appears to use Immediate Pointers.
+
 ### Decompression notes (and what to look out for)
+
 (Discovered by Onepiecefreak)
+
 - If the data is coincidentally set up in a way that displacements never go out of the start of the buffer, you can decompress any buffer given to it.
 - For repetition you only need 2 bytes along with a properly set up bit pattern in the flag for it.  
 So you most likely end up with either a seqeuence of raws until you hit the offset, or sliding window pairs that don't go back too much by coincidence
 - Just being able to be decompressed is never a sure-fire way to declare something compressed
+
 ### Command Codes
-  - Command codse are hex under `20`
-  - Start of text blocks always begin with `BD 27`
-   - New line (appears to be) `0B 0F`
-   - `07`: Regular line breaking without the screen stopping
-   - `04`: Line break with a stop button then text on a new text box
-     - Following text will appear in a new text box. [scrolling]
-   - `05`: Line break with a stop button but text continue in same text box
-   - [?] `01`: Loading the text box
-   - [?] `03`: Unload the text box
-   - `1E` appears to be used regularly when at the end of a scene that needs to transition
-   - `・・.` used to placehold the player's name
+
+- Command codse are hex under `20`
+- Start of text blocks always begin with `BD 27`
+  - New line (appears to be) `0B 0F`
+  - `07`: Regular line breaking without the screen stopping
+  - `04`: Line break with a stop button then text on a new text box
+    - Following text will appear in a new text box. [scrolling]
+  - `05`: Line break with a stop button but text continue in same text box
+  - [?] `01`: Loading the text box
+  - [?] `03`: Unload the text box
+  - `1E` appears to be used regularly when at the end of a scene that needs to transition
+  - `・・.` used to placehold the player's name
     - hex: `81 45 81 45 FF FF`
+
 ### Controlling the Text Overlay
+
 Certain aspects of the characters can be changed in RAM
+
 - `8001c0c0` - Set Character Width
 - `8001c0c4` - Set Character Height (from top)
 - `8001c0c8` - Set Character Height (from bottom)
@@ -34,8 +43,11 @@ Certain aspects of the characters can be changed in RAM
 - `8001c09c` - Set Character Aliasing
 - `8001c06c`  / `8001c05`c - Set Character Transparency
 - `8001c0b8` - Character kerning
+
 ### OVR.BIN Specifics
+
 (Discovered by Onepiecefreak)
+
 - If you look at the data of OVR.BIN, you will see that it does start out with a table of size-offset pairs, prepended by a 4-byte count.
 - Notice how the columns below marked all increase regularly. This wouldn't happen with the compression.  
 Those patterns would break up somewhere due to flag bytes having to be in there.
@@ -49,12 +61,16 @@ Which makes the value at `0x0` the count for that size-offset table.
 - The size and offsets are shifted, so they can't be taken directly.
 - It also seems like the shift logic is different per file, but if you just shift them correctly you WILL be at the start of data.
 - We cannot say that table is ALWAYS part of the .BIN file itself, or if this is just part of one of the many parts in that file.
+
 #### Determining the Table - OVR.BIN
-We believe it could be: 
+
+We believe it could be:
+
 ```
 One size-offset pair is split into two 2-byte values, little endian.
 Left value is the size, right value is the offset. In the OVR, shift left the offset by 10, shift left the size by 2
 ```
+
 - Other .BIN files might use other shift values, un-researched currently
 - other parts are compressed as well
 - loaded by `sub_8001E208` in `SCPS_101.05`
@@ -64,7 +80,9 @@ Left value is the size, right value is the offset. In the OVR, shift left the of
 ![OVR BIN table](https://github.com/user-attachments/assets/e8e31fa6-09e4-4188-9caf-719532a4d140)
 
 #### Determining the Table - CHR.BIN
-We believe it could be: 
+
+We believe it could be:
+
 - Following the same pattern as `OVR.BIN` as it:
   - follows the mentioned pattern
   - Count checks out
@@ -77,7 +95,9 @@ We believe it could be:
 ![CHR BIN table](https://github.com/user-attachments/assets/7febfb9f-197e-49a0-b4f9-0b27d87fdfee)
 
 #### Determining the Table - ONMOVR.BIN
+
 We believe it could be: 
+
 - Following the same pattern as `OVR.BIN` as it:
   - follows the mentioned pattern
   - Count checks out
@@ -87,7 +107,9 @@ We believe it could be:
 - This one MAY be the table for the whole BIN file.
 
 ![ONMOVR BIN table](https://github.com/user-attachments/assets/2f07a2bc-dbae-4eb4-8822-3e7cc2b21021)
-### MAP.BIN Specifics 
+
+### MAP.BIN Specifics
+
 -  While it does not have a Table of Contents, its blobs/sectors are just compressed and aligned to `0x800`
 -  They seem to be a form of data tree
 -  They contain textures for the world
@@ -96,28 +118,42 @@ We believe it could be:
   -  identifers follows the image data itself, encoded as 1-byte indexes into the palette
   -  texture size to be 256x256
 -  BIN seems to contain more than just one file format
-# Image Notes
+
+## Image Notes
+
 - Palette data appears to be stored in the `SCPS_101.05`
 - Game uses Standard TIM matches.
 - found many Magic Tag hex sequences
   - (A magic tag "0×10000000" is basically what Identifies if it is an image or not)
 
-# Pointers & Text offsets
+## Pointers & Text offsets
+
 After we've gotten a dump of `OVR.BIN`, we started working on listing the decompressed pointers. Due to the decompression tool at the time [as of Oct 21st], it is split into 61 parts, by sector, with the trailing zeros removed. There ***may*** be issues in some parts, but this is a starting point. 
-Due to this, we've noticed pointers being stored in different methods: 
-- **Trailing** *[or default/following/etc.]* - following toward the end of the file, or near the top in some cases. 
-- **Embedded** - Pointers are stuck in the middle of the assembly code.
+Due to this, we've noticed pointers being stored in different methods:
+
+##### Trailing *[or default/following/etc.]* 
+
+following toward the end of the file, or near the top in some cases.
+
+##### Embedded
+
+Pointers are stuck in the middle of the assembly code.
 
 We're currently using these methods to determine the allignment of pointers to the text:
-- **Trailing**
 
+##### Trailing
+
+```
 `(default RAM starting position) - (pointer value) = (Text starting location)`
+```
+
 i.e. `80158180 - 80158138 = 48`  
 so our line starts at an offset of 48.
 
-- **Embedded**
+##### Embedded
 
-Since it's much trickier, and seems to be done for Dialogue heavy cutscenes/events. a snippet of code has been graciously provided by esperknight on how to determine the position. 
+Since it's much trickier, and seems to be done for Dialogue heavy cutscenes/events. a snippet of code has been graciously provided by esperknight on how to determine the position.
+
 ```
         if ((PtrValue & 0x8000) >> 15 == 1)
         {
@@ -125,10 +161,13 @@ Since it's much trickier, and seems to be done for Dialogue heavy cutscenes/even
             PtrValue += PtrValue - ActualPtrValue;
         }
 ```
-The current WIP allignment of text to pointers can be found here: https://github.com/Dickdebonair/Brightis-fan-translation/blob/9d96fd76c2a1c1a95d0f0471e9687712716e156d/Brightis%20Pointers%20%26%20WIP%20translations%20%5BOct%2021st%202024%5D.xlsx
+
+The current WIP allignment of text to pointers can be found at the root of the repo with the title: `Brightis Pointers & WIP translations`
 
 # Ghidra discoveries
-Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here. 
+
+Using Ghidra, I was able to find some comments at the top of some files & functions. They may be useful so I'll save them here.
+
  ```
  SYSTEM.CNF: // ram:00000000-ram:0000003c ()
  OVR.BIN: // ram:00000000-ram:000d8fff 
@@ -145,8 +184,11 @@ Using Ghidra, I was able to find some comments at the top of some files & functi
    - main // ram:80010000-ram:80037dbf 
    - cache // ram:1f800000-ram:1f8003ff 
  ```
+
 ## Static Code Analysis
-We've found some functions key in determining how the game works. 
+
+We've found some functions key in determining how the game works.
+
 - `FUN_80020170` in `SCPS101.05` which we've confirmed is the game's decompress function for files. 
 - The other is `FUN_8007d334` in the same file which we believe is how the game is loading images/textures.
 - We suspect `FUN_8001bad8` in `SCPS_101.05` is used to draw Japanese characters from the main text box Overlay.
@@ -163,4 +205,4 @@ Maybe by a script or something
   - there seems to be a hard cap for 0x3F sectors in `OVR.BIN`
 - `sub_8001e504` loads textures with magic identifier `TEX` from either `CHR.BIN` or `MAP.BIN`. 
   - these textures type may only be in those two BIN files.
-These functions can be found using the decompilations in the `Decrypted Files/Ghidra` folder, and browsing them in Ghidra or IDA. 
+These functions can be found using the decompilations in the `Decrypted Files/Ghidra` folder, and browsing them in Ghidra or IDA.

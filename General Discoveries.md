@@ -1,4 +1,6 @@
-# Text Notes
+# This information is being moved to / keep updated on [the wiki](https://github.com/Dickdebonair/Brightis-fan-translation/wiki)
+
+## Text Notes
 
 - Text is (mostly) readable using a Shift-JIS table
 - Game will regularly use `8140` [ShiftJIS blank space] to indent text

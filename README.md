@@ -47,7 +47,7 @@ Please also contribute against the [issues](https://github.com/Dickdebonair/Brig
 - [ ] Get the text reinserted
 - [ ] Test the game through
 - [ ] Locate all the images with text
-- [ ] Figure out how to create an IPS patch 
+- [ ] Figure out how to create an IPS patch
 
 ### Discoveries
 

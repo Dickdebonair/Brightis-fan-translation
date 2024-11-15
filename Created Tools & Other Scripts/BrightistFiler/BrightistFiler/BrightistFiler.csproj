@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Program.cs~RF15231379.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Formats\Images\" />
+    <Folder Include="Libs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Komponent">
+      <HintPath>Libs\Komponent.dll</HintPath>
+    </Reference>
+    <Reference Include="Kompression">
+      <HintPath>Libs\Kompression.dll</HintPath>
+    </Reference>
+    <Reference Include="Kontract">
+      <HintPath>Libs\Kontract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

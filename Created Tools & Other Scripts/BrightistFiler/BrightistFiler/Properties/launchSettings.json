@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BrightistFiler": {
+      "commandName": "Project",
+      "commandLineArgs": "-e D:\\Users\\Kirito\\Desktop\\reverse_engineering\\brightis\\game_files\\patch_work\\research\\ONMOVR.BIN"
+    }
+  }
+}

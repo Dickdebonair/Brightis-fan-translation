@@ -14,7 +14,7 @@ In example, a reconstructed `OVR.BIN` (without changes) uses ~4KB less, due to b
 Extract a BIN into a folder:
 
 ```command line
-BrightisFiler.exe -e Path/to/BIN
+BrightistFiler.exe -e Path/to/BIN
 ```
 
 The extracted files will have 3 digits as their names, which persists their original index for recreation purposes.  
@@ -23,7 +23,7 @@ The file extension persists the file type to recreate image and other formats la
 Create a BIN file from a folder:
 
 ```command line
-BrightisFiler.exe -c Path/to/FOLDER 
+BrightistFiler.exe -c Path/to/FOLDER 
 ```
 
 The folder is required to have files with 3 digits at the start, which signify their index in the recreated file.  

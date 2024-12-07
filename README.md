@@ -71,7 +71,7 @@ Potential Resources:
 - SJIS to Hex converter: <http://freaka.freehostia.com/charset_js2.html>
 - PSX Runtime Library Reference: <https://psx.arthus.net/sdk/Psy-Q/DOCS/Devrefs/Libref.pdf>
 - Overlay demo project/Example: <https://github.com/JaberwockySeamonstah/PSXOverlayExample>
-- Overlay readings: <https://www.beneaththewaves.net/Software/TDR_Practice_Using_OVERLAYS.html#WalkthroughOVERLAYSOverlays>
+- Overlay readings: <https://www.beneaththewaves.net/Software/TDR_Practice_Using_OVERLAYS.html>
 
 ### Tools we're using (that we haven't made)
 

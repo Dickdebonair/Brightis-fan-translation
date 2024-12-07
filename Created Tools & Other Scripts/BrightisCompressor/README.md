@@ -13,19 +13,19 @@ Requirements
 Decompressing a file
 
 ```cmd
-BrighitsComp -d compressed.bin decompressed.bin
+BrighitsComp.exe -d "compressed.bin" "decompressed.bin"
 ```
 
 Decompressing a file starting at a specific offset (in Hex)
 
 ```cmd
-BrighitsComp -d compressed.bin decompressed.bin 9C800
+BrighitsComp.exe -d "compressed.bin" "decompressed.bin" 9C800
 ```
 
 Compressing a file
 
 ```cmd
-BrighitsComp -c decompressed.bin compressed.bin
+BrighitsComp.exe -c "decompressed.bin" "compressed.bin"
 ```
 
 ## Structure of the project

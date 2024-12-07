@@ -10,61 +10,68 @@ A guide [referenced by Sean Seanson] also is useful in playing the game: <https:
 
 ## What we're doing + the goal
 
-So far, we're in the exploratory phase. Brightis is an action RPG, and thus doesn't have much in the way of dialogue and a reasonable amount of text with very little of it stored in images.  
+Right now, we're working on __tooling for text patching.__  
+Brightis is an action RPG, and thus doesn't have much in the way of dialogue (compared to other PSX games,) and very little text stored within images.  
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
-If you'd like to do some investigation/help: [Start on the wiki](https://github.com/Dickdebonair/Brightis-fan-translation/wiki) to find specifics & details.
-If you DO discover anything, please contact me on RomHacking.net at `Tank120` or at my email: `dickdebonair@outlook.com`  
-Discord, Twitter, & Bluesky also works for contact under the `Dickdebonair` name.
+If you'd like to help:
+
+- [Start on the wiki](https://github.com/Dickdebonair/Brightis-fan-translation/wiki) to find specifics & details.
+  - If you DO discover anything, please contact me on RomHacking.net at `Tank120` or at my email: `dickdebonair@outlook.com`
+  - Discord, [Bluesky](https://bsky.app/profile/dickdebonair.bsky.social), or [Twitter](https://x.com/DickDebonair) also works for contact under the `Dickdebonair` name.
+- Refer to the [issues](https://github.com/Dickdebonair/Brightis-fan-translation/issues) on where we need help
+- Spread the word that we're looking for contributors!
 
 ## Roadmap
 
 Check the [projects](https://github.com/users/Dickdebonair/projects/1) tab to get a more up-to-date view of where we're at.
 Please also contribute against the [issues](https://github.com/Dickdebonair/Brightis-fan-translation/issues) we have here! We can always improve!
 
-- [ ] Figure out the file compression
+- [x] Figure out the file compression
   - [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS_101.05`]
   - [x] Get basic text decompression figured out  
   - [ ] Get basic image decompression figured out  
-    - related to FUN_8007d334(LoadImage) in `SCPS_101.05`
   - [ ] Determine Compression function to be able to reinsert files
 - [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files]
 - [ ] Dump the text wholesale from the code [current tools will work with this]
-  - CHR.BIN (character/NPC data)
+  - [ ] CHR.BIN (character/NPC data)
   - ED00.STR (video file; skip)
-  - MAP.BIN (Map/world data)
-  - ONMOVR.BIN (player data)
-  - OP00.STR (video file; skip)
-  - OVR.BIN (Overlay/dialogue data)
+  - [ ] MAP.BIN (Map/world data)
+  - [x] ONMOVR.BIN (player data)
+  - [x] OVR.BIN (Overlay/dialogue data)
   - PDADOC.BIN
-  - PDADOWN.BIN (PocketStation minigame data)
+  - [ ] PDADOWN.BIN (PocketStation minigame data)
   - PDADOWN.exe (PocketStation minigame executable)
-  - SCPS_101.05 (Main game executable)
+  - [x] SCPS_101.05 (Main game executable)
   - SND.BIN (sound effect & Music data)
-  - SYSTEM.CNF (config file; Skip)
 - [ ] Font hacking to add english support + Variable width
-- [ ] Get a bulk translation (Excel file above will have where we are so far)
-- [ ] Get the text reinserted
-- [ ] Test the game through
-- [ ] Locate all the images with text
+- [ ] Get a bulk translation ([Google Sheet now available for comment](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing))
+- [ ] Get text reinserted via tooling
 - [ ] Figure out how to create an IPS patch
+- [ ] Privately test, then publicly test the game through
+- [ ] Locate all the images with text
 
 ### Discoveries
 
-Please check the [wiki](https://github.com/Dickdebonair/Brightis-fan-translation/wiki) files for more details.
+Please check the [wiki](https://github.com/Dickdebonair/Brightis-fan-translation/wiki) for the most up-to-date details.
 
-- The game is encoded using a Shift-JIS table for kanji & on-screen English characters.
-- The game is compressed with tables at the beginning to reference data throughout
-- text is split throughout various .BIN files
-- We've located text in 5 main files. [There's probably more, but refer to the issues/project tab for more details]
-- Due to the unique formatting of the .BIN files, special tooling will be required.
+Other potentially useful info:
 
-Other potentially useful info
+- PSX File formats: <https://psx-spx.consoledev.net/cdromfileformats/>
+- PSX Decompilation Gist: <https://gist.github.com/obskyr/99ce080f325bcc3d044f98fd90d447cb>
+- Game Manual Scans: <https://archive.org/details/BrightisManual/mode/2up>
+- Game Walkthrough: <https://gamefaqs.gamespot.com/ps/576111-brightis/faqs/80425>
+- Offical Guide from Arc Ent.: <https://web.archive.org/web/20010302014341/http:/arc.scei.co.jp/brightis/1.htm>
 
-- Redump info: <http://redump.org/disc/9919/>
-- PSX file types & Common compressions. <https://psx-spx.consoledev.net/cdromfileformats/>
-- Game Manual: <https://archive.org/details/BrightisManual/mode/2up>
-- Walkthrough: <https://gamefaqs.gamespot.com/ps/576111-brightis/faqs/80425>
+Potential Resources:
+
+- Secondary guide: <https://github.com/RetroAchievements/guides/wiki/Brightis> [has some names as well]
+- Code Notes from others: <https://retroachievements.org/codenotes.php?g=18202>
+- Proof of previous group on working on translation(?): <https://fxtwitter.com/keke_094/status/1634014234899251200>
+- SJIS to Hex converter: <http://freaka.freehostia.com/charset_js2.html>
+- PSX Runtime Library Reference: <https://psx.arthus.net/sdk/Psy-Q/DOCS/Devrefs/Libref.pdf>
+- Overlay demo project/Example: <https://github.com/JaberwockySeamonstah/PSXOverlayExample>
+- Overlay readings: <https://www.beneaththewaves.net/Software/TDR_Practice_Using_OVERLAYS.html#WalkthroughOVERLAYSOverlays>
 
 ### Tools we're using (that we haven't made)
 
@@ -74,10 +81,13 @@ Other potentially useful info
 - ImHex: <https://imhex.werwolv.net/> [Modern Hex Viewer]
 - PCSX-Redux: <https://github.com/grumpycoders/pcsx-redux> [PSX emulator with Debugger]
 - No$PSX: <https://www.problemkaputt.de/psx.htm> [Very detailed PSX Debugger]
+- Updated PSXImager: <https://github.com/Ripper55555/psximager>
 - Ghidra: <https://github.com/NationalSecurityAgency/ghidra/> [Decompiler & static Code Analysis]
   - PSX Loader for Ghidra <https://github.com/lab313ru/ghidra_psx_ldr> [Required for proper analysis]
 - DeepL: <https://www.deepl.com/en/translator> [Quick Text translator]
 - Cloe: <https://github.com/blueaxis/Cloe> [Useful for copying kanji locally & quickly]
+- ARMips: <https://github.com/Kingcom/armips> [Used to patch code directly for translations]
+- LINQpad: <https://www.linqpad.net/>
 
 ### File Structure
 

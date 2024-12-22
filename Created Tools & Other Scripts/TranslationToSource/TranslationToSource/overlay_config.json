@@ -1,0 +1,35 @@
+[
+  {
+    "SheetName": "OVR_008_Test",
+    "SheetMaxRow": 43,
+    "OverlaySlot": 8,
+    "OverlayLength": "0x6C1E",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_010_Test",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 10,
+    "OverlayLength": "0x5840",
+    "OverlayType": 2,
+    "OverlayMode": 1,
+    "PopupJalOffset": "0x8015D958"
+  },
+  {
+    "SheetName": "OVR_041_Test",
+    "SheetMaxRow": 12,
+    "OverlaySlot": 41,
+    "OverlayLength": "0x3162",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_044_Test",
+    "SheetMaxRow": 42,
+    "OverlaySlot": 44,
+    "OverlayLength": "0x3C18",
+    "OverlayType": 2,
+    "OverlayMode": 2
+  }
+]

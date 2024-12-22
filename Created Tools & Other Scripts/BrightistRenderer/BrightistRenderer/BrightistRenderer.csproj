@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Texts\Screens\Resources\story_bg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="overlay_config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="UI\Localizations\Resources\en.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Texts\Screens\Resources\story_bg.png">
+      <LogicalName>story_bg.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Fonts\Resources\notojp.ttf">
+      <LogicalName>notojp.ttf</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Fonts\Resources\roboto.ttf">
+      <LogicalName>roboto.ttf</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Texts\Fonts\Resources\font1.raw">
+      <LogicalName>font1.raw</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Texts\Fonts\Resources\font2.raw">
+      <LogicalName>font2.raw</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Imgui.Forms" Version="1.3.3" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GoogleSheetsApiV4">
+      <HintPath>Libs\GoogleSheetsApiV4.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleSheetsApiV4.Contract">
+      <HintPath>Libs\GoogleSheetsApiV4.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Kanvas">
+      <HintPath>Libs\Kanvas.dll</HintPath>
+    </Reference>
+    <Reference Include="Komponent">
+      <HintPath>Libs\Komponent.dll</HintPath>
+    </Reference>
+    <Reference Include="Kontract">
+      <HintPath>Libs\Kontract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyEnLocalization" AfterTargets="AfterBuild">
+    <Copy SourceFiles="UI\Localizations\Resources\en.json" DestinationFolder="$(OutDir)\resources\langs" />
+  </Target>
+  <Target Name="CopyEnLocalizationPublish" AfterTargets="Publish">
+    <Copy SourceFiles="UI\Localizations\Resources\en.json" DestinationFolder="$(PublishDir)\resources\langs" />
+  </Target>
+
+</Project>

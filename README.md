@@ -44,9 +44,9 @@ Please also contribute against the [issues](https://github.com/Dickdebonair/Brig
   - PDADOWN.exe (PocketStation minigame executable)
   - [x] SCPS_101.05 (Main game executable)
   - SND.BIN (sound effect & Music data)
-- [ ] Font hacking to add english support + Variable width
-- [ ] Get a bulk translation ([Google Sheet now available for comment](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing))
-- [ ] Get text reinserted via tooling
+- [x] Font hacking to add english support + Variable width
+- [x] Get a bulk translation ([Google Sheet now available for comment](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing))
+- [ ] Get text reinserted via tooling (available [here](https://github.com/Dickdebonair/Brightis-fan-translation/tree/98668d8c698e1eebb4aff8be89713b9074a3f07a/Created%20Tools%20%26%20Other%20Scripts))
 - [ ] Figure out how to create an IPS patch
 - [ ] Privately test, then publicly test the game through
 - [ ] Locate all the images with text

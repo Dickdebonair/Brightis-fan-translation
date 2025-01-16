@@ -10,7 +10,7 @@ A guide [referenced by Sean Seanson] also is useful in playing the game: <https:
 
 ## What we're doing + the goal
 
-Right now, we're working on __tooling for text patching.__  
+Right now, we're working on __Gathering all text pointers for patching.__  
 Brightis is an action RPG, and thus doesn't have much in the way of dialogue (compared to other PSX games,) and very little text stored within images.  
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
@@ -20,6 +20,7 @@ If you'd like to help:
   - If you DO discover anything, please contact me on RomHacking.net at `Tank120` or at my email: `dickdebonair@outlook.com`
   - Discord, [Bluesky](https://bsky.app/profile/dickdebonair.bsky.social), or [Twitter](https://x.com/DickDebonair) also works for contact under the `Dickdebonair` name.
 - Refer to the [issues](https://github.com/Dickdebonair/Brightis-fan-translation/issues) on where we need help
+- Add to the C# LinQPad scripts, or add other scripts in general [here](https://github.com/Dickdebonair/Brightis-fan-translation/tree/b0f5f9c64f3daa9e228da4018acaea6a5dbf9e49/Created%20Tools%20%26%20Other%20Scripts)
 - Spread the word that we're looking for contributors!
 
 ## Roadmap

@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DeepL.net" Version="1.12.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.1" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="28.1.39" />
   </ItemGroup>
 
 </Project>

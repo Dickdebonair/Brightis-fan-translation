@@ -1,0 +1,727 @@
+Pointer,PointerOffset,OriginalText,TranslatedText
+0x80158138,0x01D4,アルフェッカ<07>
+<16:106,1><17:0>
+<19:106>　んっ・・・<11:15>おや、あんたは？<11:15><07>
+　やっと気がついたようだね。<11:15><04>
+　私は、アルフェッカ。<11:15><07>
+　ミラと一緒に、あの宿屋を営んでる。<11:15><04>
+　ケガはもう大丈夫なのかい？<11:15><07>
+　それにしても、よくあんな大異変の中から、<11:15><07>
+　あんたは生きて帰れたもんだ。<11:15><04>
+　あの大異変と不気味な城が現れたおかげで、<11:15><07>
+　街の住人たちはおびえて、ほとんど国に　<11:15><07>
+　帰っちまった。こっちは商売上がったりさ。<11:15><04>
+<17:1>
+　え？　カペラの家だって？<11:15><07>
+　そこの川沿いを向こうに行けばすぐだよ。<11:15><00>,Alfekka<07>
+<16:106,1><17:0>
+<19:106> Hmm... <11:15> Oh, who are you? <11:15><07>
+　I see you've finally noticed. <11:15><04>
+　I'm Alfekka. <11:15><07>
+　I run that inn with Mira. <11:15><04>
+　Are you all right now with your injuries? <11:15><07>
+　But still, how did you make it out of such a cataclysm <11:15><07> alive?
+　You made it out alive. <11:15><04>
+　Thanks to that cataclysm and the appearance of the spooky castle, <11:15><07>
+　The inhabitants of the city were so frightened that they almost <11:15><07>
+　They've gone back home. Business is booming over here. <11:15><04>
+<17:1>
+　What?　Capella's house? <11:15><07>
+　It's just over there by the river. <11:15><00>
+0x8015830C,0x00F4,　そうそう、<10>さん。<11:15><07>
+　私は普段、ミラさんの宿屋の酒場にいます。<11:15><07>
+　何かご用がある時は、来てください。<11:15><04>
+　酒を飲みながらカードゲームでもしましょう。<11:15><07>
+　酒場の壁に遊び方が書いてある張り紙が<11:15><07>
+　貼ってあるので暇な時にでも読んでください。<11:15><00>,　Yes, <10>. <11:15><07>
+　I am usually in the bar of Mira's inn. <11:15><07>
+　If you need anything, please come and see me. <11:15><04>
+　Let's have a drink and play a card game. <11:15><07>
+　There's a poster on the wall of the bar with instructions on how to play <11:15><07>.
+　It's posted on the wall, so read it in your spare time. <11:15><00>
+0x80158400,0x0174,ハマル<07>
+<19:109>　いやぁ、どーもども。<11:15><07>
+　私は、道具屋のハマルといいます。<11:15><07>
+　なにかご入用の時は、ぜひ声をかけて下さい。<11:15><04>
+　そうそう、<10>さん。<11:15><07>
+　ごあいさつ代わりに街を案内させて下さいよ。<11:15><05>
+　・<11:10>・<11:10>・<11:10>へへっ、これも何かの縁という事で。<11:15><04>
+　いーえ、お代は結構ですって。<11:15><07>
+　・・・ただ、何かご入用の際は、<11:15><07>
+　ぜーひぜひ、お願いしますよ。<11:45><04>
+　では、まずあちらは・・・<11:15><00>,Hamar <07>
+<19:109> Well, doh, doh, doh. <11:15><07>
+　My name is Hamar, a toolmaker. <11:15><07>
+　If you need anything, please give me a call. <11:15><04>
+　Yes, yes, <10> Mr. <11:15><07>
+　Let me show you around the city as a way of saying hello. <11:15><05>
+　<11:10> <11:10> <11:10> <11:10> Hehe, it's just another chance for us to get to know each other. <11:15><04>
+　No, no, he says, no charge. <11:15><07>
+　...but if you need anything else, <11:15><07>
+　I'd be very grateful. <11:45><04>
+　Well, first of all, over there... <11:15><00>
+0x80158574,0x0074,　そう、あなたがいたミラさんの宿屋です。<11:15><07>
+　無料で休ませてくれるからお得ですよ。<11:15><04>
+　そして、その後ろの坂・・・<11:15><00>,　Yes, it is Mira's inn where you were. <11:15><07>
+　They let you rest for free, so it's a good deal. <11:15><04>
+　And the hill behind it ... <11:15><00>
+0x801585E8,0x0070,　港が見えましたね。ここには灯台もあって、<11:15><07>
+　灯台守のレサートさんがいます。<11:15><04>
+　それから、あの建物・・・<11:15><00>,　You could see the harbour. There is a lighthouse here, <11:15><07>.
+　There is a lighthouse keeper, Mr Lesert. <11:15><04>
+　And then that building ... <11:15><00>
+0x80158658,0x0070,　サダルさんの武具屋です。<11:15><07>
+　武器、防具はここでしか扱っていません。<11:15><04>
+　そして、その左手の西側の橋・・・<11:15><00>,　Mr Sadar's armoury. <11:15><07>
+　Weapons and armour are only available here. <11:15><04>
+　And the bridge on the west side to the left of it ... <11:15><00>
+0x801586C8,0x0080,　あの橋を渡ると、３人の剣術士達がいます。<11:15><07>
+　あなたが敵を倒して得たスキルを元に、<11:15><07>
+　色々な剣術を教えてくれるはずです。<11:15><00>,　Across that bridge are three fencers. <11:15><07>
+　Based on the skills you have gained from defeating your enemies, <11:15><07>
+　They will teach you various swordsmanship techniques. <11:15><00>
+0x80158748,0x01C0,　そーうそう、カペラさんがあなたと<11:15><07>
+　話をしたいと、言ってましたっけ。<11:15><05>
+　この道を奥に進んで最初にある右側の<11:15><07>
+　家にカペラさんは住んでます。<11:15><07>
+　彼女はとても腕のいい狩人でしてね。<11:15><05>
+　あの大異変の日、狩から引き上げる途中に<11:15><07>
+　偶然、川辺で倒れていたあなたを見つけて<11:15><07>
+　街まで運んできたそうなんですよ。<11:15><04>
+　それと、その奥には魔女さんの家があります。<11:15><07>
+　誰にも名前を明かさない謎めいた人ですが、<11:15><07>
+　魔法について親切に色々と教えてくれます。<11:15><00>,　So, yes, I remember Capella saying that she wanted to talk to you <11:15><07>.
+　I remember you said you wanted to talk to me. <11:15><05>
+　Go further down this road, the first one on the right <11:15><07>.
+　Capella lives in the house. <11:15><07>
+　She is a very skilled hunter, you know. <11:15><05>
+　On the day of the cataclysm, on her way back from hunting, <11:15><07>
+　She happened to find you lying by the river, and <11:15><07>
+　They carried you to the city. <11:15><04>
+　And there is a witch's house at the back of the house. <11:15><07>
+　She is a mysterious person who never reveals her name to anyone, but <11:15><07>
+　She kindly teaches you many things about magic. <11:15><00>
+0x80158908,0x0094,　最後に・・・<11:15><04>
+　街の中から出て草原へ向かう道です。<11:15><07>
+　草原から大陸の色々な場所に行けるんですが、<11:15><07>
+　昼でも魔物がいるんで気をつけて下さい。<11:15><00>,　Finally... <11:15><04>
+　The road out of the town and onto the meadow. <11:15><07>
+　From the meadow you can go to various places on the continent, but <11:15><07>
+　Be careful, there are demons even in the daytime. <11:15><00>
+0x8015899C,0x0080,　とりあえず、こんな所ですかね。<11:15><07>
+　まあ残った者同士、仲良くやりましょうよ。<11:15><07>
+　また何かあったら気軽に声を掛けて下さい。<11:15><00>,　I guess that's about it for now. <11:15><07>
+　Well, let's get along with the rest of us. <11:15><07>
+　If you need anything else, please feel free to call on me. <11:15><00>
+0x80158A1C,0x01BC,ハマル<07>
+<16:165,1><17:0>
+<19:165>　いやぁ～ここは今まで無人の大陸だけあって、<11:15><07>
+　珍しい薬草が群生してるんですよ。<11:15><05>
+　・<11:10>・<11:10>・<11:10>そこでお願いなんですけど<11:15><04>
+　もし、<10>さんが珍しい植物を、<11:15><07>
+　見つけたら、私に持ってきてくれませんか？<11:15><07>
+　その植物から新しい薬を作れるかも・・・<11:45><04>
+　あ、<11:15>そうそう、街の外に出るんだったら、<11:15><07>
+　ハーブを買ってくことをお勧めしますよ。<11:15><05>
+　で、早速なんですが・・・<11:15><05>
+<14:2><17:1>
+　いやぁ、どーもども。<11:15><07>
+<17:2>
+　何かご入用は、ありませんか？<11:15><12:2><00>,Hamar<07>
+<16:165,1><17:0>
+<19:165> Well, this is just an uninhabited continent until now, <11:15><07>.
+　There's a cluster of rare medicinal herbs. <11:15><05>
+　<11:10>, <11:10>, <11:10>, <11:10> I'm asking you there, <11:15><04>
+　If <10> you find a rare plant, <11:15><07>
+　you find, could you bring it to me? <11:15><07>
+　I might be able to make a new medicine from that plant... <11:45><04>
+　Ah, <11:15> yes, if you're going out of town, <11:15><07>
+　I'd suggest you buy some herbs. <11:15><05>
+　So, quickly... <11:15><05>
+<14:2><17:1>
+　Oh, no, doh, doh, doh, doh. <11:15><07>
+<17:2>
+　Can I help you with anything? <11:15><12:2><00>
+0x80158BD8,0x0014,ハマル<07>
+　おーい！<11:15><00>,Hamar <07>.
+　Oy! <11:15><00>
+0x80158BEC,0x002C,ハマル<07>
+　こっち！　こっちですよーっ！！<11:15><00>,Hamar <07>
+　This way!　This way! <11:15><00>
+0x80158C18,0x009C,　もし、本当に剣術を学ぶ気があるなら、<11:15><07>
+　この宿舎に貼ってある戦士の心得を<11:15><07>
+　読んでみるがいい。もしかしたら、おまえの<11:15><05>
+　手助けになるかもしれない。<11:15><00>,　If you really want to learn swordsmanship, <11:15><07>
+　the Warrior's Guide, which is posted in these quarters, <11:15><07>
+　You should read it. Perhaps it may <11:15><05>
+　might be able to help you. <11:15><00>
+0x80158CB4,0x00F4,　・<11:10>・<11:10>・<11:10>なるほどな、判った気がするよ。<11:15><07>
+　お前が生き残った訳がな。<11:15><07>
+　お前は、澄んだ良い目をしている・<11:10>・<11:10>・<11:10><11:15><04>
+　レグルスの居る宿舎の中に貼ってある<11:15><07>
+　戦士の心得を後で良く読んでおく事だ。<11:15><07>
+　きっと、おまえの手助けになるだろう。<11:15><00>,　<11:10>-<11:10>-<11:10>I see, I think I understand. <11:15><07>
+　That's why you survived. <11:15><07>
+　You have good, clear eyes...<11:10>-<11:10>-<11:10><11:15><04>
+　It is posted inside the quarters where Regulus is, <11:15><07>.
+　You should read the Warrior's Guide carefully later. <11:15><07>
+　It will surely help you. <11:15><00>
+0x80158DA8,0x010C,　おう、そうだ、いい事を教えてやろう。<11:15><07>
+　剣術をもっとも効率よく学ぶにはな・<11:10>・<11:10>・<11:10><11:15><07>
+　あー・<11:10>・<11:10>・<11:10>っと・<11:10>・<11:10>・<11:10>なんだったっけかな？<11:15><04>
+　おい、レグルスの居る宿舎に貼ってある<11:15><07>
+　戦士の心得を後で良く読んでおけ。<11:15><07>
+　詳しい事は、そこに書いてあったはずだ。<11:15><00>,　Oh, yes, let me tell you something good. <11:15><07>
+　To learn swordsmanship most efficiently, <11:10>, <11:10>, <11:10>, <11:15><07>
+　Uh... <11:10>, <11:10>, <11:10> and <11:10>, <11:10>, <11:10>, <11:10>, what was it? <11:15><04>
+　Hey, it's posted in the quarters where Regulus is <11:15><07>.
+　Read the warrior's guide well later. <11:15><07>
+　I'm sure you'll find all the details there. <11:15><00>
+0x80158EB4,0x0038,　キケン！！<07>
+　　この下、廃坑。<07>
+　　魔族が出現します。<00>,　Kiken! <07>
+　　Below this, an abandoned mine. <07>
+　　A demon tribe appears. <00>
+0x80158EEC,0x03D8,ポルックス<07>
+<16:102,1><17:0>
+<19:354>　お前が派遣隊の生き残りか？<11:15><07>
+　わしの名はボルックスだ、よろしくな。<11:15><04>
+　第２次派遣隊でこの街に帰ってこれたのは、<11:15><07>
+　お前一人だけだ。<11:15><07>
+　他の奴らは、誰一人帰って来やしねぇ。<11:15><04>
+　この街の側にある、デジャド草原を、<11:15><07>
+　南に行くと、朽ちた遺跡があるんだが、<11:15><07>
+　草原の遺跡と呼ばれている。<11:15><24:1><14:3><17:1>
+　おう、なんだ？<11:15><07>
+　技を覚えたいのか？<11:15><14:2><17:2>
+<12:4><14:3><17:3>
+<00>,Pollux <07>
+<16:102,1><17:0>
+<19:354> Are you a survivor of the dispatch? <11:15><07>
+　My name is Pollux, nice to meet you. <11:15><04>
+　<11:15><07> You were the only one of the second contingent to return to this city.
+　You're the only one. <11:15><07>
+　None of the others made it back. <11:15><04>
+　Go to the dejad meadow by this city, <11:15><07> to the south.
+　If you go south, you'll find a rotting ruin, <11:15><07>
+　It is called the Ruins of the Meadow. <11:15><24:1><14:3><17:1>
+　Oh, what is it? <11:15><07>
+　You want to learn a skill? <11:15><14:2><17:2>
+<12:4><14:3><17:3>
+<00>
+0x801592C4,0x0164,レサート<07>
+<16:104,1><17:0>
+<19:104>　・<11:10>・<11:10>・<11:10>私は、レサート。・・・今は兵士をやめ<11:15><07>
+　ここで、灯台守をしておる・<11:10>・<11:10>・<11:10><11:15><04>
+　君も生き残ってしまったようだな・<11:10>・<11:10>・<11:10><11:15><05>
+　生きるという事は、死ぬ事よりも<11:15><07>
+　ずっと辛いものかも知れんぞ・<11:10>・<11:10>・<11:10><11:15><05>
+<17:1>
+　今も戦友の断末魔の悲鳴が、耳から離れん。<11:15><07>
+　いっそのこと、私もあの時に・<11:10>・<11:10>・<11:10><11:15><07>
+　うっ、ううっ・<11:10>・<11:10>・<11:10><11:15><00>,Resert <07>
+<16:104,1><17:0>
+<19:104> - <11:10> - <11:10> - <11:10> I am a ressert. ... I'm not a soldier now <11:15><07>.
+　Here, I am a lighthouse keeper... <11:10>, <11:10>, <11:10>, <11:15><04>
+　I see you have survived too, <11:10>, <11:10>, <11:10>, <11:10>, <11:15><05>.
+　Living can be much more painful than dying, <11:15><07>
+　It can be much more painful, <11:10>, <11:10>, <11:10>, <11:10><11:15><05>
+<17:1>
+　Even now, the decimated screams of my warriors are still ringing in my ears. <11:15><07>
+　I wish I could have been there when...<11:10> <11:10> <11:10> <11:15><07>
+　Ugh, ugh... <11:10>, <11:10>, <11:10><11:15><00>
+0x80159428,0x01C0,ミラ<07>
+<16:105,1><17:0>
+<19:105>　お体の方は、もう大丈夫ですか？<11:15><07>
+　休みたくなったら、いつでも言って下さいね。<11:15><04>
+<14:3><17:1>
+<16:163,2><19:163>　いらっしゃい、<10>さん。<11:15><07>
+　あの、うちの主人を見かけませんでしたか？<11:15><05>
+　・<11:10>・<11:10>・<11:10>もう、どこに行ったのかしら。<11:15><04>
+　・<11:10>・<11:10>・<11:10>大方また畑仕事でしょうけど。<11:45><07>
+　あっ、そうだわ、<10>さん。<11:15><05>
+　お部屋はしばらく空いてますから、<11:15><07>
+　休息したいときは、おっしゃって下さいね。<11:15><04>
+<14:3><17:2>
+　いらっしゃい、<10>さん。<11:15><07>
+<17:3>
+　本日は、もうお休みになりますか？<11:15><00>,Mira <07>
+<16:105,1><17:0>
+<19:105> Are you feeling better now? <11:15><07>
+　If you want to rest, you can always tell me. <11:15><04>
+<14:3><17:1>
+<16:163,2><19:163> Welcome, <10>. <11:15><07>
+　Um, have you seen my husband? <11:15><05>
+　<11:10> <11:10> <11:10> <11:10> I wonder where he's gone already. <11:15><04>
+　<11:10>-<11:10>-<11:10>I'm sure they're mostly working in the fields again. <11:45><07>
+　Oh, yes, <10>. <11:15><05>
+　Your room will be empty for a while, <11:15><07>
+　If you want to take a rest, please let me know. <11:15><04>
+<14:3><17:2>
+　Welcome, <10>. <11:15><07>
+<17:3>
+　Are you ready to go to bed today? <11:15><00>
+0x801595E8,0x0228,<19:3077>ミラ<07>
+　お出かけになるんですか？<11:15><07>
+　傷は大丈夫ですか？<11:15><07>
+　あまり無理はなさらないで下さいね。<11:15><04>
+　あ、そういえば・・・<11:15><07>
+　狩人のカペラさんが、貴方が起きたら<11:15><07>
+　会いたいと言っていましたわ。<11:15><05>
+　・・・ご案内したいのですが、<11:45><07>
+　私はここにいなければなりませんので。<11:15><04>
+　そう、カペラさんの家の場所は、<11:15><07>
+　ハマルさんに聞けば教えてもらえると<11:15><07>
+　思います。とても親切な商人さんです。<11:15><05>
+　今でしたらハマルさんは広場にいるはずです。<11:15><07>
+　行ってみて下さい。<11:15><00>,<19:3077> mira <07>
+　Are you going out? <11:15><07>
+　Are you okay with your wounds? <11:15><07>
+　Please don't take it too hard. <11:15><04>
+　Oh, by the way... <11:15><07>
+　Capella, the hunter, said he would like to see you <11:15><07> when you wake up.
+　He said he'd like to see you. <11:15><05>
+　... I would like to show you around, <11:45><07>
+　I have to be here, so. <11:15><04>
+　Yes, Capella's house is located <11:15><07>.
+　You can ask Hamal and he will tell you <11:15><07>.
+　I think. He is a very kind merchant. <11:15><05>
+　If it is now, Hamar-san should be in the square. <11:15><07>
+　Please go there. <11:15><00>
+0x80159810,0x0024,ミラ<07>
+　あっ、気がついたのですね。<11:15><00>,Mira <07>
+　Oh, you noticed that. <11:15><00>
+0x80159834,0x0498,ミラ<07>
+　すみません申し遅れました。<11:15><07>
+　私はこの宿屋を営んでいるミラといいます。<11:15><04>
+　ケガをした貴方がここに<11:15><07>
+　運び込まれてからもう３日・・・。<11:15><05>
+　あれからずっと目覚めずに<11:15><07>
+　ひどくうなされていたので<11:15><07>
+　とても心配していたんです。<11:15><04>
+　あの日・・・派遣隊の皆さんが遺跡へ<11:15><07>
+　向かった後、とても大きな地震と同時に<11:15><07>
+　とても不気味な城が地面から現れました。<11:15><04>
+　・・・多くの街の住人たちは、<11:15><07>
+　あの大異変を悪しき事の前兆と恐れて<11:15><07>
+　船で本土に帰ってしまいましたが・・・<11:15><05>
+　貴方がた兵士の皆さんが利用されていた<11:15><07>
+　店の者たちは、その帰りを待って<11:15><07>
+　街にとどまっていようと決めたんです。<11:15><04>
+　ですが・・・残った私たちも不安なのです。<11:15><07>
+　このままノーグルたちにエルサードの街ごと<11:15><07>
+　滅ぼされてしまうのではないかと・・・。<11:15><04>
+　でも、私たちは信じています。<11:15><07>
+　派遣隊の皆さんが私たちを<11:15><07>
+　守って下さることを・・・。<11:15><04>
+　まだ、他の兵士の方々は戻って来ませんが、<11:15><07>
+　私たちはできる限り派遣隊の皆さんにご協力<11:15><07>
+　致しますので、よろしくお願いします。<11:15><04>
+　とりあえず、今はゆっくり休んで下さい。<11:15><07>
+　落ち着いたら下へ降りてきて下さいね。<11:15><07>
+　私は下にいますから・・・。<11:15><04>
+　・・・あっ、そうそう。貴方のケガを治して<11:15><07>
+　下さった方が隣の部屋で休憩しています。<11:15><07>
+　ぜひ御挨拶して下さいね。<11:15><00>,Mira <07>
+　Sorry, I am late in saying this. <11:15><07>
+　My name is Mira, and I am the owner of this inn. <11:15><04>
+　You are here, injured <11:15><07>.
+　It's already been three days since you were brought in... <11:15><05>
+　You have not woken up since then<11:15><07>...
+　I was having terrible nightmares<11:15><07>.
+　I was very worried. <11:15><04>
+　That day... the dispatchers went to the ruins<11:15><07>.
+　After they went to the site, there was a very big earthquake and at the same time <11:15><07>
+　A very eerie castle emerged from the ground. <11:15><04>
+　...Many of the city's inhabitants <11:15><07>
+　<11:15><07> ... fearing that the cataclysm was an omen of bad things <11:15><07> ...
+　They returned to the mainland by boat... <11:15><05>
+　Your soldiers used to <11:15><07>
+　The shopkeepers waited for their return<11:15><07>
+　decided to stay in the city. <11:15><04>
+　But... those of us who stayed behind are also anxious. <11:15><07>
+　I'm afraid that the Nogles will destroy the whole city of El-Saad <11:15><07> as it is...
+　I'm afraid that the Nogles will destroy the whole city of El-Saad... <11:15><04>
+　But we believe. <11:15><07>
+　The dispatchers will protect us <11:15><07>...
+　that they will protect us... <11:15><04>
+　Although the other soldiers have not yet returned, <11:15><07>
+　We will cooperate with the dispatchers as much as we can<11:15><07>
+　We will do our best, thank you very much. <11:15><04>
+　In the meantime, please rest now. <11:15><07>
+　Please come downstairs when you have calmed down. <11:15><07>
+　I'll be downstairs... <11:15><04>
+　... Oh, yes, yes. Heal your injuries <11:15><07>.
+　The one who has done this for you is resting in the next room. <11:15><07>
+　Please say hello to him. <11:15><00>
+0x80159CCC,0x01A4,ミラ<07>
+　ご気分はいかがですか？<11:15><00>,Mira <07>
+　How are you feeling? <11:15><00>
+0x80159E70,0x0188,サダル<07>
+<16:164,1><17:0>
+<19:164>　・<11:10>・<11:10>・<11:10>そうだな、<11:15><07>
+　少し、武器のことについて教えてやろう・・・<11:15><04>
+　武器には攻撃力のほかに長さがある。<11:15><07>
+　長さは大事だ。それだけで敵を、<11:15><07>
+　倒しやすくなったり、倒しづらくなる・<11:10>・<11:10>・<11:10><11:15><04>
+　攻撃力だけに目を向けていると、<11:15><07>
+　痛い目を見るから気をつけるんだな・<11:10>・<11:10>・<11:10><11:15><04>
+<17:1>
+　・<11:10>・<11:10>・<11:10>何か欲しいモノでもあるのか？<11:15><07>
+　入り用な物があったら、遠慮なくいいな。<11:15><12:1><00>,Sadar <07>
+<16:164,1><17:0>
+<19:164> - <11:10>, <11:10>, <11:10>, <11:15><07> Well.
+　Let me tell you a little bit about weapons ... <11:15><04>
+　Weapons have length as well as attack power. <11:15><07>
+　Length is important. It's the only thing that makes the enemy, <11:15><07>
+　It makes it easier or harder to defeat them, <11:10>, <11:10>, <11:10><11:15><04>.
+　If you only look at attack power, <11:15><07>
+　Be careful because you're going to get hurt, <11:10>, <11:10>, <11:10>, <11:15><04>
+<17:1>
+　 <11:15><07>
+　If there's something you want, don't hesitate to ask. <11:15><12:1><00>
+0x80159FF8,0x0050,サダル<07>
+　・<11:10>・<11:10>・<11:10>用があるなら、<11:15><07>
+　カウンター越しに声をかけてくれんか。<11:15><00>,Sadar <07>
+　<11:10>, <11:10>, <11:10>, <11:15><07> if you need me.
+　Could you speak to me over the counter? <11:15><00>
+0x8015A048,0x0100,サダル<07>
+　・<11:10>・<11:10>・<11:10>ああ、<11:15>あんたか・・・<11:15><07>
+　話は聞いている・・・<11:15><04>
+　わしは、この街で武器と防具を取り扱っとる<11:15><07>
+　サダルだ・・・<11:15><04>
+　生き残りはおまえだけだそうだな・・・。<11:15><07>
+　名工と言われたわしの武具でも、<11:15><07>
+　魔物の力の前では、紙同然じゃな・・・。<11:15><00>,Sadar <07>
+　... <11:10>, <11:10>, <11:10>, <11:10> Oh, <11:15> it's you... <11:15><07>
+　I have heard stories... <11:15><04>
+　I deal in weapons and armour in this city.
+　Sadar... <11:15><04>
+　I hear you are the only survivor... <11:15><07>
+　Even my armour, of which I am said to be a master craftsman, <11:15><07>
+　It is as good as paper before the power of demons... <11:15><00>
+0x8015A148,0x0408,<19:179>　おっ、お前、鉱石を持ってるな。<11:15><07>
+　そうだな、少し鉱石の事を教えてやろう。<11:15><07>
+　鉱石には、赤、青、黄の３つの種類がある。<11:15><04>
+　鉱石は、色によりそれぞれ属性を持っていて、<11:15><07>
+　赤は、火の属性で、青は、水の属性。そして、<11:15><07>
+　黄は、雷の属性を持っている。<11:15><04>
+　その鉱石を使うと<11:15><07>
+　武器に属性を付けることができるんだが、<11:15><07>
+　素材となる武器がバルジ帝国には無いんだ。<11:15><05>
+　それさえあれば、おまえにいいモノを<11:15><07>
+　造ってやる事ができるんだがな。<11:15><00>,<19:179> Oooh, you have ore. <11:15><07>
+　Yes, let me tell you a little about ore. <11:15><07>
+　There are three types of ore: red, blue and yellow. <11:15><04>
+　Each ore has its own attribute depending on its colour, <11:15><07> and
+　Red is the attribute of fire, blue is the attribute of water. And <11:15><07>
+　Yellow has the attribute of lightning. <11:15><04>
+　If you use that ore, <11:15><07>
+　I can add an attribute to the weapon, <11:15><07>
+　There are no weapons in the Barge Empire that can be used as material. <11:15><05>
+　If I had that, I could make you something good <11:15><07>
+　I could build you something good. <11:15><00>
+0x8015A550,0x09A4,魔女<07>
+<16:108,1><17:0>
+<19:108>　・・・あら？　ケガしてた兵士さんじゃない。<11:30><07>
+　そう、<10>って言うのね。<11:15><07>
+　私は人呼んで魔女、よろしくネ・・・。<11:30><04>
+　そうそう。<11:10>ねぇ、あの時・・・<11:30><07>
+　あなた達があの城に行った後、大異変が<11:30><07>
+　起きる直前・・・大きな魔力を感じたの。<11:15><04>
+　いったい、城の中で何があったの？<11:45><05>
+　・<11:10>・<11:10>・<11:10>そうよね、あなたにとってはあまり<11:45><07>
+　思い出したくない事よね。ごめんなさい。<11:15><04>
+　もしかしたら伝説のダークエレメントの<11:15><07>
+　魔力が発動したんじゃないかって、<11:15><07>
+　とっても気になって・・・<11:15><04>
+　そう、私はここでエレメントと<11:15><07>
+　魔法の研究をしているの。<11:15><04>
+　あなたもエレメントと呼ばれる水晶石が<11:15><07>
+　魔法エネルギーの源であるって事は<11:15><07>
+　知ってるわね？<11:15><04>
+　それは純度と大きさで区別されてるわ・・・<11:15><05>
+　小さな結晶はキーエレメントといって<11:15><07>
+　闇を照らす明かりや仕掛けを動かす<11:15><07>
+　鍵代りに使ってる物ね。<11:15><04>
+　とても希少な純度の高く大きな結晶は、<11:15><07>
+　グローバルエレメントと呼ばれて、<11:15><07>
+　古来から様々な儀式や魔法を封じるのに<11:15><07>
+　使われてきた物よ。<11:15><04>
+　そして、さっき言ったダークエレメントという<11:15><07>
+　最高の魔力を秘めた巨大なエレメントが、<11:15><07>
+　この地に存在するという言い伝えがあるの。<11:15><04>
+　・・・でも、そのとてつもない魔力は<11:15><07>
+　４つのグローバルエレメントが無ければ<11:15><07>
+　完全に引き出す事ができないとか・・・。<11:15><04>
+　どうやら、あなた方帝国軍の派遣隊と<11:15><07>
+　ここの魔族達は、それぞれの思惑で<11:15><07>
+　これらのエレメントを狙って<11:15><07>
+　ぶつかり合っているようね・・・。<11:15><04>
+　・・・ダークエレメントの強大な魔力は、<11:15><07>
+　４つのグローバルエレメントを持つ者の<11:15><07>
+　意志で自在に操る事ができるらしい・・・<11:15><04>
+　・・・だから、魔族が両方のエレメントを<11:15><07>
+　手に入れたとしたら、この大陸・・・<11:15><07>
+　いえ、世界は魔族に支配されてしまうわ。<11:15><04>
+　・・・ダークエレメントがすでに<11:15><07>
+　魔族の手に落ちたとすると、<11:15><07>
+　４つのグローバルエレメントを手に入れ、<11:15><05>
+　その魔力をを封印しなければ・・・<11:15><07>
+　もう、私たちに生きる望みはない・・・。<11:15><04>
+　一兵士のあなたにこんな話をしても<11:15><07>
+　しょうがないのかもしれないけど・・・<11:15><05>
+　・・・もしも、大きなエレメントを<11:15><07>
+　見つけた時はここに持ってきて。<11:15><04>
+　・<11:10>・<11:10>・<11:10>あっ、そうだわ。<11:15><07>
+　洞窟なんかで見つかるキーエレメントは、<11:15><07>
+　魔力が弱くてその場所以外では消えちゃうの。<11:15><04>
+　だから、洞窟の仕掛けなんかは、<11:15><07>
+　いったん、外に出ると元に戻っちゃうの。<11:15><07>
+　途中で戻るときなんかは気を付けてね。<11:15><04>
+　あなたが生き残る為に、まず必要な事は<11:15><07>
+　キーエレメントを使いこなす事だと思うわ。<11:15><14:3><17:1>
+<16:166,2>　グローバルエレメントは、<11:15><07>
+　遺跡の奥深くにあるというけど・・・<11:15><05>
+　まだ、あなたに期待するのは早そうネ。<11:15><14:3><17:2>
+　だめよ、人の家の物かってに開けちゃ・<11:10>・<11:10>・<11:10><11:15><07>
+　まあ、今度から宝箱には気をつける事ね。<11:15><17:3>
+<00>,Witch <07>
+<16:108,1><17:0>
+<19:108> - Oh?　Not the injured soldier. <11:30><07>
+　Yes, you say <10>. <11:15><07>
+　I call myself a witch, nice to meet you... <11:30><04>
+　Yeah, yeah, yeah. <11:10> Hey, that time... <11:30><07>
+　After you guys went to that castle, a big change happened <11:30><07>.
+　Just before it happened... I felt a great magic power. <11:15><04>
+　What on earth happened inside the castle? <11:45><05>
+　<11:10><11:10><11:10><11:10>Yeah, it's not really something you <11:45><07>
+　I know it's something you don't want to remember. Sorry. <11:15><04>
+　Maybe the legendary dark elemental <11:15><07>
+　I was wondering if the magic was activated <11:15><07> by the legendary dark elemental.
+　I was very curious... <11:15><04>
+　Yes, I'm here with the elements <11:15><07>.
+　I'm studying magic. <11:15><04>
+　You also <11:15><07> know that the crystal stones called the elements are <11:15><07>
+　<11:15><07> that they are the source of magical energy.
+　You know that, don't you? <11:15><04>
+　It's distinguished by purity and size... <11:15><05>
+　Small crystals are called key elements<11:15><07>
+　They are used to light the darkness and to operate devices<11:15><07>...
+　That's what they use in place of keys. <11:15><04>
+　Very rare, pure and large crystals are <11:15><07>
+　They are called global elements and <11:15><07>
+　They have been used since ancient times to seal <11:15><07> various rituals and magic.
+　It's something that's been used for a long time. <11:15><04>
+　And then there's the Dark Element, which I mentioned earlier <11:15><07>.
+　There is a legend that a huge elemental element of the highest magical power <11:15><07>
+　There's a legend that it exists in this land. <11:15><04>
+　... but its tremendous magical power is <11:15><07>
+　Without the four global elements <11:15><07>
+　I hear that you can't draw it out completely... <11:15><04>
+　Apparently, your Imperial Guard dispatchers and <11:15><07>
+　The demons here have their own agendas <11:15><07>
+　They seem to be clashing with each other <11:15><07> over these elements.
+　They seem to be clashing with each other... <11:15><04>
+　... the mighty magic of the Dark Element is <11:15><07>
+　<11:15><07> of those who possess the four global elements.
+　It is said that it can be controlled at will <11:15><04>...
+　. ..so if a demon tribe had both elements <11:15><07>
+　So if the demon tribe had both elements, this continent ... <11:15><07>...
+　No, the world would be ruled by the demon tribe. <11:15><04>
+　...If the Dark Element has already <11:15><07>
+　If it has fallen into the hands of the demon tribe, then <11:15><07>
+　We have the four global elements in our hands, <11:15><05>
+　If we don't seal that magic... <11:15><07>
+　There is no more hope for us to live... <11:15><04>
+　Even if I tell you, one soldier, this story, <11:15><07>
+　Maybe it can't be helped... <11:15><05>
+　... if you find a large elemental <11:15><07>
+　If you find one, bring it here. <11:15><04>
+　<11:10>- <11:10>- <11:10>- <11:10>Oh, yes. <11:15><07>
+　The key element that you find in caves and stuff like that is <11:15><07>
+　Their magic is so weak that they disappear outside of that place. <11:15><04>
+　So, the tricks in the caves, <11:15><07>
+　Once you go outside, it goes back to the way it was. <11:15><07>
+　You have to be careful when you go back on the way. <11:15><04>
+　The first thing you need to do to survive is <11:15><07>
+　I think the first thing you need to do to survive is to master the key elements. <11:15><14:3><17:1>
+<16:166,2> The global element is <11:15><07>
+　They say it's deep in the ruins... <11:15><05>
+　It's still too early to expect you. <11:15><14:3><17:2>
+　Don't open things from other people's houses... <11:10><11:10><11:10><11:15><07>
+　Well, be careful with treasure chests next time. <11:15><17:3>
+<00>
+0x8015AEF4,0x0450,レグルス<07>
+<16:167,4><16:162,3><16:103,1><17:0>
+<19:103>　お前か、大異変から帰還した兵士というのは？<11:15><07>
+　俺はレグルス、第１次派遣隊の生き残りだ。<11:15><04>
+　城の遺跡から戻ってこれたのは、お前だけだ。<11:15><07>
+　他の遺跡へ向かった部隊も、<11:15><07>
+　無事に戻ってこれればいいのだが・<11:10>・<11:10>・<11:10><11:15><14:5><17:1>
+<19:355><19:162>　俺は、もう現役は退いたが、<11:15><07>
+　剣術の師範をしている。<11:15><04>
+<16:272,2>　この街には、俺のほかに<11:15><07>
+　あと２人の剣術士がいる。俺達、剣術士は、<11:15><07>
+　それぞれ得意な「技」を持っている。<11:15><04>
+　ボルックスは、敵を粉砕する剣撃。<11:15><07>
+　アルヘナは、動きで敵をまどわし倒す剣舞、<11:15><07>
+　俺は、敵の急所を突いて倒す剣技の使い手だ。<11:15><04>
+<19:272><17:2>
+　お前が、戦闘でスキルを積んだら<11:15><07>
+　俺に話し掛けてくれ。<11:15><07>
+　俺が知ってる限りの技を教えてやろう。<11:15><04>
+<14:4><17:3>
+<19:167>　基本的な事だが、話しておこう。<11:15><07>
+　自分より低い場所にいる敵を倒すには、<11:15><07>
+　下段攻撃が有効なんだが・・・<11:15><04>
+　おまえはちゃんと下段斬りはマスターしたか？<11:15><07>
+　まだなら、俺の初心者道場で学んでゆけ。<11:15><04>
+　スライムごときに手間取っていては、<11:15><07>
+　仲間の救出なんて、夢のまた夢だ。<11:15><07>
+　頑張ってくれ、期待してるぞ。<11:15><04>
+<14:4><17:4>
+　俺は、剣技を教える事ができる。<11:15><07>
+　どうだ？　習得していくか？<12:6><17:5>
+<00>,Regulus <07>
+<16:167,4><16:162,3><16:103,1><17:0>
+<19:103> You, you mean the soldier who returned from the Great Cataclysm? <11:15><07>
+　I'm Regulus, a survivor of the first contingent. <11:15><04>
+　You are the only one who made it back from the ruins of the castle. <11:15><07>
+　The troops that went to the other ruins, <11:15><07>
+　I hope you made it back safely, <11:10><11:10><11:10><11:15><14:5><17:1>
+<19:355><19:162> I'm no longer active, but <11:15><07>
+　I am a master of swordsmanship. <11:15><04>
+<16:272,2> In this city, besides me, <11:15><07>
+　there are two more swordsmiths. We, the swordsmen, <11:15><07>
+　We each have our own specialised 'technique'. <11:15><04>
+　Volks is a sword strike that crushes the enemy. <11:15><07>
+　Archena is a sword dance that uses movement to bludgeon the enemy, <11:15><07>
+　I am a swordsmith who strikes the enemy's vital point and defeats him. <11:15><04>
+<19:272><17:2>
+　When you have built up your skills in combat, <11:15><07>
+　Speak to me. <11:15><07>
+　I'll teach you all the skills I know. <11:15><04>
+<14:4><17:3>
+<19:167> I'll tell you some basic stuff. <11:15><07>
+　To defeat an enemy who is lower than you, <11:15><07>
+　Lower-level attacks are effective... <11:15><04>
+　Have you mastered the lower-level slash properly? <11:15><07>
+　If you haven't, go and learn it in my beginner's dojo. <11:15><04>
+　If you're too lazy to deal with slimes, <11:15><07>
+　rescuing your friends is a dream come true. <11:15><07>
+　Good luck, I'm counting on you. <11:15><04>
+<14:4><17:4>
+　I can teach you swordsmanship. <11:15><07>
+　What do you think?　Do you want to learn it? <12:6><17:5>
+<00>
+0x8015B344,0x02E8,アルヘナ<07>
+<16:101,2><17:0>
+<19:101>　お前が、第２次派遣隊の生き残りだな。<11:15><07>
+　話は、カペラから聞いている。<11:15><07>
+　私の名はアルヘナ、ここで剣術を教えている。<11:15><04>
+<16:272,1>　この街には、３人の剣術士がいる。<11:15><07>
+　３人は、それぞれ得意な「技」を持っている。<11:15><04>
+　レグルスは、巧みな剣技の使い手。<11:15><07>
+　ボルックスは、一撃必殺の剣撃で、<11:15><07>
+　私は連続技の剣舞を得意としている。<11:15><04>
+<19:272><17:1>
+　お前が、戦闘でスキルを積んだら<11:15><07>
+　私に話し掛けてくれ。<11:15><07>
+　私が知ってる限りの技を教えてやろう。<11:15><04>
+　強くなりたかったら、いつでも来るといい。<11:15><07>
+　だがいいか、無茶はするなよ。<11:15><07>
+　死んじゃ元も子もないからな。<11:15><14:4><17:2>
+<16:161,3><19:161>　他の方面に向かった仲間が心配だ。<11:15><07>
+　お前のように無事に戻ってきてくれたら、<11:15><07>
+　いいんだがな・・・<11:15><14:4><17:3>
+<19:353>　私は、剣舞を教える事ができる。<11:15><07>
+　どの技を覚えたいんだ？<11:15><12:5><17:4>
+<00>,Archena<07>
+<16:101,2><17:0>
+<19:101> You are the survivor of the second contingent. <11:15><07>
+　Capella told me about you. <11:15><07>
+　My name is Archena, and I teach swordsmanship here. <11:15><04>
+<16:272,1> There are three swordsmen in this city. <11:15><07>
+　Each of the three has a specialised 'technique'. <11:15><04>
+　Regulus is a skillful swordsman. <11:15><07>
+　Borx is a one-strike sword-fighter, <11:15><07> and
+　I am a master of continuous sword dance. <11:15><04>
+<19:272><17:1>
+　You, when you have built up your skills in combat, <11:15><07>
+　Speak to me. <11:15><07>
+　I will teach you all the skills I know. <11:15><04>
+　If you want to be strong, you can always come to me. <11:15><07>
+　But listen, don't be reckless. <11:15><07>
+　If you die, you're nothing. <11:15><14:4><17:2>
+<16:161,3><19:161> I'm worried about my friends who went in other directions. <11:15><07>
+　If they come back safe and sound like you, <11:15><07>
+　It would be nice... <11:15><14:4><17:3>
+<19:353> I can teach you sword dance. <11:15><07>
+　Which of these arts do you want to learn? <11:15><12:5><17:4>
+<00>
+0x8015B62C,0x0258,カペラ<07>
+<17:0>
+<16:3102,1><16:3092,1><19:288>　・<11:10>・<11:10>・<11:10>実はさあ、そこに行った部隊の中に<11:15><07>
+　あんたみたいな新米の兵士がいてさ、<11:15><07>
+　心配で防御用の指輪を貸してやったんだ。<11:15><04>
+　けど<11:10>・<11:30>・<11:30>・<11:30><07>
+　<07>
+　<04>
+　やっぱりあの日以来、部隊ごと行方不明さ。<11:15><07>
+　ノーグルに襲われたのかもしれない・・・。<11:15><07>
+　とするとグローバルエレメントも奴らの手に？<11:15><04>
+　・・・なぁ、あんたも体調と装備が整ったら、<11:15><07>
+　草原の遺跡へ行ってみれば？<11:15><04>
+　そうすりゃ仲間の行方と<11:15><07>
+　グローバルエレメントの噂が<11:15><07>
+　確認できるかもしれないよ。<11:15><19:3102><14:2><17:1>
+　草原の遺跡は、街の東の出口を出て<11:15><07>
+　崖沿いに南へ進んで行くとあるんだ。<11:15><07>
+　そんなに遠くはないよ。<11:15><24:1><14:2><17:2>
+<00>,Capella <07>
+<17:0>
+<16:3102,1><16:3092,1><19:288> - <11:10>, <11:10>, <11:10>, <11:10> Actually, you know, one of the troops that went there <11:15><07>
+　There was a new soldier like you, <11:15><07>
+　I was worried about you, so I lent you a defensive ring. <11:15><04>
+　But <11:10>, <11:30>, <11:30>, <11:30><07>
+　<07>
+　<04>
+　I knew it, the whole unit has been missing since that day. <11:15><07>
+　Maybe they were attacked by Nogles... <11:15><07>
+　So could they have taken the Global Elements as well? <11:15><04>
+　...Hey, when you're fit and equipped, <11:15><07>
+　Why don't you go to the ruins on the steppe? <11:15><04>
+　That way you can find out where your friends are and <11:15><07>
+　You might be able to <11:15><07>
+　You might be able to confirm it. <11:15><19:3102><14:2><17:1>
+　The ruins in the meadow are located <11:15><07> out of the eastern exit of the city.
+　You have to go south along the cliffs. <11:15><07>
+　It's not that far. <11:15><24:1><14:2><17:2>
+<00>
+0x8015B884,0x0040,カペラ<07>
+　ん・・・？<11:15><07>
+　誰だい、ノックもしない無粋なヤツは。<11:15><00>,Capella <07>.
+　Hmm...? <11:15><07>
+　Who's the tactless one who doesn't knock? <11:15><00>
+0x8015B8C4,0x0090,カペラ<07>
+　おや？　あんたか。<11:15><07>
+　もう、体は大丈夫なのかい？<11:15><05>
+　呼んでくれりゃあ、こちらから出向いたのに。<11:15><07>
+　わざわざ、来てもらって悪いね。<11:15><00>,Capella <07>.
+　Oy?　It's you. <11:15><07>
+　Are you feeling better now? <11:15><05>
+　If you'd called me, I would have come to you. <11:15><07>
+　I'm sorry you had to come all the way out here. <11:15><00>
+0x8015B954,,Arithmetic operation resulted in an overflow.,
+0x80159CEC,,Arithmetic operation resulted in an overflow.,
+0x801597B0,0x0D64,～カード遊戯方法について～<11:15><07>
+　最近はやりの、カードゲームの<11:15><07>
+　遊び方について書かれている。<11:15><00>,- About card playing methods - <11:15><07>.
+　Recently popular, card games <11:15><07>
+　It describes how to play. <11:15><00>
+0x8015A514,0x0DF8,～鍛冶の注意事項～<11:15><07>
+　鍛冶のやり方について書かれている。<11:15><00>,- Notes on blacksmithing - <11:15><07>
+　Describes how to blacksmith. <11:15><00>
+0x8015B30C,,Arithmetic operation resulted in an overflow.,
+0x8015A2FC,,Arithmetic operation resulted in an overflow.,

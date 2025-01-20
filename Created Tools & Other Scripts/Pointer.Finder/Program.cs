@@ -4,6 +4,8 @@ using System.Text;
 using Microsoft.VisualBasic;
 using System.Linq;
 using Pointer.Finder;
+using Pointer.Finder.Clients;
+using System.Threading.Tasks;
 
 Console.WriteLine("Starting of the Pointing Game. Lets find them ALL!");
 
@@ -14,6 +16,8 @@ string folderLocation = "./OVR";
 var baseOffset = 0x80158138;
 
 var fileHelper = new FileHelper();
+
+var translator = new DeepLClient("a38a9d31-f649-4b8f-befe-9b030c7bd1c2:fx");
 
 // var fileLocations = fileHelper.GetFilesForFolder(folderLocation);
 
@@ -49,17 +53,38 @@ foreach(var hexFile in allCompleteHexes) {
 
     using var ovrStream = File.OpenRead(hexFile.FileName);
 
+	List<CSVDataModel> completedCSVFile = new List<CSVDataModel>();
+
 	for (var i = 0; i < foundHexPointers.Count - 1; i++)
 	{
-		ovrStream.Position = ConvertHexStringToUnit(foundHexPointers[i]) - baseOffset;
+		try {
+			ovrStream.Position = ConvertHexStringToUnit(foundHexPointers[i]) - baseOffset;
 
-        var bufferSize = ConvertHexStringToUnit(foundHexPointers[i+1])- ConvertHexStringToUnit(foundHexPointers[i]);
+			var bufferSize = ConvertHexStringToUnit(foundHexPointers[i+1])- ConvertHexStringToUnit(foundHexPointers[i]);
 
-		var buffer = new byte[bufferSize];
-		ovrStream.Read(buffer);
+			var buffer = new byte[bufferSize];
+			ovrStream.Read(buffer);
 
-		DumpText(buffer, ConvertHexStringToUnit(foundHexPointers[i]));
+			var completed = await DumpText(buffer, ConvertHexStringToUnit(foundHexPointers[i]));
+
+			completedCSVFile.Add(completed);
+
+		} catch(Exception e) {
+			Console.WriteLine(e);
+				var error = new CSVDataModel() {
+					Pointer = foundHexPointers[i],
+					PointerOffset = "",
+					OriginalText = e.Message,
+					TranslatedText = ""
+				};
+
+				completedCSVFile.Add(error);
+		}
 	}
+
+	var CSVHelper = new CSVHelper();
+
+	CSVHelper.CreateCSVFile("./JustTryingOut.csv", completedCSVFile);
 }
 
 uint ConvertHexStringToUnit(string text) {
@@ -69,13 +94,14 @@ uint ConvertHexStringToUnit(string text) {
     // return uint.Parse(text, System.Globalization.NumberStyles.HexNumber);
 }
 
-void DumpText(byte[] buffer, uint offset)
+async Task<CSVDataModel> DumpText(byte[] buffer, uint offset)
 {
 	var sjis = Encoding.GetEncoding("Shift-JIS");
 
-	var sb = new StringBuilder();
-	sb.AppendLine($"0x{offset:X2};0x{buffer.Length:X4}");
+	var pointerHex = $"0x{offset:X2}";
+	var bufferLength = $"0x{buffer.Length:X4}";
 
+	var sb = new StringBuilder();
 	int i;
 	for (i = 0; i < buffer.Length; i++)
 	{
@@ -170,7 +196,22 @@ void DumpText(byte[] buffer, uint offset)
 		sb.Append(sjis.GetString(buffer[i..(i + 2)]));
 		i++;
 	}
+	var translatedText = await translator.JISToEnglish(sb.ToString());
 
-    Console.Write(sb.ToString());
+	var CSVData = new CSVDataModel() {
+		Pointer = pointerHex,
+		PointerOffset = bufferLength,
+		OriginalText = sb.ToString(),
+		TranslatedText = translatedText[0].Text
+	};
+
+	Console.WriteLine($"pointerHex: {pointerHex} ===== bufferLenght: {bufferLength}");
+
+    Console.WriteLine(sb.ToString());
+
+	Console.WriteLine(translatedText[0].Text);
     Console.WriteLine("");
+	sb.Clear();
+
+	return CSVData;
 }

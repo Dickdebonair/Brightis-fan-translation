@@ -1,69 +1,81 @@
-
-
-
 using System.Configuration.Assemblies;
 using System.Diagnostics.Metrics;
+using Independentsoft.Office.Odf;
 using Syncfusion.XlsIO;
 
-namespace Pointer.Finder.Clients {
+namespace Pointer.Finder.Clients
+{
 
-    class CSVHelper {
+    class CSVHelper
+    {
 
-        public ExcelEngine excelEngine { get; private set; }
-        public IApplication application { get; private set; }
-        public IWorkbook workbook { get; private set; }
+        Spreadsheet Spreadsheet { get; }
 
         public CSVHelper()
         {
-            excelEngine = new ExcelEngine();
-            //Instantiate the Excel application object
-            application = excelEngine.Excel;
-            //Assigns default application version
-            application.DefaultVersion = ExcelVersion.Xlsx;
-
-            workbook = application.Workbooks.Create(1);
-            //Access a worksheet from workbook
+            Spreadsheet = new Spreadsheet();
         }
 
+        public void CreateSheet(string tableName, List<CSVDataModel> fileContent)
+        {
 
+            Table workSheet = new Table(tableName);
 
-        public void CreateCSVFile(List<CSVDataModel> fileContent) {
+            CreateSheetHeaders(workSheet);
 
-            int counter = 1;
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            worksheet.AutofitColumn(1);
 
             foreach (var record in fileContent)
             {
-                worksheet.Range[$"A{counter}"].Text = record.Pointer;
-                worksheet.Range[$"B{counter}"].Text = record.PointerOffset;
-                worksheet.Range[$"C{counter}"].Text = record.OriginalText;
-                worksheet.Range[$"D{counter}"].Text = record.TranslatedText;
+                var row = new Row();
+
+                row.Cells.Add(new Cell(record.Pointer));
+                row.Cells.Add(new Cell(record.PointerOffset));
+                row.Cells.Add(new Cell(record.OriginalText));
+                row.Cells.Add(new Cell(record.TranslatedText));
+                row.Cells.Add(new Cell(record.Pointer));
+
+                workSheet.Rows.Add(row);
+
                 // writer.WriteLine($"{record.Pointer},{record.PointerOffset},{record.OriginalText},{record.TranslatedText}");
-                counter++;
             }
+
+            Spreadsheet.Tables.Add(workSheet);
         }
 
-        public void CreateNewSheet(IWorksheet worksheet) {
-            worksheet.Range["A1"].Text = "Pointer";
-            worksheet.Range["B1"].Text = "Pointer Offset";
-            worksheet.Range["C1"].Text = "Original Text";
-            worksheet.Range["D1"].Text = "Translated Text";
+        public void CreateSheetHeaders(Table workSheet)
+        {
+
+            var headersList = new List<string>() {
+                "Pointer Offset",
+                "Pointer",
+                "Original Text",
+                "Translated Text",
+                "Base OVeralay Addr.",
+                "ProgOverlay Addr.",
+                "CnstOVerlay Addr.",
+                "Sub Overlay"
+            };
+
+            Row headerRow = new Row();
+            headerRow.IsHeader = true;
+
+            foreach (var headerText in headersList)
+            {
+                headerRow.Cells.Add(new Cell(headerText));
+            }
+
+            workSheet.HeaderRows.Add(headerRow);
         }
 
-        public void CreateXlsFile(string fileName) {
-            //Saving the workbook to disk in XLSX format
-            FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-            workbook.SaveAs(stream);
-
-            //Dispose stream
-            stream.Dispose();
+        public void WriteFile(string fileName)
+        {
+            Spreadsheet.Save("./trying.ods", true);
         }
 
     }
 
-    class CSVDataModel {
+    class CSVDataModel
+    {
         public string Pointer { get; set; }
         public string PointerOffset { get; set; }
         public string OriginalText { get; set; }

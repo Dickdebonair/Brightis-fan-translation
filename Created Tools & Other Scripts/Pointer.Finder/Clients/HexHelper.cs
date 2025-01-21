@@ -20,6 +20,7 @@ namespace Pointer.Finder.Clients
 
             var sb = new StringBuilder();
             int i;
+            
             for (i = 0; i < buffer.Length; i++)
             {
                 if (buffer[i] == 0)

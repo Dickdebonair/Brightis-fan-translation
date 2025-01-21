@@ -7,6 +7,14 @@ using Pointer.Finder;
 using Pointer.Finder.Clients;
 using System.Threading.Tasks;
 
+uint ConvertHexStringToUnit(string text) {
+    
+    return Convert.ToUInt32(text, 16);
+
+    // return uint.Parse(text, System.Globalization.NumberStyles.HexNumber);
+}
+
+
 Console.WriteLine("Starting of the Pointing Game. Lets find them ALL!");
 
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -14,6 +22,8 @@ Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 string folderLocation = "./OVR";
 
 var baseOffset = 0x80158138;
+
+
 
 var fileHelper = new FileHelper();
 
@@ -41,7 +51,6 @@ foreach(var hexFile in allCompleteHexes) {
             if(oneHead == "15") {
                 foundHexPointers.Add($"0x{completeHex[index]}{completeHex[index-1]}{completeHex[index-2]}{completeHex[index-3]}");
             }
-
         }
     }
 
@@ -58,11 +67,13 @@ foreach(var hexFile in allCompleteHexes) {
 	for (var i = 0; i < foundHexPointers.Count - 1; i++)
 	{
 		try {
+			Console.WriteLine($"Current Buffer Position");
 			ovrStream.Position = ConvertHexStringToUnit(foundHexPointers[i]) - baseOffset;
 
 			var bufferSize = ConvertHexStringToUnit(foundHexPointers[i+1])- ConvertHexStringToUnit(foundHexPointers[i]);
 
 			var buffer = new byte[bufferSize];
+			
 			ovrStream.Read(buffer);
 
 			var completed = await HexHelper.DumpText(buffer, ConvertHexStringToUnit(foundHexPointers[i]));
@@ -82,15 +93,7 @@ foreach(var hexFile in allCompleteHexes) {
 		}
 	}
 
-	CSVHelper.CreateCSVFile(completedCSVFile);
-
-	CSVHelper.CreateXlsFile("./JustTryingOut.csv");
+	CSVHelper.CreateSheet(hexFile.FileName, completedCSVFile);
 }
 
-uint ConvertHexStringToUnit(string text) {
-    
-    return Convert.ToUInt32(text, 16);
-
-    // return uint.Parse(text, System.Globalization.NumberStyles.HexNumber);
-}
-
+CSVHelper.WriteFile("./JustTryingOut.xlsx");

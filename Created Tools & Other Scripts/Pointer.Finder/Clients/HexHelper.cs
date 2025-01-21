@@ -21,7 +21,7 @@ namespace Pointer.Finder.Clients
             var sb = new StringBuilder();
             int i;
             
-            for (i = 0; i < buffer.Length; i++)
+            for (i = 0; i < buffer.Length; i ++)
             {
                 if (buffer[i] == 0)
                 {
@@ -131,9 +131,34 @@ namespace Pointer.Finder.Clients
 
             Console.WriteLine(translatedText[0].Text);
             Console.WriteLine("");
-            sb.Clear();
-
             return CSVData;
+        }
+
+        public uint ConvertHexStringToUnit(string text) {
+    
+            return Convert.ToUInt32(text, 16);
+
+            // return uint.Parse(text, System.Globalization.NumberStyles.HexNumber);
+        }
+
+        public List<string> FindPointers(ReadFileToHexReadableStringModel hexFile) {
+
+            var foundHexPointers = new List<string>();
+
+            var completeHex = hexFile.HexString;
+
+            foreach (var (item, index) in completeHex.Select((value, index) => (value, index)))
+            {
+                if(index >= 4 && item == "80") {
+                    var oneHead = completeHex[index -1];
+
+                    if(oneHead == "15") {
+                        foundHexPointers.Add($"0x{completeHex[index]}{completeHex[index-1]}{completeHex[index-2]}{completeHex[index-3]}");
+                    }
+                }
+            }
+
+            return foundHexPointers.OrderBy(ConvertHexStringToUnit).ToList();
         }
     }
 }

@@ -1,7 +1,6 @@
 using System.Configuration.Assemblies;
 using System.Diagnostics.Metrics;
 using Independentsoft.Office.Odf;
-using Syncfusion.XlsIO;
 
 namespace Pointer.Finder.Clients
 {
@@ -46,14 +45,13 @@ namespace Pointer.Finder.Clients
         {
 
             var headersList = new List<string>() {
-                "Pointer Offset",
-                "Pointer",
+                "Offset",
+                "Code Data Offset",
+                "Code Print Offset",
+                "Text Type",
                 "Original Text",
                 "Translated Text",
-                "Base OVeralay Addr.",
-                "ProgOverlay Addr.",
-                "CnstOVerlay Addr.",
-                "Sub Overlay"
+                "Comments",
             };
 
             Row headerRow = new Row();

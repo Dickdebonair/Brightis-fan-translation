@@ -1,5 +1,5 @@
 
-namespace Pointer.Finder {
+namespace Pointer.Finder.Clients {
 
     class FileHelper {
 
@@ -21,6 +21,17 @@ namespace Pointer.Finder {
             }
 
             return new ReadFileToHexReadableStringModel() { FileName = fileLocation, HexString = completeHex };
+        }
+
+        public List<ReadFileToHexReadableStringModel> ReadFiles(List<string> fileLocations) {
+
+            var allCompleteHexes = new List<ReadFileToHexReadableStringModel>();  
+
+            foreach(var item in fileLocations) {
+                allCompleteHexes.Add(ReadFileToHexReadableString(item));
+            }
+
+            return allCompleteHexes;
         }
     }
 

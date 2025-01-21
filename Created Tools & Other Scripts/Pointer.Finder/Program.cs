@@ -17,7 +17,7 @@ var baseOffset = 0x80158138;
 
 var fileHelper = new FileHelper();
 
-var translator = new DeepLClient("a38a9d31-f649-4b8f-befe-9b030c7bd1c2:fx");
+var translator = new DeepLClient(Environment.GetEnvironmentVariable("deeplenv") ?? "boop");
 
 // var fileLocations = fileHelper.GetFilesForFolder(folderLocation);
 

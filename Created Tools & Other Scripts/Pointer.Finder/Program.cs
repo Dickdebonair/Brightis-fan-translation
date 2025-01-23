@@ -15,21 +15,29 @@ string folderLocation = "./OVR";
 
 var baseOffset = 0x80158138;
 
+var CSVHelper = new SpreadSheetHelper();
+
 var fileHelper = new FileHelper();
 
 var translator = new DeepLClient(Environment.GetEnvironmentVariable("deeplenv") ?? "boop");
 
 HexHelper hexHelper = new HexHelper(translator);
 
-// var fileLocations = fileHelper.GetFilesForFolder(folderLocation);
+var fileLocations = fileHelper.GetFilesForFolder(folderLocation).ToList();
 
-var fileLocations = new List<string> { "./OVR/044_OVR.bin" };
+// var fileLocations = new List<string> { "./OVR/044_OVR.bin" };
 
 var allCompleteHexes = fileHelper.ReadFiles(fileLocations);
 
-var CSVHelper = new CSVHelper();
-
 foreach(var hexFile in allCompleteHexes) {
+	
+	var currentSheet = 1;
+
+	var splitFileName = hexFile.FileName.Split("/");
+	
+	var sheetName = splitFileName[splitFileName.Length-1] ?? "";
+
+	CSVHelper.CreateSheetAndHeaders(sheetName);
 
     var foundHexPointers = hexHelper.FindPointers(hexFile);
 
@@ -70,9 +78,10 @@ foreach(var hexFile in allCompleteHexes) {
 
 				completedCSVFile.Add(error);
 		}
+
+		CSVHelper.AddTranslationData(sheetName, completedCSVFile);
 	}
 
-	CSVHelper.CreateSheet(hexFile.FileName, completedCSVFile);
+	// CSVHelper.WriteFile("./JustTryingOut.xlsx");
+	currentSheet++;
 }
-
-CSVHelper.WriteFile("./JustTryingOut.xlsx");

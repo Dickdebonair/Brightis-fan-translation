@@ -114,8 +114,13 @@ namespace Pointer.Finder.Clients
                 sb.Append(sjis.GetString(buffer[i..(i + 2)]));
                 i++;
             }
-            
-            var translatedText = await Translator.JISToEnglish(sb.ToString());
+            var translatedText = new DeepL.Model.TextResult[] {
+                new DeepL.Model.TextResult("There was no text to translate", "", 0, null)
+            };
+
+            if(sb.Length > 0) {
+                translatedText = await Translator.JISToEnglish(sb.ToString());
+            }
 
             var CSVData = new CSVDataModel()
             {

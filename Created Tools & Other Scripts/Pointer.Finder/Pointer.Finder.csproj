@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="DeepL.net" Version="1.12.0" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.68.0.3624" />
     <PackageReference Include="Independentsoft.Office.Odf" Version="2.0.800" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.1" />
   </ItemGroup>

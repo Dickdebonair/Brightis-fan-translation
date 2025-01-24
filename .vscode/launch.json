@@ -10,13 +10,17 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Create Tools & Other Scrips/Pointer.Finder/bin/Debug/net9.0/Pointer.Finder.dll",
+            "program": "${workspaceFolder}/Created Tools & Other Scripts/Pointer.Finder/bin/Debug/net9.0/Pointer.Finder.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/Created Tools & Other Scripts/Pointer.Finder",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false,
-            "envFile": "${workspaceFolder}/local.env"
+            "envFile": "${workspaceFolder}/Created Tools & Other Scripts/Pointer.Finder/local.env",
+            "env": {
+                "DOTNET_Thread_UseAllCpuGroups": "1",
+                
+            }
         }
     ]
 }

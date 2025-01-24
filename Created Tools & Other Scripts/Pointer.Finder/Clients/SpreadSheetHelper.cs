@@ -1,11 +1,13 @@
 using System.Configuration.Assemblies;
 using System.Diagnostics.Metrics;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Requests;
 using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
-using Independentsoft.Office.Odf;
 
 namespace Pointer.Finder.Clients
 {
@@ -16,6 +18,8 @@ namespace Pointer.Finder.Clients
         private const string SpreadsheetId = "1Rflah7eg7Xd9Ir-wCPUm1Hp5s39090MCwiL6MQ0Ryeo";
         private const string GoogleCredentialsFileName = "./google-api-key.json";
         private SheetsService SheetsService { get; }
+
+        public BatchUpdateValuesRequest batching { get; set; }
 
         public SpreadSheetHelper()
         {
@@ -28,107 +32,57 @@ namespace Pointer.Finder.Clients
                 SheetsService = new SheetsService(serviceInitializer);
             }
 
-            // CreateSheetsForBinFiles();
+            batching = new BatchUpdateValuesRequest() {
+                Data = new List<ValueRange>()
+            };
         }
 
-        public void AddTranslationData(string sheetName, List<CSVDataModel> fileContent)
+        public int AddTranslationData(string sheetName, List<CSVDataModel> fileContent, int currentRow)
         {
 
             try
             {
-                var batching = new BatchUpdateSpreadsheetRequest() {
-                    Requests = new List<Request>() {
-                    }
-                };
-
-                int counter = 2;
+                int counter = currentRow;
                 // var valueRange = new ValueRange();
+
+                var rows = new ValueRange() {
+                    Values = new List<IList<object>>() {
+
+                    },
+                    Range = $"{sheetName}!A{counter}"
+                };
 
                 // valueRange.Values = new List<IList<object>>();
                 
                 foreach (var record in fileContent)
                 {
-                    var row = new List<RowData>
-                    {   
-                        new RowData() {
-                            Values = new List<CellData>() {
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = record.Pointer
-                                    }
-                                },
 
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = record.PointerOffset
-                                    }
-                                },
-
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = "0"
-                                    }
-                                },
-
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = record.OriginalText
-                                    }
-                                },
-
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = record.TranslatedText
-                                    }
-                                },
-
-                                new CellData() {
-                                    EffectiveValue = new ExtendedValue() {
-                                        StringValue = record.Pointer
-                                    }
-                                }
-                            }
-                        
-                        }            
-                    };
-
-
-                     var updateCells = new UpdateCellsRequest() {
-                        Rows = row,
-                        Start = new GridCoordinate() {
-                            SheetId = int.Parse(sheetName),
-                            RowIndex = 1,
-                            ColumnIndex = 0
-                        }
-
-                    };
-
-                    batching.Requests.Add( new Request {
-                        UpdateCells = updateCells
+                    rows.Values.Add( new List<object>() {
+                        record.Pointer,
+                        record.PointerOffset,
+                        0,
+                        0,
+                        record.OriginalText,
+                        record.TranslatedText
                     });
 
                     counter++;
-
-                    // writer.WriteLine($"{record.Pointer},{record.PointerOffset},{record.OriginalText},{record.TranslatedText}");
                 }
 
-                // var request = SheetsService.Spreadsheets.Values.Update(valueRange, SpreadsheetId, $"{sheetName}!A2");
-                // request.ValueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.RAW;
+                batching.Data.Add(rows);
 
-                // var response = request.Execute();
-
-                SheetsService.Spreadsheets.BatchUpdate(batching, SpreadsheetId).Execute();
+                return currentRow;
 
             }
-
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return 0;
             }
 
         }
 
-        public void CreateSheetAndHeaders(string sheetName)
+        public async Task CreateSheetAndHeaders(string sheetName)
         {
             try
             {
@@ -158,7 +112,7 @@ namespace Pointer.Finder.Clients
 
                 var request = SheetsService.Spreadsheets.Values.Update(valueRange, SpreadsheetId, $"{sheetName}!A1");
                 request.ValueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.RAW;
-                var response = request.Execute();
+                await request.ExecuteAsync();
             }
             catch (Exception e)
             {
@@ -167,13 +121,20 @@ namespace Pointer.Finder.Clients
 
         }
 
-        public void WriteFile(string sheetName, ValueRange valueRange)
-        {
-            var request = SheetsService.Spreadsheets.Values.Update(valueRange, SpreadsheetId, $"{sheetName}!A1");
-            request.ValueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.RAW;
-            var response = request.Execute();
+        public async Task BulkUpdate() {
+            try {
 
-            Console.WriteLine($"Updated rows: {response.UpdatedRows}");
+                batching.ValueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.RAW.ToString();
+
+                var response = await SheetsService.Spreadsheets.Values.BatchUpdate(batching, SpreadsheetId).ExecuteAsync();
+
+                batching = new BatchUpdateValuesRequest() {
+                    Data = new List<ValueRange>()
+                };
+
+            } catch(Exception e ) {
+                Console.WriteLine(e);
+            }
         }
 
         public void CreateSheetsForBinFiles()

@@ -11,11 +11,18 @@ Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 Console.WriteLine("Starting of the Pointing Game. Lets find them ALL!");
 
+ThreadPool.SetMaxThreads(int.MaxValue, int.MaxValue);
+ThreadPool.SetMinThreads(48, 100);
+
+ThreadPool.GetMinThreads(out var workerThreads, out var completePorThreads);
+
+Console.WriteLine($"worker: {workerThreads}; completePorThreads: {completePorThreads}");
+
+
+
 string folderLocation = "./OVR";
 
 var baseOffset = 0x80158138;
-
-var CSVHelper = new SpreadSheetHelper();
 
 var fileHelper = new FileHelper();
 
@@ -29,47 +36,57 @@ var fileLocations = fileHelper.GetFilesForFolder(folderLocation).ToList();
 
 var allCompleteHexes = fileHelper.ReadFiles(fileLocations);
 
-foreach(var hexFile in allCompleteHexes) {
-	
-	var currentSheet = 1;
+var tasks = new List<Task>() { };
 
-	var splitFileName = hexFile.FileName.Split("/");
-	
-	var sheetName = splitFileName[splitFileName.Length-1] ?? "";
-
-	CSVHelper.CreateSheetAndHeaders(sheetName);
-
-    var foundHexPointers = hexHelper.FindPointers(hexFile);
-
-    using var ovrStream = File.OpenRead(hexFile.FileName);
-
-	List<CSVDataModel> completedCSVFile = new List<CSVDataModel>();
-
-	for (var i = 0; i < foundHexPointers.Count - 1; i++)
+foreach (var hexFile in allCompleteHexes)
+{
+	var task = Task.Run( async() =>
 	{
-		try {
-			
-			var convertedCurrentPosition = hexHelper.ConvertHexStringToUnit(foundHexPointers[i]);
+		Console.WriteLine($"Working on file {hexFile.FileName}");
+		var CSVHelper = new SpreadSheetHelper();	
 
-			var convertedNextPosition = hexHelper.ConvertHexStringToUnit(foundHexPointers[i+1]);
+		var splitFileName = hexFile.FileName.Split("/");
 
-			ovrStream.Position = convertedCurrentPosition- baseOffset;
+		var sheetName = splitFileName[splitFileName.Length - 1] ?? "";
 
-			var bufferSize = convertedNextPosition - convertedCurrentPosition;
+		await CSVHelper.CreateSheetAndHeaders(sheetName);
 
-			Console.WriteLine($"Current Buffer Size {bufferSize}");
+		var foundHexPointers = hexHelper.FindPointers(hexFile);
 
-			var buffer = new byte[bufferSize];
-			
-			ovrStream.Read(buffer);
+		using var ovrStream = File.OpenRead(hexFile.FileName);
 
-			var completed = await hexHelper.DumpText(buffer, convertedCurrentPosition);
+		List<CSVDataModel> completedCSVFile = new List<CSVDataModel>();
 
-			completedCSVFile.Add(completed);
+		var rowCounter = 2;
 
-		} catch(Exception e) {
-			Console.WriteLine(e);
-				var error = new CSVDataModel() {
+		for (var i = 0; i < foundHexPointers.Count - 1; i++)
+		{
+			try
+			{
+
+				var convertedCurrentPosition = hexHelper.ConvertHexStringToUnit(foundHexPointers[i]);
+
+				var convertedNextPosition = hexHelper.ConvertHexStringToUnit(foundHexPointers[i + 1]);
+
+				ovrStream.Position = convertedCurrentPosition - baseOffset;
+
+				var bufferSize = convertedNextPosition - convertedCurrentPosition;
+
+				Console.WriteLine($"Current Buffer Size {bufferSize}");
+
+				var buffer = new byte[bufferSize];
+
+				ovrStream.Read(buffer);
+
+				var completed = await hexHelper.DumpText(buffer, convertedCurrentPosition);
+
+				completedCSVFile.Add(completed);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+				var error = new CSVDataModel()
+				{
 					Pointer = foundHexPointers[i],
 					PointerOffset = "",
 					OriginalText = e.Message,
@@ -77,11 +94,21 @@ foreach(var hexFile in allCompleteHexes) {
 				};
 
 				completedCSVFile.Add(error);
+			}
+
+			rowCounter = CSVHelper.AddTranslationData(sheetName, completedCSVFile, rowCounter);
 		}
 
-		CSVHelper.AddTranslationData(sheetName, completedCSVFile);
-	}
+		await CSVHelper.BulkUpdate();
+	});
 
-	// CSVHelper.WriteFile("./JustTryingOut.xlsx");
-	currentSheet++;
+	tasks.Add(task);
+
+	if(tasks.Count > 3) {
+		await Task.WhenAll(tasks);
+		tasks = new List<Task>();
+	}
 }
+
+await Task.WhenAll(tasks);
+Console.WriteLine("Getting all tasks completed");

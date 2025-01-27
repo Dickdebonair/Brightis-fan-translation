@@ -1,0 +1,4 @@
+*.dll
+*/Pointer.Finder/obj
+*/Pointer.Finder/bin
+Decrypted Files/OVR/*.bin

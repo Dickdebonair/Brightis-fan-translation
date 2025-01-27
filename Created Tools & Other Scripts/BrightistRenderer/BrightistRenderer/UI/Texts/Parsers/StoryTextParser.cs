@@ -19,8 +19,8 @@ namespace BrightistRenderer.UI.Texts.Parsers
                 switch (character)
                 {
                     case FullStopControlCodeCharacterData:
-                        result.Add(new TextBlock());
                         result[^1].IsFullStop = true;
+                        result.Add(new TextBlock());
                         result[^1].CharacterLines.Add(new List<CharacterData>());
                         break;
 

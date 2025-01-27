@@ -155,7 +155,9 @@ namespace BrightistRenderer.Texts.Layouts
 
                     break;
 
-                case LineBreakControlCodeCharacterData controlCode:
+                case LineBreakControlCodeCharacterData:
+                case SoftStopControlCodeCharacterData:
+                case FullStopControlCodeCharacterData:
                     // Add line break character
                     context.Characters.Add(new TextLayoutCharacterData
                     {

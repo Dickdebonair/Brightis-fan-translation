@@ -13,7 +13,7 @@ More support to be added as discoveries are made.
 ## BrightistRenderer
 
 Current Text Renderer tool. Used to best preview how the game will show text in game and leverage the control codes.  
-It also uses a combination of the [Google Sheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing) and `TranslationToSource`.
+It leverages the [Google Sheet](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing), and preps files ready to be loaded into `TranslationToSource`.
 
 ## C# LinQpad Scripts
 

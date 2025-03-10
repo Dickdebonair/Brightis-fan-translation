@@ -28,7 +28,10 @@ This tool has been created to simplify testing your work to reflect how it WILL 
 1. configure overlays with `overlay_config.json` the same as with "TranslationToSource."  
 Unlike [TranslationToSource](https://github.com/Dickdebonair/Brightis-fan-translation/tree/325e339ff3da1cc307b1fa0220196643d0a5a71b/Created%20Tools%20%26%20Other%20Scripts/TranslationToSource), which requires a `sheetId` and `authorization pair`, here you have to provide them via a config.json (different from `overlay_config`) as such:
    - `SheetId`, which is the ID of the google sheet where the translation are located.
-   - `ClientId` and `ClientSecret` are an authentication pair that represents you. You must provide that authentication pair yourself for your own user
+   - `ClientId` and `ClientSecret` are an authentication pair that represents you. You must provide that authentication pair yourself for your own user.
+     - <https://console.cloud.google.com/auth/clients> is the Dashboard to get these credentials.
+     - Create Client -> App Type = "Web Application" & Authorized redirect URIs = "<http://localhost:6001/>"
+     - Save the `ClientId` and `ClientSecret`, since they cannot both be revealed again to you without making a new set.
    - `PlayerName`, which is the player name. It gets rendered when control code `10` is entered.
 
 ### Feature: Metric System

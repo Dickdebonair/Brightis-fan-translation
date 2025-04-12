@@ -11,7 +11,7 @@ namespace BrightistRenderer.Models.Sheets
         [Column("C")]
         public string PrintOffsets { get; set; }
         [Column("D")]
-        public string TextType { get; set; }
+        public string? TextType { get; set; }
         [Column("E")]
         public string OriginalText { get; set; }
         [Column("F")]

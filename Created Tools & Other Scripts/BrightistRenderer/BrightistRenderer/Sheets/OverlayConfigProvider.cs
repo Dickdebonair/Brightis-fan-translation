@@ -8,13 +8,13 @@ namespace BrightistRenderer.Sheets
         public static OverlayConfigData[] GetConfigs()
         {
             if (!File.Exists("overlay_config.json"))
-                return Array.Empty<OverlayConfigData>();
+                return [];
 
             string json = File.ReadAllText("overlay_config.json");
             OverlayConfigData[]? jsonData = JsonSerializer.Deserialize(json, OverlayConfigDataContext.Instance.OverlayConfigDataArray);
             
             if (jsonData == null)
-                return Array.Empty<OverlayConfigData>();
+                return [];
 
             return jsonData;
         }

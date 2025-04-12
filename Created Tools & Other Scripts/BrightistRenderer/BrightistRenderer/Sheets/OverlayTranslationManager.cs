@@ -54,18 +54,14 @@ namespace BrightistRenderer.Sheets
 
             foreach (OverlayRawSheetData row in rows)
             {
-                string[] dataOffsets = row.DataOffsets.ReplaceLineEndings("").Split(',');
-                string[] printOffsets = row.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
+                if(!Enum.TryParse(row.TextType, out TextType textType))
+                    continue;
 
                 result.Add(new OverlaySheetData
                 {
                     OverlayIndex = overlayConfig.OverlaySlot,
                     Offset = long.Parse(row.Offset[2..], NumberStyles.HexNumber),
-                    DataOffsets = dataOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
-                    PrintOffsets = printOffsets.Length <= 0
-                        ? Array.Empty<long>()
-                        : printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
-                    TextType = Enum.Parse<TextType>(row.TextType),
+                    TextType = textType,
                     OriginalText = row.OriginalText,
                     TranslatedText = row.TranslatedText ?? string.Empty
                 });

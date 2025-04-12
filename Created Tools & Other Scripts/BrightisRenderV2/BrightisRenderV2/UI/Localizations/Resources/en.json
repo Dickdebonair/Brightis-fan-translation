@@ -1,0 +1,21 @@
+{
+  "Name": "English",
+
+  // Form
+  "Form.Title.Caption": "BrightisRendererV2",
+  "Form.Loading.Caption": "Loading...",
+
+  // Close
+  "Form.Close.UnsavedChanges.Caption": "Unsaved changes",
+  "Form.Close.UnsavedChanges.Text": "You have unsaved changes. Do you want to save now?",
+
+  // Form
+  "Menu.Metrics.Caption": "Metrics",
+  "Menu.Metrics.Story.Caption": "Story",
+  "Menu.Metrics.Popup.Caption": "Popup",
+
+  // Metrics
+  "Dialog.Metrics.Loading.Caption": "Loading...",
+  "Dialog.Metrics.Story.Caption": "Validate story texts",
+  "Dialog.Metrics.Popup.Caption": "Validate popups"
+}

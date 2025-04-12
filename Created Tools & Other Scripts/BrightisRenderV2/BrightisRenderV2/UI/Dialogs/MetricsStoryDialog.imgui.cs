@@ -1,0 +1,81 @@
+﻿using BrightisRendererV2.Models.UI.Components;
+using BrightisRendererV2.UI.Components.Metrics.Editors;
+using BrightisRendererV2.UI.Localizations;
+using ImGui.Forms.Controls;
+using ImGui.Forms.Controls.Layouts;
+using ImGui.Forms.Controls.Tree;
+using ImGui.Forms.Modals;
+using ImGui.Forms.Models;
+using System.Numerics;
+
+namespace BrightisRendererV2.UI.Dialogs;
+
+internal partial class MetricsStoryDialog : Modal
+{
+    private StackLayout _treeLayout;
+    private StackLayout _mainLayout;
+    private StackLayout _editorLayout;
+
+    private TreeView<StoryMetricData> _treeView;
+    private Label _loadingLabel;
+
+    private ImGui.Forms.Controls.Lists.List<Label> _detailTypeList;
+
+    private OverlayStoryMetricEditorComponent _storyEditor;
+
+    protected void InitializeComponent()
+    {
+        _loadingLabel = new Label(StringResourceProvider.MetricsLoadingCaption());
+        _treeView = new TreeView<StoryMetricData>();
+
+        _detailTypeList = new ImGui.Forms.Controls.Lists.List<Label>
+        {
+            Alignment = Alignment.Horizontal,
+            Size = Size.WidthAlign,
+            ItemSpacing = 5,
+            Padding = Vector2.Zero,
+            IsSelectable = false
+        };
+
+        _storyEditor = new OverlayStoryMetricEditorComponent();
+
+        _treeLayout = new StackLayout
+        {
+            Alignment = Alignment.Vertical,
+            Size = new Size(SizeValue.Relative(.3f), SizeValue.Parent),
+            ItemSpacing = 5,
+            Items =
+            {
+                _treeView,
+                _loadingLabel
+            }
+        };
+
+        _editorLayout = new StackLayout
+        {
+            Alignment = Alignment.Vertical,
+            Size = new Size(SizeValue.Relative(.7f), SizeValue.Parent),
+            ItemSpacing = 5,
+            Items =
+            {
+                _detailTypeList,
+                _storyEditor
+            }
+        };
+
+        _mainLayout = new StackLayout
+        {
+            Alignment = Alignment.Horizontal,
+            ItemSpacing = 5,
+            Items =
+            {
+                _treeLayout,
+                new StackItem(null) { Size = new Size(SizeValue.Relative(.7f), SizeValue.Parent) }
+            }
+        };
+
+        Content = _mainLayout;
+        Caption = StringResourceProvider.DialogStoryMetricCaption();
+        Size = new Size(SizeValue.Relative(.75f), SizeValue.Relative(.75f));
+    }
+}

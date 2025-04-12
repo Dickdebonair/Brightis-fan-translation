@@ -16,36 +16,45 @@ internal class OverlayTranslationManager(SpreadsheetManager spreadsheetManager)
         if (_sheetLines.TryGetValue(overlayConfig.SheetName, out IList<OverlaySheetData>? result))
             return result;
 
-        _sheetLines[overlayConfig.SheetName] = result = [];
-        var spreadsheet = await spreadsheetManager.GetSpreadSheetAsync(0, overlayConfig.SheetMaxRow);
-
-        var sheet = spreadsheet.Sheets.FirstOrDefault();
-        _sheetNameToId.Add(overlayConfig.SheetName, sheet.Properties.SheetId.Value);
-        var rows = sheet.Data.SelectMany(d => d.RowData).Select(r => r.ToOverlayRawSheetData()).ToList();
-
-        if (rows == null)
-            return null;
-
-        foreach (OverlayRawSheetData row in rows)
+        var spreadsheet = await spreadsheetManager.GetSpreadsheetAsync();
+        foreach (var sheet in spreadsheet.Sheets)
         {
-            string[] dataOffsets = row.DataOffsets.ReplaceLineEndings("").Split(',');
-            string[] printOffsets = row.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
-
-            result.Add(new OverlaySheetData
+            var properties = sheet.Properties;
+            var rawSheetData = new List<OverlayRawSheetData>();
+            var overlaySheetData = new List<OverlaySheetData>();
+            var sheetData = sheet.Data!.FirstOrDefault();
+            if (sheetData == null)
             {
-                OverlayIndex = overlayConfig.OverlaySlot,
-                Offset = long.Parse(row.Offset[2..], NumberStyles.HexNumber),
-                DataOffsets = dataOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
-                PrintOffsets = printOffsets.Length <= 0
-                    ? Array.Empty<long>()
-                    : printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
-                TextType = Enum.Parse<TextType>(row.TextType),
-                OriginalText = row.OriginalText,
-                TranslatedText = row.TranslatedText ?? string.Empty
-            });
+                continue;
+            }
+
+            for (int i = 1; i < sheetData.RowData.Count; i++)
+            {
+                var rowData = sheetData.RowData[i];
+                var rawOverlaySheetData = rowData.ToOverlayRawSheetData();
+
+                string[] dataOffsets = rawOverlaySheetData.DataOffsets.ReplaceLineEndings("").Split(',');
+                string[] printOffsets = rawOverlaySheetData.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+                overlaySheetData.Add(new OverlaySheetData
+                {
+                    OverlayIndex = overlayConfig.OverlaySlot,
+                    Offset = long.Parse(rawOverlaySheetData.Offset[2..], NumberStyles.HexNumber),
+                    DataOffsets = dataOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
+                    PrintOffsets = printOffsets.Length <= 0
+                        ? Array.Empty<long>()
+                        : printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
+                    TextType = Enum.Parse<TextType>(rawOverlaySheetData.TextType),
+                    OriginalText = rawOverlaySheetData.OriginalText,
+                    TranslatedText = rawOverlaySheetData.TranslatedText ?? string.Empty
+                });
+            }
+
+            _sheetLines.Add(properties.Title, overlaySheetData);
+            _sheetNameToId.Add(properties.Title, properties.SheetId.Value);
         }
 
-        return result;
+        return _sheetLines[overlayConfig.SheetName];
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OverlayUpdateRawSheetData))]

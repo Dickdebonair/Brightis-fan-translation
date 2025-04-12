@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="config.json" />
     <None Remove="mrsquidgy-brightis-credentials.json" />
+    <None Remove="overlay_config.json" />
     <None Remove="UI\Fonts\Resources\notojp.ttf" />
     <None Remove="UI\Fonts\Resources\roboto.ttf" />
   </ItemGroup>
@@ -21,11 +22,18 @@
     <Content Include="mrsquidgy-brightis-credentials.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="overlay_config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="UI\Fonts\Resources\notojp.ttf" />
-    <EmbeddedResource Include="UI\Fonts\Resources\roboto.ttf" />
+    <EmbeddedResource Include="UI\Fonts\Resources\notojp.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Fonts\Resources\roboto.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -50,7 +58,7 @@
 
   <ItemGroup>
     <None Update="UI\Localizations\Resources\en.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

@@ -26,27 +26,15 @@ internal class SpreadsheetManager
         SheetsService = new SheetsService(serviceInitializer);
     }
 
-    public async Task<Spreadsheet> GetSpreadSheetAsync(int sheetId, int endRowIndex)
+    public async Task<Spreadsheet> GetSpreadsheetAsync()
     {
-        var getSheetRequest = new GetSpreadsheetByDataFilterRequest()
+        var getSheetRequest = new GetSpreadsheetByDataFilterRequest
         {
-            DataFilters =
-            [
-                new DataFilter
-                {
-                    GridRange = new GridRange(){
-                        SheetId = 4,
-                        StartColumnIndex = 0,
-                        EndColumnIndex = 6,
-                        StartRowIndex = 2,
-                        EndRowIndex = endRowIndex
-                    }
-                }
-            ]
+            IncludeGridData = true
         };
 
-        var getByDataFilterRequest = SheetsService.Spreadsheets.GetByDataFilter(getSheetRequest, SpreadsheetId);
-        return await getByDataFilterRequest.ExecuteAsync();
+        var serviceRequest = SheetsService.Spreadsheets.GetByDataFilter(getSheetRequest, SpreadsheetId);
+        return await serviceRequest.ExecuteAsync();
     }
 
     public async Task UpdateRangeAsync(int sheetId, IList<OverlayUpdateRawSheetData> updateData)

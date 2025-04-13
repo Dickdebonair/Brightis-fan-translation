@@ -25,7 +25,7 @@ namespace BrightistRenderer.UI.Configuration
                 throw new InvalidOperationException("Configuration 'config.json' not found.");
 
             string json = File.ReadAllText("config.json");
-            ConfigData? jsonData = JsonSerializer.Deserialize(json, ConfigDataContext.Default.ConfigData);
+            ConfigData? jsonData = JsonSerializer.Deserialize(json, ConfigDataContext.Instance.ConfigData);
             if (jsonData == null)
                 throw new InvalidOperationException("Configuration 'config.json' has invalid format.");
 

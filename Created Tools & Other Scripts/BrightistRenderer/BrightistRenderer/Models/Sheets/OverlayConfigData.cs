@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace BrightistRenderer.Models.Sheets
 {
@@ -12,6 +13,6 @@ namespace BrightistRenderer.Models.Sheets
     [JsonSerializable(typeof(OverlayConfigData[]), GenerationMode = JsonSourceGenerationMode.Metadata)]
     partial class OverlayConfigDataContext : JsonSerializerContext
     {
-        public static readonly OverlayConfigDataContext Instance = new();
+        public static readonly OverlayConfigDataContext Instance = new(new JsonSerializerOptions { AllowTrailingCommas = true });
     }
 }

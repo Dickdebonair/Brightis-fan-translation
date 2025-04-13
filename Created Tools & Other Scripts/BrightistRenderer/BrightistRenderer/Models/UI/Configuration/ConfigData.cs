@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace BrightistRenderer.Models.UI.Configuration
 {
@@ -11,5 +12,8 @@ namespace BrightistRenderer.Models.UI.Configuration
     }
 
     [JsonSerializable(typeof(ConfigData))]
-    partial class ConfigDataContext : JsonSerializerContext { }
+    partial class ConfigDataContext : JsonSerializerContext
+    {
+        public static readonly ConfigDataContext Instance = new(new JsonSerializerOptions { AllowTrailingCommas = true });
+    }
 }

@@ -9,12 +9,10 @@ internal static class GridDataExtensions
     {
         return new OverlayRawSheetData()
         {
-            Offset = data.Values[0].UserEnteredValue.StringValue,
-            DataOffsets = data.Values[0].UserEnteredValue.StringValue,
-            PrintOffsets = data.Values[0].UserEnteredValue.StringValue,
-            TextType = data.Values[0].UserEnteredValue.StringValue,
-            OriginalText = data.Values[0].UserEnteredValue.StringValue,
-            TranslatedText = data.Values[0].UserEnteredValue.StringValue,
+            Offset = data.Values[ColumnPositions.Offset].EffectiveValue?.StringValue,
+            TextType = data.Values[ColumnPositions.TextType].EffectiveValue?.StringValue ?? "0",
+            OriginalText = data.Values[ColumnPositions.OriginalText].EffectiveValue?.StringValue,
+            TranslatedText = data.Values[ColumnPositions.TranslatedText].EffectiveValue?.StringValue,
         };
     }
 }

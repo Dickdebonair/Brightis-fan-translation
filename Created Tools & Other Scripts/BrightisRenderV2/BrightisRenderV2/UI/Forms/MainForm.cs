@@ -57,7 +57,10 @@ internal partial class MainForm : Form
 
     private async Task InitializeTextsAsync()
     {
-        foreach (OverlayConfigData overlayConfig in OverlayConfigProvider.GetConfigs())
+        var overlayConfigs = OverlayConfigProvider.GetConfigs();
+        await _translationManager.LoadInitialTranslations(overlayConfigs);
+
+        foreach (OverlayConfigData overlayConfig in overlayConfigs)
         {
             IList<OverlaySheetData>? translations = await _translationManager.GetTranslationsAsync(overlayConfig);
             if (translations == null)

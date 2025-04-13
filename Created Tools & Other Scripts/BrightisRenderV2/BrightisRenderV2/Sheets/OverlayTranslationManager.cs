@@ -1,5 +1,6 @@
 ﻿using BrightisRendererV2.Extensions;
 using BrightisRendererV2.Models.Sheets;
+using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
@@ -7,17 +8,14 @@ namespace BrightisRendererV2.Sheets;
 
 internal class OverlayTranslationManager(SpreadsheetManager spreadsheetManager)
 {
-    private readonly Dictionary<string, IList<OverlaySheetData>> _sheetLines = [];
-    private readonly Dictionary<string, int> _sheetNameToId = [];
+    private readonly ConcurrentDictionary<string, IList<OverlaySheetData>> _sheetLines = [];
+    private readonly ConcurrentDictionary<string, int> _sheetNameToId = [];
 
-    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OverlayRawSheetData))]
-    public async Task<IList<OverlaySheetData>?> GetTranslationsAsync(OverlayConfigData overlayConfig)
+    public async Task LoadInitialTranslations(OverlayConfigData[] overlayConfigs)
     {
-        if (_sheetLines.TryGetValue(overlayConfig.SheetName, out IList<OverlaySheetData>? result))
-            return result;
-
         var spreadsheet = await spreadsheetManager.GetSpreadsheetAsync();
-        foreach (var sheet in spreadsheet.Sheets)
+
+        Parallel.ForEach(spreadsheet.Sheets, sheet =>
         {
             var properties = sheet.Properties;
             var rawSheetData = new List<OverlayRawSheetData>();
@@ -25,36 +23,57 @@ internal class OverlayTranslationManager(SpreadsheetManager spreadsheetManager)
             var sheetData = sheet.Data!.FirstOrDefault();
             if (sheetData == null)
             {
-                continue;
+                return;
             }
 
-            for (int i = 1; i < sheetData.RowData.Count; i++)
+            var overlayConfig = overlayConfigs.FirstOrDefault(x => x.SheetName == properties.Title);
+            if (overlayConfig == null)
+            {
+                return;
+            }
+
+            for (int i = 1; i < overlayConfig.SheetMaxRow; i++)
             {
                 var rowData = sheetData.RowData[i];
+                if (rowData.Values == null)
+                {
+                    continue;
+                }
+
+                if (rowData.Values.Count < 6)
+                {
+                    continue;
+                }
+
                 var rawOverlaySheetData = rowData.ToOverlayRawSheetData();
 
-                string[] dataOffsets = rawOverlaySheetData.DataOffsets.ReplaceLineEndings("").Split(',');
-                string[] printOffsets = rawOverlaySheetData.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
+                if (!Enum.TryParse<TextType>(rawOverlaySheetData.TextType, out var textType))
+                {
+                    continue;
+                }
 
                 overlaySheetData.Add(new OverlaySheetData
                 {
                     OverlayIndex = overlayConfig.OverlaySlot,
                     Offset = long.Parse(rawOverlaySheetData.Offset[2..], NumberStyles.HexNumber),
-                    DataOffsets = dataOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
-                    PrintOffsets = printOffsets.Length <= 0
-                        ? Array.Empty<long>()
-                        : printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray(),
                     TextType = Enum.Parse<TextType>(rawOverlaySheetData.TextType),
                     OriginalText = rawOverlaySheetData.OriginalText,
                     TranslatedText = rawOverlaySheetData.TranslatedText ?? string.Empty
                 });
             }
 
-            _sheetLines.Add(properties.Title, overlaySheetData);
-            _sheetNameToId.Add(properties.Title, properties.SheetId.Value);
-        }
+            _sheetLines.TryAdd(properties.Title, overlaySheetData);
+            _sheetNameToId.TryAdd(properties.Title, properties.SheetId.Value);
+        });
+    }
 
-        return _sheetLines[overlayConfig.SheetName];
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OverlayRawSheetData))]
+    public async Task<IList<OverlaySheetData>?> GetTranslationsAsync(OverlayConfigData overlayConfig)
+    {
+        if (_sheetLines.TryGetValue(overlayConfig.SheetName, out IList<OverlaySheetData>? result))
+            return result;
+
+        return null;
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OverlayUpdateRawSheetData))]

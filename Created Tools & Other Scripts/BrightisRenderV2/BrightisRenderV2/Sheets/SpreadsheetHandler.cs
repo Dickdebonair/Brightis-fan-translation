@@ -10,7 +10,7 @@ internal class SpreadsheetManager
 {
     private static readonly string[] Scopes = [SheetsService.Scope.Spreadsheets];
 
-    private const string SpreadsheetId = "1Rflah7eg7Xd9Ir-wCPUm1Hp5s39090MCwiL6MQ0Ryeo";
+    private const string SpreadsheetId = "16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU";
 
     private const string GoogleCredentialsFileName = "./mrsquidgy-brightis-credentials.json";
 

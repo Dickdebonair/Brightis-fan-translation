@@ -81,6 +81,9 @@ namespace BrightistRenderer.UI.Components
         {
             foreach (OverlaySheetData overlaySheet in sheetData)
             {
+                if (overlaySheet.TextType is null)
+                    continue;
+
                 treeView.Nodes.Add(new TreeNode<OverlaySheetData>
                 {
                     Data = overlaySheet,

@@ -16,7 +16,7 @@ namespace BrightistRenderer.UI.Forms
 
         private StackLayout _mainLayout;
 
-        private TabControl _overlayTabControl;
+        private TabControl _overlayGroupsControl;
         private Label _loadingLabel;
 
         private void InitializeComponent()
@@ -41,7 +41,7 @@ namespace BrightistRenderer.UI.Forms
                 }
             };
 
-            _overlayTabControl = new TabControl();
+            _overlayGroupsControl = new TabControl();
             _loadingLabel = new Label(StringResourceProvider.FormLoadingCaption());
 
             _mainLayout = new StackLayout
@@ -51,7 +51,7 @@ namespace BrightistRenderer.UI.Forms
                 ItemSpacing = 5,
                 Items =
                 {
-                    _overlayTabControl,
+                    _overlayGroupsControl,
                     _loadingLabel
                 }
             };

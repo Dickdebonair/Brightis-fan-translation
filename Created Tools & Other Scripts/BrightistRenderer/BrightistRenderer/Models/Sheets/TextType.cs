@@ -3,6 +3,7 @@
     internal enum TextType
     {
         TextBox,
-        Popup
+        Popup,
+        Count
     }
 }

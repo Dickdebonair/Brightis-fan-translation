@@ -54,14 +54,13 @@ namespace BrightistRenderer.Sheets
 
             foreach (OverlayRawSheetData row in rows)
             {
-                if(!Enum.TryParse(row.TextType, out TextType textType))
-                    continue;
+                bool isValidTextType = Enum.TryParse(row.TextType, out TextType textType);
 
                 result.Add(new OverlaySheetData
                 {
                     OverlayIndex = overlayConfig.OverlaySlot,
                     Offset = long.Parse(row.Offset[2..], NumberStyles.HexNumber),
-                    TextType = textType,
+                    TextType = isValidTextType && textType < TextType.Count ? textType : null,
                     OriginalText = row.OriginalText,
                     TranslatedText = row.TranslatedText ?? string.Empty
                 });

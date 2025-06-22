@@ -10,8 +10,10 @@ A guide [referenced by Sean Seanson] also is useful in playing the game: <https:
 
 ## What we're doing + the goal
 
-Right now, we're working on __Gathering all text pointers for patching.__  
-Brightis is an action RPG, and thus doesn't have much in the way of dialogue (compared to other PSX games,) and very little text stored within images.  
+Right now, we're working on __Creating working patches in ARMips.__  
+If you'd like to help with this, PLEASE reach out!
+
+Brightis is an action RPG, and thus doesn't have much in the way of dialogue (compared to other PSX games,) and very little text stored within images. 
 I felt it reasonable to look into how it might be to discover the location of all the displayed text and begin to slowly replace it with english. Along with dumping it so that others may translate it into different languages easier.
 
 If you'd like to help:
@@ -32,9 +34,9 @@ Please also contribute against the [issues](https://github.com/Dickdebonair/Brig
   - [ ] Determine DMA functions to understand each sections of the game [many calls in the `SCPS_101.05`]
   - [x] Get basic text decompression figured out  
   - [ ] Get basic image decompression figured out  
-  - [ ] Determine Compression function to be able to reinsert files
+  - [x] Determine Compression function to be able to reinsert files
 - [ ] Locate all of the spoken/written text in the game [spread throughout multiple BIN files]
-- [ ] Dump the text wholesale from the code [current tools will work with this]
+- [x] Dump the text wholesale from the code [current tools will work with this]
   - [ ] CHR.BIN (character/NPC data)
   - ED00.STR (video file; skip)
   - [ ] MAP.BIN (Map/world data)
@@ -47,10 +49,9 @@ Please also contribute against the [issues](https://github.com/Dickdebonair/Brig
   - SND.BIN (sound effect & Music data)
 - [x] Font hacking to add english support + Variable width
 - [x] Get a bulk translation ([Google Sheet now available for comment](https://docs.google.com/spreadsheets/d/16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU/edit?usp=sharing))
-- [ ] Get text reinserted via tooling (available [here](https://github.com/Dickdebonair/Brightis-fan-translation/tree/98668d8c698e1eebb4aff8be89713b9074a3f07a/Created%20Tools%20%26%20Other%20Scripts))
-- [ ] Figure out how to create an IPS patch
+- [x] Get text reinserted via tooling (available [here](https://github.com/Dickdebonair/Brightis-fan-translation/tree/98668d8c698e1eebb4aff8be89713b9074a3f07a/Created%20Tools%20%26%20Other%20Scripts))
+- [x] Figure out how to create an IPS patch
 - [ ] Privately test, then publicly test the game through
-- [ ] Locate all the images with text
 
 ### Discoveries
 

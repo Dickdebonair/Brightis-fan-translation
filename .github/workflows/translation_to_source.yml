@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - build-testing
-    paths:
-      - 'Created Tools & Other Scripts/TranslationToSource/**'
+    # paths:
+    #   - 'Created Tools & Other Scripts/TranslationToSource/**'
 
 jobs:
 

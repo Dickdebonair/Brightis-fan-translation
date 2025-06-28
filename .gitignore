@@ -4,3 +4,5 @@
 Decrypted Files/OVR/*.bin
 google-api-key.json
 oauth.json
+dist
+secrets.json

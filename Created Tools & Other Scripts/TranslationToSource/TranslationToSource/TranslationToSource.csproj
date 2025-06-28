@@ -1,10 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version> 0.0.1 </Version>
+  </PropertyGroup>
+
+  <PropertyGroup> 
+    <OutputType>Exe</OutputType>
+    <RunTimeIdentitiers>win-x64;linux-64x;osx-x64;linux-arm64;linux-arm;osx-arm64</RunTimeIdentitiers>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
 
   <ItemGroup>

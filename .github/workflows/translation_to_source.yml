@@ -1,20 +1,22 @@
-name: TranslationToSource
+name: Creating TranslationToSource Executables
 
 on:
   push:
     branches:
-      - main
+      - build-testing
     paths:
       - 'Created Tools & Other Scripts/TranslationToSource/**'
 
 jobs:
-  build:
 
-    runs-on: windows-latest
+  Build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runtime: ["win-x64", "linux-64x", "osx-x64", "linux-arm64", "linux-arm", "osx-arm64"]
 
     steps:
     - uses: actions/checkout@v4
-    - uses: nuget/setup-nuget@v2
     
     - name: Wait for other dev builds
       uses: softprops/turnstyle@v2
@@ -28,11 +30,35 @@ jobs:
 
     - name: Publish TranslationToSource
       run: |
-        dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj" --output ./dist --configuration Release --framework net8.0 --runtime win-x64 /p:PublishAot=true /p:SelfContained=true
+        dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj" \
+        --output ./dist \ 
+        --configuration Release \ 
+        --runtime ${{matrix.runtime}} 
+
         rm ./dist/*.pdb
 
-    - name: Upload artifact
+    - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: TranslationToSource
+        name: TranslationSource-${{matrix.runtime}}
         path: ./dist
+
+  Create_Release:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Get Version
+      run:  |
+        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" YourProject.csproj)
+        echo "version=$version" >> $GITHUB_ENV
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{env.Version}}
+        name: Building Exes for TranslationToSource
+        draft: true
+        token: ${{github.token}}

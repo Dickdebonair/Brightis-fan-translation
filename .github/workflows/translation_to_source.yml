@@ -3,7 +3,7 @@ name: TranslationToSource
 on:
   push:
     branches:
-      - imgui
+      - main
     paths:
       - 'Created Tools & Other Scripts/TranslationToSource/**'
 

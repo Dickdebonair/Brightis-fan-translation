@@ -1,0 +1,38 @@
+name: Kuriimu2 ImGui
+
+on:
+  push:
+    branches:
+      - imgui
+    paths:
+      - 'Created Tools & Other Scripts/TranslationToSource/**'
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: nuget/setup-nuget@v2
+    
+    - name: Wait for other dev builds
+      uses: softprops/turnstyle@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0
+
+    - name: Publish TranslationToSource
+      run: |
+        dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource.csproj --output ./dist --configuration Release --framework net8.0 --runtime win-x64 /p:PublishSingleFile=true
+        rm ./dist/*.pdb
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TranslationToSource
+        path: ./dist

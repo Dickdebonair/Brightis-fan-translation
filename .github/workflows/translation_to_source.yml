@@ -31,9 +31,9 @@ jobs:
     - name: Publish TranslationToSource
       run: |
         dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj" \
-        --output ./dist \ 
-        --configuration Release \ 
-        --runtime ${{matrix.runtime}} 
+          --output ./dist \ 
+          --configuration Release \ 
+          --runtime ${{matrix.runtime}} 
 
         rm ./dist/*.pdb
 

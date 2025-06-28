@@ -28,7 +28,7 @@ namespace TranslationToSource.Patchers
 
             foreach (OvrSheetData translation in sheetData)
             {
-                IList<CharacterData> patchText = _textParser.Parse(translation.TranslatedText);
+                IList<CharacterData> patchText = _textParser.Parse(translation?.TranslatedText);
                 IList<ArmipsInstruction> patchInstructions = CreateTextInstructions(patchText);
 
                 textPatches.Add(new OvrTextPatchData

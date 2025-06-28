@@ -1,0 +1,427 @@
+[ 
+  {
+    "SheetName": "OVR_000",
+    "SheetMaxRow": 12,
+    "OverlaySlot": 0,
+    "OverlayLength": "0x71D7",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_001",
+    "SheetMaxRow": 12,
+    "OverlaySlot": 1,
+    "OverlayLength": "0x4464",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_002",
+    "SheetMaxRow": 13,
+    "OverlaySlot": 2,
+    "OverlayLength": "0x45B3",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_003",
+    "SheetMaxRow": 13,
+    "OverlaySlot": 3,
+    "OverlayLength": "0x6273",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_004",
+    "SheetMaxRow": 9,
+    "OverlaySlot": 4,
+    "OverlayLength": "0x599B",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_005",
+    "SheetMaxRow": 9,
+    "OverlaySlot": 5,
+    "OverlayLength": "0x6BBB",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_006",
+    "SheetMaxRow": 11,
+    "OverlaySlot": 6,
+    "OverlayLength": "0x696F",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_007",
+    "SheetMaxRow": 13,
+    "OverlaySlot": 7,
+    "OverlayLength": "0x7029",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_008",
+    "SheetMaxRow": 43,
+    "OverlaySlot": 8,
+    "OverlayLength": "0x6C1E",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_009",
+    "SheetMaxRow": 4,
+    "OverlaySlot": 9,
+    "OverlayLength": "0x6A37",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_010",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 10,
+    "OverlayLength": "0x5840",
+    "OverlayType": 2,
+    "OverlayMode": 1,
+    "PopupJalOffset": "0x8015D958"
+  },
+  {
+    "SheetName": "OVR_011",
+    "SheetMaxRow": 4,
+    "OverlaySlot": 11,
+    "OverlayLength": "0x15E2",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_012",
+    "SheetMaxRow": 61,
+    "OverlaySlot": 12,
+    "OverlayLength": "0x64F5",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_013",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 13,
+    "OverlayLength": "0x1B05",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_015",
+    "SheetMaxRow": 7,
+    "OverlaySlot": 15,
+    "OverlayLength": "0x1467",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_016",
+    "SheetMaxRow": 4,
+    "OverlaySlot": 16,
+    "OverlayLength": "0x6A87",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_017",
+    "SheetMaxRow": 5,
+    "OverlaySlot": 17,
+    "OverlayLength": "0x4147",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_018",
+    "SheetMaxRow": 14,
+    "OverlaySlot": 18,
+    "OverlayLength": "0x71EF",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_020",
+    "SheetMaxRow": 42,
+    "OverlaySlot": 20,
+    "OverlayLength": "0x4BF3",
+    "OverlayType": 3,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_023",
+    "SheetMaxRow": 1,
+    "OverlaySlot": 23,
+    "OverlayLength": "0x3ED8",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_024",
+    "SheetMaxRow": 2,
+    "OverlaySlot": 24,
+    "OverlayLength": "0x4248",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_025",
+    "SheetMaxRow": 2,
+    "OverlaySlot": 25,
+    "OverlayLength": "0x52BC",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_026",
+    "SheetMaxRow": 2,
+    "OverlaySlot": 26,
+    "OverlayLength": "0x4E00",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_027",
+    "SheetMaxRow": 2,
+    "OverlaySlot": 27,
+    "OverlayLength": "0x5550",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_028",
+    "SheetMaxRow": 2,
+    "OverlaySlot": 28,
+    "OverlayLength": "0x5044",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_029",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 29,
+    "OverlayLength": "0x487C",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_031",
+    "SheetMaxRow": 14,
+    "OverlaySlot": 31,
+    "OverlayLength": "0x5455",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_032",
+    "SheetMaxRow": 15,
+    "OverlaySlot": 32,
+    "OverlayLength": "0x4BC1",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_033",
+    "SheetMaxRow": 10,
+    "OverlaySlot": 33,
+    "OverlayLength": "0x3675",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_034",
+    "SheetMaxRow": 7,
+    "OverlaySlot": 34,
+    "OverlayLength": "0x49DD",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_035",
+    "SheetMaxRow": 5,
+    "OverlaySlot": 35,
+    "OverlayLength": "0x63F8",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_037",
+    "SheetMaxRow": 5,
+    "OverlaySlot": 37,
+    "OverlayLength": "0x4977",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_038",
+    "SheetMaxRow": 19,
+    "OverlaySlot": 38,
+    "OverlayLength": "0x7084",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_039",
+    "SheetMaxRow": 12,
+    "OverlaySlot": 39,
+    "OverlayLength": "0x6787",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_040",
+    "SheetMaxRow": 18,
+    "OverlaySlot": 40,
+    "OverlayLength": "0x631D",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_041",
+    "SheetMaxRow": 12,
+    "OverlaySlot": 41,
+    "OverlayLength": "0x3162",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_043",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 43,
+    "OverlayLength": "0x41C0",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_044",
+    "SheetMaxRow": 42,
+    "OverlaySlot": 44,
+    "OverlayLength": "0x3C18",
+    "OverlayType": 2,
+    "OverlayMode": 2
+  },
+  {
+    "SheetName": "OVR_045",
+    "SheetMaxRow": 25,
+    "OverlaySlot": 45,
+    "OverlayLength": "0x2453",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_046",
+    "SheetMaxRow": 34,
+    "OverlaySlot": 46,
+    "OverlayLength": "0x24B3",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_047",
+    "SheetMaxRow": 37,
+    "OverlaySlot": 47,
+    "OverlayLength": "0x2C0B",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_048",
+    "SheetMaxRow": 41,
+    "OverlaySlot": 48,
+    "OverlayLength": "0x30D7",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_049",
+    "SheetMaxRow": 41,
+    "OverlaySlot": 49,
+    "OverlayLength": "0x34DB",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_050",
+    "SheetMaxRow": 46,
+    "OverlaySlot": 50,
+    "OverlayLength": "0x305F",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_051",
+    "SheetMaxRow": 42,
+    "OverlaySlot": 51,
+    "OverlayLength": "0x3753",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_052",
+    "SheetMaxRow": 17,
+    "OverlaySlot": 52,
+    "OverlayLength": "0x1873",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_053",
+    "SheetMaxRow": 8,
+    "OverlaySlot": 53,
+    "OverlayLength": "0x6A0B",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_054",
+    "SheetMaxRow": 3,
+    "OverlaySlot": 54,
+    "OverlayLength": "0xEFA",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_055",
+    "SheetMaxRow": 4,
+    "OverlaySlot": 55,
+    "OverlayLength": "0x5AE7",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_056",
+    "SheetMaxRow": 13,
+    "OverlaySlot": 56,
+    "OverlayLength": "0x9B7",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_058",
+    "SheetMaxRow": 19,
+    "OverlaySlot": 58,
+    "OverlayLength": "0x1493",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_059",
+    "SheetMaxRow": 19,
+    "OverlaySlot": 59,
+    "OverlayLength": "0x1401",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  },
+  {
+    "SheetName": "OVR_060",
+    "SheetMaxRow": 22,
+    "OverlaySlot": 60,
+    "OverlayLength": "0x2BBF",
+    "OverlayType": 2,
+    "OverlayMode": 0
+  }
+]

@@ -1,4 +1,4 @@
-name: Kuriimu2 ImGui
+name: TranslationToSource
 
 on:
   push:

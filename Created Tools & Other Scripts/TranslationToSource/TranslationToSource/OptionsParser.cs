@@ -7,7 +7,7 @@ namespace TranslationToSource;
 /// </summary>
 class OptionsParser
 {
-    private static readonly string[] Commands = { "-h", "-s", "-ci", "-cs" };
+    private static readonly string[] Commands = ["-h"];
 
     private string? _parsedCommand;
     private int _parameterCount;
@@ -20,7 +20,7 @@ class OptionsParser
     public ParsedOptions Parse(string[] args)
     {
         if (args.Length <= 0)
-            return new ParsedOptions(true);
+            return new ParsedOptions(false);
 
         var values = new Dictionary<string, List<string>?>();
 
@@ -47,11 +47,7 @@ class OptionsParser
             }
         }
 
-        return new ParsedOptions(
-            values.GetValueOrDefault("-s")?.FirstOrDefault(),
-            values.GetValueOrDefault("-ci")?.FirstOrDefault(),
-            values.GetValueOrDefault("-cs")?.FirstOrDefault(),
-            values.ContainsKey("-h"));
+        return new ParsedOptions(values.ContainsKey("-h"));
     }
 
     #region Private methods

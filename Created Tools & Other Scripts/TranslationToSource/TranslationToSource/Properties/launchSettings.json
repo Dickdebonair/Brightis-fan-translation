@@ -1,8 +1,7 @@
 {
   "profiles": {
     "TranslationToSource": {
-      "commandName": "Project",
-      "commandLineArgs": "-s 16ST1GpUGnfzQkkyA7Y5LqPaeRHxq0L23jmVaQDX_wBU -ci 32005511502-j0omtiq1ko7sksoqkrdhh5k4si50q76i.apps.googleusercontent.com -cs 8aFVF4g9qncmV7c9ZMqrC9sZ"
+      "commandName": "Project"
     }
   }
 }

@@ -2,6 +2,7 @@
 using GoogleSheetsApiV4.Contract;
 using GoogleSheetsApiV4.Contract.DataClasses;
 using TranslationToSource;
+using TranslationToSource.Config;
 using TranslationToSource.Models;
 using TranslationToSource.Models.Patchers;
 using TranslationToSource.Models.Sheets;
@@ -15,31 +16,14 @@ ParsedOptions options = optionsParser.Parse(args);
 if (options.IsHelp)
 {
     Console.WriteLine("This tool takes translation from the Brightis Google Spreadsheet and emits them as assembly patches.");
-    Console.WriteLine("Use the tool as such:");
-    Console.WriteLine("  TranslationToSource.exe -s [sheetId] -ci [clientId] -cs [clientSecret]");
-    return;
-}
-
-if (options.SheetId == null)
-{
-    Console.WriteLine("No sheet ID given. Pass one by using the argument '-s'.");
-    return;
-}
-if (options.ClientId == null)
-{
-    Console.WriteLine("No client ID given. Pass one by using the argument '-ci'.");
-    return;
-}
-if (options.ClientSecret == null)
-{
-    Console.WriteLine("No client secret given. Pass one by using the argument '-cs'.");
+    Console.WriteLine("Set sheet ID and authentication information in config.json or config.json.user.");
     return;
 }
 
 // Access google sheet
 IOAuth2TokenStorage tokenStorage = new OAuth2TokenStorage();
-ICodeFlowManager codeFlow = OAuth2CodeFlowManager.Create(Scope.Write, options.ClientId, options.ClientSecret, tokenStorage);
-ISheetManager sheet = GoogleApiConnector.Instance.CreateSheetManager(options.SheetId, codeFlow);
+ICodeFlowManager codeFlow = OAuth2CodeFlowManager.Create(Scope.Write, ConfigManager.Instance.GetClientId(), ConfigManager.Instance.GetClientSecret(), tokenStorage);
+ISheetManager sheet = GoogleApiConnector.Instance.CreateSheetManager(ConfigManager.Instance.GetSheetId(), codeFlow);
 
 foreach (OverlayConfigData config in OverlayConfigProvider.GetConfigs())
 {

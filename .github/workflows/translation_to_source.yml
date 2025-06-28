@@ -38,7 +38,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TranslationSource-${{matrix.runtime}}
-        path: ./dist
+        path: ./dist/TranslationToSource*
 
   Create_Release:
     needs: Build
@@ -49,7 +49,7 @@ jobs:
 
     - name: Get Version
       run:  |
-        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" YourProject.csproj)
+        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" './Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj')
         echo "version=$version" >> $GITHUB_ENV
 
     - name: Create Release

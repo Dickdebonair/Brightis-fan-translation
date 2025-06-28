@@ -7,6 +7,12 @@ on:
     paths:
       - 'Created Tools & Other Scripts/TranslationToSource/**'
 
+  commit:
+    branches:
+      - main
+    paths:
+      - 'Created Tools & Other Scripts/TranslationToSource/**'
+
 jobs:
   build:
 
@@ -28,7 +34,7 @@ jobs:
 
     - name: Publish TranslationToSource
       run: |
-        dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj" --output ./dist --configuration Release --framework net8.0 --runtime win-x64 /p:PublishSingleFile=true
+        dotnet publish "./Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj" --output ./dist --configuration Release --framework net8.0 --runtime win-x64 /p:PublishAot=true /p:SelfContained=true
         rm ./dist/*.pdb
 
     - name: Upload artifact

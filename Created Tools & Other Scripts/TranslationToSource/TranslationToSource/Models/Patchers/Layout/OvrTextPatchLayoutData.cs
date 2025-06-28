@@ -1,8 +1,7 @@
-﻿namespace TranslationToSource.Models.Patchers.Layout
+﻿namespace TranslationToSource.Models.Patchers.Layout;
+
+internal class OvrTextPatchLayoutData
 {
-    internal class OvrTextPatchLayoutData
-    {
-        public required long Offset { get; set; }
-        public required OvrTextPatchData Patch { get; set; }
-    }
+    public required long Offset { get; set; }
+    public required OvrTextPatchData Patch { get; set; }
 }

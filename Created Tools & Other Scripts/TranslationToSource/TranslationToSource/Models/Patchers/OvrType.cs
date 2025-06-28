@@ -1,10 +1,9 @@
-﻿namespace TranslationToSource.Models.Patchers
+﻿namespace TranslationToSource.Models.Patchers;
+
+internal enum OvrType
 {
-    internal enum OvrType
-    {
-        ProgOverlay,
-        SubOverlay,
-        CommonOverlay,
-        CnstOverlay
-    }
+    ProgOverlay,
+    SubOverlay,
+    CommonOverlay,
+    CnstOverlay
 }

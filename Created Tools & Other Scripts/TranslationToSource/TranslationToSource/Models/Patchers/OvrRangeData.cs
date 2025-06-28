@@ -1,9 +1,8 @@
-﻿namespace TranslationToSource.Models.Patchers
+﻿namespace TranslationToSource.Models.Patchers;
+
+internal class OvrRangeData
 {
-    internal class OvrRangeData
-    {
-        public required long OverlayBaseAddress { get; set; }
-        public required int OverlaySize { get; set; }
-        public required int OverlayMaxSize { get; set; }
-    }
+    public required long OverlayBaseAddress { get; set; }
+    public required int OverlaySize { get; set; }
+    public required int OverlayMaxSize { get; set; }
 }

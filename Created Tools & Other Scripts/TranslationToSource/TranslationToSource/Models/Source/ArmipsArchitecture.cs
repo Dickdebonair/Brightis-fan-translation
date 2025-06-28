@@ -1,7 +1,6 @@
-﻿namespace TranslationToSource.Models.Source
+﻿namespace TranslationToSource.Models.Source;
+
+internal enum ArmipsArchitecture
 {
-    internal enum ArmipsArchitecture
-    {
-        Psx
-    }
+    Psx
 }

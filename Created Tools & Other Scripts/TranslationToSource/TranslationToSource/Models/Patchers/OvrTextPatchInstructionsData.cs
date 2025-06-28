@@ -1,10 +1,9 @@
 ﻿using TranslationToSource.Models.Source.Instructions;
 
-namespace TranslationToSource.Models.Patchers
+namespace TranslationToSource.Models.Patchers;
+
+internal class OvrTextPatchInstructionsData
 {
-    internal class OvrTextPatchInstructionsData
-    {
-        public required ArmipsInstruction[] Instructions { get; set; }
-        public required int Length { get; set; }
-    }
+    public required ArmipsInstruction[] Instructions { get; set; }
+    public required int Length { get; set; }
 }

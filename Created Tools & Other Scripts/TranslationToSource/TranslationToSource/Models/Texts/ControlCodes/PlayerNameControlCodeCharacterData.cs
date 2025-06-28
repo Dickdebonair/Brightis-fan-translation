@@ -1,15 +1,14 @@
-﻿namespace TranslationToSource.Models.Texts.ControlCodes
+﻿namespace TranslationToSource.Models.Texts.ControlCodes;
+
+internal class PlayerNameControlCodeCharacterData : ControlCodeCharacterData
 {
-    internal class PlayerNameControlCodeCharacterData : ControlCodeCharacterData
+    public override bool IsVisible => true;
+
+    public PlayerNameControlCodeCharacterData(byte code) : base(code)
     {
-        public override bool IsVisible => true;
+    }
 
-        public PlayerNameControlCodeCharacterData(byte code) : base(code)
-        {
-        }
-
-        public PlayerNameControlCodeCharacterData(byte code, int[] args) : base(code, args)
-        {
-        }
+    public PlayerNameControlCodeCharacterData(byte code, int[] args) : base(code, args)
+    {
     }
 }

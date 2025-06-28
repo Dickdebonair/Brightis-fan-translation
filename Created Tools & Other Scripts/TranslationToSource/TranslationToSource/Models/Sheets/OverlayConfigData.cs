@@ -2,58 +2,57 @@
 using System.Text.Json.Serialization;
 using TranslationToSource.Models.Patchers;
 
-namespace TranslationToSource.Models.Sheets
+namespace TranslationToSource.Models.Sheets;
+
+internal class OverlayConfigData
 {
-    internal class OverlayConfigData
+    public required string SheetName { get; set; }
+    public required int SheetMaxRow { get; set; }
+    public required int OverlaySlot { get; set; }
+    [JsonConverter(typeof(HexIntConverter))]
+    public required int OverlayLength { get; set; }
+    public required OvrType OverlayType { get; set; }
+    public required OvrMode OverlayMode { get; set; }
+    [JsonConverter(typeof(HexLongConverter))]
+    public long? PopupJalOffset { get; set; }
+}
+
+[JsonSerializable(typeof(OverlayConfigData[]), GenerationMode = JsonSourceGenerationMode.Metadata)]
+partial class OverlayConfigDataContext : JsonSerializerContext
+{
+    public static readonly OverlayConfigDataContext Instance = new();
+}
+
+internal class HexLongConverter : JsonConverter<long>
+{
+    public override long Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        public required string SheetName { get; set; }
-        public required int SheetMaxRow { get; set; }
-        public required int OverlaySlot { get; set; }
-        [JsonConverter(typeof(HexIntConverter))]
-        public required int OverlayLength { get; set; }
-        public required OvrType OverlayType { get; set; }
-        public required OvrMode OverlayMode { get; set; }
-        [JsonConverter(typeof(HexLongConverter))]
-        public long? PopupJalOffset { get; set; }
+        string? value = reader.GetString();
+        if (value == null || !value.StartsWith("0x"))
+            return 0;
+
+        return Convert.ToInt64(value, 16);
     }
 
-    [JsonSerializable(typeof(OverlayConfigData[]), GenerationMode = JsonSourceGenerationMode.Metadata)]
-    partial class OverlayConfigDataContext : JsonSerializerContext
+    public override void Write(Utf8JsonWriter writer, long value, JsonSerializerOptions options)
     {
-        public static readonly OverlayConfigDataContext Instance = new();
+        throw new NotImplementedException();
+    }
+}
+
+internal class HexIntConverter : JsonConverter<int>
+{
+    public override int Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        string? value = reader.GetString();
+        if (value == null || !value.StartsWith("0x"))
+            return 0;
+
+        return Convert.ToInt32(value, 16);
     }
 
-    internal class HexLongConverter : JsonConverter<long>
+    public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
     {
-        public override long Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            string? value = reader.GetString();
-            if (value == null || !value.StartsWith("0x"))
-                return 0;
-
-            return Convert.ToInt64(value, 16);
-        }
-
-        public override void Write(Utf8JsonWriter writer, long value, JsonSerializerOptions options)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal class HexIntConverter : JsonConverter<int>
-    {
-        public override int Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            string? value = reader.GetString();
-            if (value == null || !value.StartsWith("0x"))
-                return 0;
-
-            return Convert.ToInt32(value, 16);
-        }
-
-        public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
     }
 }

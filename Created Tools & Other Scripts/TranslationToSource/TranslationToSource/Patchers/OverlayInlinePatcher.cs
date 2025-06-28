@@ -5,35 +5,34 @@ using TranslationToSource.Models.Sheets;
 using TranslationToSource.Patchers.Layout;
 using TranslationToSource.Source;
 
-namespace TranslationToSource.Patchers
+namespace TranslationToSource.Patchers;
+
+internal class OverlayInlinePatcher : OverlayPatcher
 {
-    internal class OverlayInlinePatcher : OverlayPatcher
+    public async Task<string?> Patch(ISheetManager sheet, OverlayConfigData overlayConfig)
     {
-        public async Task<string?> Patch(ISheetManager sheet, OverlayConfigData overlayConfig)
+        // Create text patches
+        var patcher = new OvrTextPatcher();
+        OvrPatchData? assemblyPatches = await patcher.CreatePatchDataAsync(sheet, overlayConfig);
+        if (assemblyPatches == null)
+            return null;
+
+        // Create text patches layout
+        List<OvrSectionData> sections = CreateSections(assemblyPatches);
+        AppendUnusedSpace(sections, assemblyPatches);
+
+        var ovrPatchLayouter = new OvrPatchLayouter();
+        OvrPatchLayoutData? layout = ovrPatchLayouter.Create(assemblyPatches, sections);
+        if (layout == null)
         {
-            // Create text patches
-            var patcher = new OvrTextPatcher();
-            OvrPatchData? assemblyPatches = await patcher.CreatePatchDataAsync(sheet, overlayConfig);
-            if (assemblyPatches == null)
-                return null;
-
-            // Create text patches layout
-            List<OvrSectionData> sections = CreateSections(assemblyPatches);
-            AppendUnusedSpace(sections, assemblyPatches);
-
-            var ovrPatchLayouter = new OvrPatchLayouter();
-            OvrPatchLayoutData? layout = ovrPatchLayouter.Create(assemblyPatches, sections);
-            if (layout == null)
-            {
-                Console.WriteLine("Text could not fit into the overlay!");
-                return null;
-            }
-
-            // Emit patch source
-            var sourceEmitter = new OverlayInlineAssemblySourceEmitter();
-            string source = sourceEmitter.EmitTextPatchSource(layout, $"OVR\\{overlayConfig.OverlaySlot:000}.bin");
-
-            return source;
+            Console.WriteLine("Text could not fit into the overlay!");
+            return null;
         }
+
+        // Emit patch source
+        var sourceEmitter = new OverlayInlineAssemblySourceEmitter();
+        string source = sourceEmitter.EmitTextPatchSource(layout, $"OVR\\{overlayConfig.OverlaySlot:000}.bin");
+
+        return source;
     }
 }

@@ -1,4 +1,3 @@
-﻿namespace TranslationToSource.Models.Source.Instructions
-{
-    internal abstract record PsxInstruction : ArmipsInstruction;
-}
+﻿namespace TranslationToSource.Models.Source.Instructions;
+
+internal abstract record PsxInstruction : ArmipsInstruction;

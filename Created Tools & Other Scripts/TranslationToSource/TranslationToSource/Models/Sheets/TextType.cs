@@ -1,9 +1,8 @@
-﻿namespace TranslationToSource.Models.Sheets
+﻿namespace TranslationToSource.Models.Sheets;
+
+internal enum TextType
 {
-    internal enum TextType
-    {
-        TextBox,
-        RightPopup,
-        CenterPopup
-    }
+    TextBox,
+    RightPopup,
+    CenterPopup
 }

@@ -1,13 +1,12 @@
-﻿namespace TranslationToSource.Models.Texts.ControlCodes
-{
-    internal class FullStopControlCodeCharacterData : ControlCodeCharacterData
-    {
-        public FullStopControlCodeCharacterData(byte code) : base(code)
-        {
-        }
+﻿namespace TranslationToSource.Models.Texts.ControlCodes;
 
-        public FullStopControlCodeCharacterData(byte code, int[] args) : base(code, args)
-        {
-        }
+internal class FullStopControlCodeCharacterData : ControlCodeCharacterData
+{
+    public FullStopControlCodeCharacterData(byte code) : base(code)
+    {
+    }
+
+    public FullStopControlCodeCharacterData(byte code, int[] args) : base(code, args)
+    {
     }
 }

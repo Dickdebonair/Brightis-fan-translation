@@ -2,11 +2,10 @@
 using TranslationToSource.Models.Patchers.Layout;
 using TranslationToSource.Models.Source.Instructions;
 using TranslationToSource.Models.Source;
-using TranslationToSource.Models.Sheets;
 
 namespace TranslationToSource.Source;
 
-internal class OverlayPointerAssemblySourceEmitter : PsxAssemblySourceEmitter
+internal class OverlayIntroAssemblySourceEmitter : PsxAssemblySourceEmitter
 {
     public string EmitTextPatchSource(OvrPatchLayoutData patchLayout, string origFileName)
     {
@@ -30,24 +29,6 @@ internal class OverlayPointerAssemblySourceEmitter : PsxAssemblySourceEmitter
 
                 result.AppendLine(offsetSource);
                 result.AppendLine($"\t{wordsSource}");
-            }
-
-            // Patch print instructions
-            foreach (long printOffset in textPatch.Patch.SheetData.PrintOffsets)
-            {
-                if (patchLayout.Config.PopupJalOffset == null)
-                    break;
-
-                switch (textPatch.Patch.SheetData.TextType)
-                {
-                    case TextType.CenterPopup:
-                        string offsetSource = Emit(new SourceOffsetInstruction(printOffset));
-                        string jalSource = Emit(new JalPsxInstruction(patchLayout.Config.PopupJalOffset.Value));
-
-                        result.AppendLine(offsetSource);
-                        result.AppendLine($"\t{jalSource}");
-                        break;
-                }
             }
 
             // Patch text blob

@@ -2,126 +2,99 @@
 using System.Globalization;
 using GoogleSheetsApiV4.Contract;
 using GoogleSheetsApiV4.Contract.DataClasses;
+using TranslationToSource.Models.Reports;
 using TranslationToSource.Models.Sheets;
+using TranslationToSource.Reports;
 
 
-namespace TranslationToSource.Sheets
+namespace TranslationToSource.Sheets;
+
+internal class OvrTranslationManager
 {
-    internal class OvrTranslationManager
+    private readonly ISheetManager _sheet;
+
+    public OvrTranslationManager(ISheetManager sheet)
     {
-        private readonly ISheetManager _sheet;
-        private readonly string errorFileName = "OvrTranslationManager";
+        _sheet = sheet;
+    }
 
-        public OvrTranslationManager(ISheetManager sheet)
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OvrRawSheetData))]
+    public async Task<IList<OvrSheetData>?> GetTranslationsAsync(OverlayConfigData overlayConfig)
+    {
+        var ovrSheetOutput = new List<OvrSheetData>();
+
+        var startCell = CellIdentifier.Parse("A2");
+        var endCell = CellIdentifier.Parse($"F{overlayConfig.SheetMaxRow}");
+
+        var sheetName = overlayConfig.SheetName;
+        var errorsOccurred = false;
+
+        ErrorReport.Instance.EnterSection($"OvrTranslationManager Sheet {sheetName}");
+        ConsoleReport.Instance.WriteSectionName($"Processing Sheet {overlayConfig.SheetName}");
+
+        OvrRawSheetData[]? rows = await _sheet.GetRangeAsync<OvrRawSheetData>(overlayConfig.SheetName, startCell, endCell);
+
+        if (rows == null)
+            return null;
+
+        for (var i = 0; i < rows.Length; i++)
         {
-            _sheet = sheet;
-        }
+            OvrRawSheetData row = rows[i];
 
-        [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties, typeof(OvrRawSheetData))]
-        public async Task<IList<OvrSheetData>?> GetTranslationsAsync(OverlayConfigData overlayConfig)
-        {
-            var ovrSheetOutput = new List<OvrSheetData>();
+            string[] dataOffsets = row.DataOffsets.ReplaceLineEndings("").Split(',');
+            string[] printOffsets = row.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
 
-            var startCell = CellIdentifier.Parse("A2");
-            var endCell = CellIdentifier.Parse($"F{overlayConfig.SheetMaxRow}");
-
-            var sheetName = overlayConfig.SheetName;
-
-            var errorsThatOccured = new List<string>();
-            bool errorOccured = false;
-
-            FileLogger.AddErrorHead($"OvrTranslationManager Errors For Sheet {sheetName}", errorsThatOccured);
-
-            OvrRawSheetData[]? rows = await _sheet.GetRangeAsync<OvrRawSheetData>(overlayConfig.SheetName, startCell, endCell);
-
-            simpleLogger.CreateHeaderMessage($"Working on the following sheet: {overlayConfig.SheetName}");
-
-            if (rows == null)
-            {
-                return null;
-            }
-
-            foreach (var (row, rowNum) in rows.Select((value, index) => (value, index)))
-            {
-                simpleLogger.CreateHeaderMessage($"Working on sheet {overlayConfig.SheetName}");
-                string[] dataOffsets = row.DataOffsets.ReplaceLineEndings("").Split(',');
-                string[] printOffsets = row.PrintOffsets.ReplaceLineEndings("").Split(',', StringSplitOptions.RemoveEmptyEntries);
-
-                try
-                {
-                    var rowData = new OvrSheetData { };
-
-                    ParsingValues(() =>
-                        rowData.Offset = long.Parse(
-                                row.Offset[2..],
-                                NumberStyles.HexNumber
-                            )
-                    , "Offset", $"{row.Offset}", sheetName, rowNum);
-
-                    ParsingValues(() => 
-                        rowData.DataOffsets = dataOffsets.Select(
-                                x => long.Parse(x[2..], NumberStyles.HexNumber)
-                        ).ToArray()
-                    , "DataOffsets", $"{rowData.DataOffsets}", sheetName, rowNum);
-
-                    ParsingValues(
-                        () =>
-                            rowData.PrintOffsets = printOffsets.Length <= 0
-                            ? Array.Empty<long>()
-                            : printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber)).ToArray()
-                        , "printOffset", $"{rowData.PrintOffsets}", sheetName, rowNum
-                    );
-
-                    ParsingValues(
-                        () =>
-                            rowData.TextType = Enum.Parse<TextType>(row.TextType)
-                        , "TextType", $"{rowData.TextType}", sheetName, rowNum
-                    );
-
-                    ParsingValues(
-                        () =>
-                            rowData.OriginalText = row.OriginalText
-                        , "OriginalText", $"{rowData.OriginalText}", sheetName, rowNum
-                    );
-
-                    ParsingValues(
-                        () =>
-                            rowData.TranslatedText = row.TranslatedText ?? string.Empty
-                        , "TranslatedText", $"{rowData.OriginalText}", sheetName, rowNum
-                    );
-
-                    ovrSheetOutput.Add(rowData);
-                }
-                catch (Exception e)
-                {
-                    errorOccured = true;
-                    errorsThatOccured.Add(CreateErrorMessageLine(e));
-                }
-            }
-
-            if(errorOccured)
-            await FileLogger.WriteErrorsToFile(errorsThatOccured);
-
-            return errorOccured ? null : ovrSheetOutput;
-        }
-
-        public void ParsingValues(Action func, string columnName, string rowValue, string sheetName, int rowNum)
-        {
-            var handler = func;
             try
             {
-                handler();
+                var rowData = new OvrSheetData();
+
+                ParsingValues(() => rowData.Offset = long.Parse(row.Offset[2..], NumberStyles.HexNumber),
+                    sheetName, nameof(rowData.Offset), i, $"{row.Offset}");
+
+                ParsingValues(() => rowData.DataOffsets = [.. dataOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber))],
+                    sheetName, nameof(rowData.DataOffsets), i, $"{rowData.DataOffsets}");
+
+                ParsingValues(() => rowData.PrintOffsets = printOffsets.Length <= 0
+                        ? [] : [.. printOffsets.Select(x => long.Parse(x[2..], NumberStyles.HexNumber))],
+                    sheetName, nameof(rowData.PrintOffsets), i, $"{rowData.PrintOffsets}");
+
+                ParsingValues(() => rowData.TextType = Enum.Parse<TextType>(row.TextType),
+                    sheetName, nameof(rowData.TextType), i, $"{rowData.TextType}");
+
+                ParsingValues(() => rowData.OriginalText = row.OriginalText,
+                    sheetName, nameof(rowData.OriginalText), i, $"{rowData.OriginalText}");
+
+                ParsingValues(() => rowData.TranslatedText = row.TranslatedText ?? string.Empty,
+                    sheetName, nameof(rowData.TranslatedText), i, $"{rowData.OriginalText}");
+
+                ovrSheetOutput.Add(rowData);
             }
             catch (Exception)
             {
-                simpleLogger.TranslationManagerParseErrorMessage(columnName, rowValue, sheetName, rowNum);
-                throw new Exception($"Could not parse {columnName} with value: {rowValue} from sheet:{sheetName} row:{rowNum}");
+                errorsOccurred = true;
             }
         }
 
-        public string CreateErrorMessageLine(Exception e)
+        ErrorReport.Instance.ExitSection();
+        ErrorReport.Instance.Persist();
+
+        return errorsOccurred ? null : ovrSheetOutput;
+    }
+
+    private static void ParsingValues(Action func, string sheetName, string columnName, int rowIndex, string rowValue)
+    {
+        try
         {
-            return e.Message;
+            func();
+        }
+        catch (Exception)
+        {
+            var parseErrorItem = new SheetParseErrorReportItem(sheetName, columnName, rowIndex, rowValue);
+
+            ConsoleReport.Instance.WriteReportItem(parseErrorItem);
+            ErrorReport.Instance.AddReportItem(parseErrorItem);
+
+            throw;
         }
     }
 }

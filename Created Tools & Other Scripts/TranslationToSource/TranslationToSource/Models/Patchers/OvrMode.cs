@@ -1,9 +1,8 @@
-﻿namespace TranslationToSource.Models.Patchers
+﻿namespace TranslationToSource.Models.Patchers;
+
+internal enum OvrMode
 {
-    internal enum OvrMode
-    {
-        Inline,
-        Pointer,
-        PointerExtension
-    }
+    Inline,
+    Pointer,
+    PointerExtension
 }

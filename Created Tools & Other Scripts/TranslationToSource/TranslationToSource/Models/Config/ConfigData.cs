@@ -7,9 +7,9 @@ namespace TranslationToSource.Models.Config
         public required CredentialsConfig Credentials { get; set; }
     }
 
-    [JsonSerializable(typeof(ConfigData))]
-    partial class ConfigDataContext : JsonSerializerContext
-    {
-        public static readonly ConfigDataContext Instance = new();
-    }
+    // [JsonSerializable(typeof(ConfigData))]
+    // partial class ConfigDataContext : JsonSerializerContext
+    // {
+    //     public static readonly ConfigDataContext Instance = new();
+    // }
 }

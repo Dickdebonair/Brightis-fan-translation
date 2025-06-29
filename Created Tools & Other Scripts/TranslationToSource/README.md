@@ -33,3 +33,19 @@ This **NEW** overlay is used like an extension of an actual overlay. So, despite
 ### Output
 
 If successful, TranslationToSource will generate the patches into 2 asm files that will be used in [ARMips](https://github.com/Kingcom/armips).
+
+
+### Test out the exe locally
+
+If you desire to build the exe locally you can will the follow command at the root of TranslationToSource:
+`dotnet publish "./TranslationToSource/TranslationToSource/TranslationToSource.csproj" --output ./dist --configuration Release -r <your runtime>`
+
+possible runtimes
+    - win-x64
+    - win-x86
+    - win-arm64
+    - linux-x64
+    - linux-arm64
+    - linux-arm
+    - osx-x64
+    - osx-arm64

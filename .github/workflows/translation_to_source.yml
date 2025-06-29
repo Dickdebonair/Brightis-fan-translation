@@ -58,4 +58,4 @@ jobs:
         tag_name: ${{env.Version}}
         name: Building Exes for TranslationToSource
         draft: true
-        token: ${{github.token}}
+        token: ${{ secrets.GITHUB_TOKEN }}

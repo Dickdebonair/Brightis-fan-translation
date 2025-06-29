@@ -8,8 +8,12 @@ class ConsoleReport
 
     public void WriteSectionName(string sectionName)
     {
-        Console.Write("=== ");
-        Console.WriteLine(sectionName);
+        Console.WriteLine($"=== {sectionName} ===");
+    }
+
+    public void WriteInfo(string info)
+    {
+        Console.WriteLine(info);
     }
 
     public void WriteReportItem(ReportItem item)

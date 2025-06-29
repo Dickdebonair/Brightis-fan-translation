@@ -1,5 +1,8 @@
-﻿using System.Text.Json;
+﻿using System.ComponentModel;
+using System.Reflection.Metadata;
+using System.Text.Json;
 using TranslationToSource.Models.Config;
+using TranslationToSource.Reports;
 
 namespace TranslationToSource.Config
 {
@@ -7,31 +10,40 @@ namespace TranslationToSource.Config
     {
         public static readonly ConfigManager Instance = new();
 
-        private readonly ConfigData _config;
-        private readonly UserConfigData? _userConfig;
+        private ConfigData _config { get; set; }
+        private UserConfigData? _userConfig { get; set; }
+
+        public string SheetId
+        {
+            get
+            {
+                return _userConfig?.Credentials?.SheetId
+                       ?? _config.Credentials.SheetId;
+            }
+        }
+
+        public string ClientId
+        {
+            get
+            {
+                return _userConfig?.Credentials?.ClientId
+                       ?? _config.Credentials.ClientId;
+            }
+        }
+
+        public string ClientSecret
+        {
+            get
+            {
+                return _userConfig?.Credentials?.ClientSecret
+                       ?? _config.Credentials.ClientSecret;
+            }
+        }
 
         public ConfigManager()
         {
             _config = GetConfigData();
             _userConfig = GetConfigUserData();
-        }
-
-        public string GetSheetId()
-        {
-            return _userConfig?.Credentials?.SheetId
-                   ?? _config.Credentials.SheetId;
-        }
-
-        public string GetClientId()
-        {
-            return _userConfig?.Credentials?.ClientId
-                   ?? _config.Credentials.ClientId;
-        }
-
-        public string GetClientSecret()
-        {
-            return _userConfig?.Credentials?.ClientSecret
-                   ?? _config.Credentials.ClientSecret;
         }
 
         private static UserConfigData? GetConfigUserData()
@@ -51,15 +63,42 @@ namespace TranslationToSource.Config
         {
             string path = GetConfigPath();
             if (!File.Exists(path))
-                throw new FileNotFoundException($"Could not find config.json.");
+            {
+                ConsoleReport.Instance.WriteSectionName("Could Not Find Config.json");
+                ConsoleReport.Instance.WriteInfo($"Could not find the Config.json");
+                throw new FileNotFoundException("Could not find config.json");
+            }
 
             string json = File.ReadAllText(path);
 
-            ConfigData? config = JsonSerializer.Deserialize(json, ConfigDataContext.Instance.ConfigData);
-            if (config is null)
-                throw new InvalidOperationException("Could not deserialize config.json.");
+            try
+            {
+                var config = JsonSerializer.Deserialize<ConfigData>(json);
 
-            return config;
+                ReportIfValueIsBad("Crendentials ClientID", String.IsNullOrWhiteSpace(config.Credentials.ClientId));
+                ReportIfValueIsBad("Crendentials ClientID", String.IsNullOrWhiteSpace(config.Credentials.ClientSecret));
+
+                return config;
+            }
+            catch (InvalidDataException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                ConsoleReport.Instance.WriteSectionName("Error Parsing Config.json");
+                ConsoleReport.Instance.WriteInfo($"There is an error trying to parse your config.json file. It is not in the correct format");
+                ConsoleReport.Instance.WriteInfo(e.Message);
+                throw;
+            }
+        }
+
+        private static void ReportIfValueIsBad(string propName, bool check) {
+            if (check)
+            {
+                ConsoleReport.Instance.WriteSectionName($"{propName} is incorrect, empty or bad");
+                throw new InvalidDataException("Bad input");
+            }
         }
 
         private static string GetConfigUserPath()

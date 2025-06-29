@@ -49,13 +49,15 @@ jobs:
 
     - name: Get Version
       run:  |
-        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" './Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj')
-        echo "version=$version" >> $GITHUB_ENV
+        grepVersion=$(grep -oPm1 "(?<=<Version>)[^<]+" './Created Tools & Other Scripts/TranslationToSource/TranslationToSource/TranslationToSource.csproj')
+        echo "version=$grepVersion" >> $GITHUB_ENV
+
+        echo $grepVersion
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: ${{env.Version}}
+        tag_name: ${{env.version}}
         name: Building Exes for TranslationToSource
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}

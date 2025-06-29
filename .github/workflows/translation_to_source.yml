@@ -53,11 +53,16 @@ jobs:
         echo "version=$grepVersion" >> $GITHUB_ENV
 
         echo $grepVersion
+    
+    - name: Get Binaries
+      uses: actions/download-artifact@v2
+      with:
+        path: releases/
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: ${{env.version}}
-        name: Building Exes for TranslationToSource
+        name: Build for ${{env.version}}
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}
+        files: releases/*

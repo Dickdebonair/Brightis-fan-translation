@@ -1,3 +1,4 @@
+# This project is looking for someone to pickup where we left off! Check (https://github.com/Dickdebonair/Brightis-fan-translation/discussions/24) for more details!
 # Brightis-fan-translation
 
 A (partial) decompilation and eventual ~~translation~~ localization of the PSX game Brightis by fan(s)

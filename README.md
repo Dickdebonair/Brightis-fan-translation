@@ -1,3 +1,4 @@
+# This project is moving over to a GitHub Organization! Check (https://github.com/Dickdebonair/Brightis-fan-translation/discussions/27) for more details!
 # Brightis-fan-translation
 
 A (partial) decompilation and eventual ~~translation~~ localization of the PSX game Brightis by fan(s)
@@ -86,7 +87,7 @@ Potential Resources:
 - Updated PSXImager: <https://github.com/Ripper55555/psximager>
 - Ghidra: <https://github.com/NationalSecurityAgency/ghidra/> [Decompiler & static Code Analysis]
   - PSX Loader for Ghidra <https://github.com/lab313ru/ghidra_psx_ldr> [Required for proper analysis]
-- DeepL: <https://www.deepl.com/en/translator> [Quick Text translator]
+- ~~DeepL: <https://www.deepl.com/en/translator> [Quick Text translator]~~ (No longer in use, we have JP translators now!)
 - Cloe: <https://github.com/blueaxis/Cloe> [Useful for copying kanji locally & quickly]
 - ARMips: <https://github.com/Kingcom/armips> [Used to patch code directly for translations]
 - LINQpad: <https://www.linqpad.net/>

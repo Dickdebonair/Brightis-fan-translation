@@ -1,8 +1,8 @@
 ﻿using BrightistFiler.Compression;
 using BrightistFiler.Formats.Archives.Models;
-using Komponent.IO.Streams;
 using Komponent.IO;
-using Kontract.Kompression;
+using Komponent.Streams;
+using Kompression.Contract;
 
 namespace BrightistFiler.Formats.Archives.Files
 {

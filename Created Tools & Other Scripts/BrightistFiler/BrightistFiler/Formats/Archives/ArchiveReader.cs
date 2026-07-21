@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using BrightistFiler.Formats.Archives.Files;
 using BrightistFiler.Formats.Archives.Models;
-using Kontract.Models;
+using Konnect.Contract.DataClasses.FileSystem;
 
 namespace BrightistFiler.Formats.Archives
 {

@@ -1,7 +1,7 @@
 ﻿using BrightistFiler;
 using BrightistFiler.Formats.Archives;
 using BrightistFiler.Formats.Archives.Models;
-using Kontract.Models;
+using Konnect.Contract.DataClasses.FileSystem;
 
 // Read arguments
 OperationMode operationMode = GetOperationMode();
@@ -71,7 +71,11 @@ string GetInputPath(OperationMode mode)
 void Extract()
 {
     using Stream inputStream = File.OpenRead(inputPath);
-    var streamFile = new StreamFile(inputStream, inputPath);
+    var streamFile = new StreamFile
+    {
+        Stream = inputStream,
+        Path = inputPath
+    };
 
     // Read files from archive
     var archiveTypeReader = new ArchiveTypeReader();

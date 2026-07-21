@@ -1,7 +1,7 @@
 ﻿using BrightistFiler.Compression;
 using BrightistFiler.Formats.Archives.Models;
 using Komponent.IO;
-using Kontract.Kompression;
+using Kompression.Contract;
 
 namespace BrightistFiler.Formats.Archives.Files
 {

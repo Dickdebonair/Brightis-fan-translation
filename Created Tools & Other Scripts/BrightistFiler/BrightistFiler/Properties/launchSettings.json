@@ -2,7 +2,7 @@
   "profiles": {
     "BrightistFiler": {
       "commandName": "Project",
-      "commandLineArgs": "-e D:\\Users\\Kirito\\Desktop\\reverse_engineering\\brightis\\game_files\\patch_work\\research\\ONMOVR.BIN"
+      "commandLineArgs": "-e E:\\reverse_engineering\\brightis_fraud\\game_files\\patch\\OVR_new.BIN"
     }
   }
 }

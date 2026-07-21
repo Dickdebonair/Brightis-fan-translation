@@ -1,5 +1,5 @@
 ﻿using BrightistFiler.Formats.Archives.Models;
-using Kontract.Models;
+using Konnect.Contract.DataClasses.FileSystem;
 
 namespace BrightistFiler.Formats.Archives
 {
@@ -7,22 +7,22 @@ namespace BrightistFiler.Formats.Archives
     {
         public ArchiveType Determine(StreamFile file)
         {
-            if (Path.GetFileName(file.Path.FullName).Equals("ONMOVR.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("ONMOVR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.OnMovR;
 
-            if (Path.GetFileName(file.Path.FullName).Equals("CHR.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("CHR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Chr;
 
-            if (Path.GetFileName(file.Path.FullName).Equals("OVR.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("OVR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Ovr;
 
-            if (Path.GetFileName(file.Path.FullName).Equals("MAP.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("MAP", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Map;
 
-            if (Path.GetFileName(file.Path.FullName).Equals("SND.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("SND", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Snd;
 
-            if (Path.GetFileName(file.Path.FullName).Equals("PDADOC.BIN", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(file.Path.FullName).StartsWith("PDADOC", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.PdaDoc;
 
             return ArchiveType.None;
@@ -30,22 +30,22 @@ namespace BrightistFiler.Formats.Archives
 
         public ArchiveType Determine(string directoryPath)
         {
-            if (Path.GetFileName(directoryPath).Equals("ONMOVR", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("ONMOVR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.OnMovR;
 
-            if (Path.GetFileName(directoryPath).Equals("CHR", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("CHR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Chr;
 
-            if (Path.GetFileName(directoryPath).Equals("OVR", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("OVR", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Ovr;
 
-            if (Path.GetFileName(directoryPath).Equals("MAP", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("MAP", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Map;
 
-            if (Path.GetFileName(directoryPath).Equals("SND", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("SND", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.Snd;
 
-            if (Path.GetFileName(directoryPath).Equals("PDADOC", StringComparison.OrdinalIgnoreCase))
+            if (Path.GetFileName(directoryPath).StartsWith("PDADOC", StringComparison.OrdinalIgnoreCase))
                 return ArchiveType.PdaDoc;
 
             return ArchiveType.None;

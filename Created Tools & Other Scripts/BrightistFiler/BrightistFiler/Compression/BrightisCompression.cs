@@ -1,5 +1,5 @@
 ﻿using Kompression.Configuration;
-using Kontract.Kompression;
+using Kompression.Contract;
 
 namespace BrightistFiler.Compression
 {
@@ -9,9 +9,9 @@ namespace BrightistFiler.Compression
 
         public BrightisCompression()
         {
-            _compression = new KompressionConfiguration()
-                .DecodeWith(() => new BrightisLzDecoder())
-                .EncodeWith(() => new BrightisLzEncoder())
+            _compression = new CompressionConfigurationBuilder()
+                .Decode.With(() => new BrightisLzDecoder())
+                .Encode.With(() => new BrightisLzEncoder())
                 .Build();
         }
 

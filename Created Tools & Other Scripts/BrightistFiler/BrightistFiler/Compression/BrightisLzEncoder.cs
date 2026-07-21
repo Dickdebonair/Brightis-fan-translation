@@ -1,21 +1,22 @@
-﻿using Kontract.Kompression.Configuration;
-using Kontract.Kompression.Model.PatternMatch;
+﻿using Kompression.Contract.Configuration;
+using Kompression.Contract.DataClasses.Encoder.LempelZiv;
+using Kompression.Contract.Encoder;
 
 namespace BrightistFiler.Compression
 {
-    internal class BrightisLzEncoder : ILzEncoder
+    internal class BrightisLzEncoder : ILempelZivEncoder
     {
-        public void Configure(IInternalMatchOptions matchOptions)
+        public void Configure(ILempelZivEncoderOptionsBuilder matchOptions)
         {
             matchOptions
                 .CalculatePricesWith(() => new BrightisPriceCalculator())
-                .FindMatches().WithinLimitations(0x4, -1, 0x0, 0x1FFF)
+                .FindPatternMatches().WithinLimitations(0x4, -1, 0x0, 0x1FFF)
                 .AndFindRunLength().WithinLimitations(0x4, 0x1003);
         }
 
-        public void Encode(Stream input, Stream output, IEnumerable<Match> matches)
+        public void Encode(Stream input, Stream output, IEnumerable<LempelZivMatch> matches)
         {
-            foreach (Match match in matches)
+            foreach (LempelZivMatch match in matches)
             {
                 // Write raw data
                 if (input.Position < match.Position)
@@ -41,7 +42,7 @@ namespace BrightistFiler.Compression
             output.WriteByte(0);
         }
 
-        private void WriteRawData(Stream input, Stream output, long rawLength)
+        private static void WriteRawData(Stream input, Stream output, long rawLength)
         {
             while (rawLength > 0x1FFF)
             {
@@ -63,7 +64,7 @@ namespace BrightistFiler.Compression
                 output.WriteByte((byte)input.ReadByte());
         }
 
-        private void WriteRleData(Stream input, Stream output, Match match)
+        private static void WriteRleData(Stream input, Stream output, LempelZivMatch match)
         {
             int length = match.Length - 4;
             if (length > 0xF)
@@ -80,7 +81,7 @@ namespace BrightistFiler.Compression
             input.Position += match.Length - 1;
         }
 
-        private void WriteLzData(Stream input, Stream output, Match match)
+        private static void WriteLzData(Stream input, Stream output, LempelZivMatch match)
         {
             output.WriteByte((byte)((Math.Min(0x7, match.Length) << 5) | match.Displacement >> 8));
             output.WriteByte((byte)match.Displacement);

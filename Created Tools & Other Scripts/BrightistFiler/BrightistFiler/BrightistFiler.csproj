@@ -10,23 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Program.cs~RF15231379.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Formats\Images\" />
-    <Folder Include="Libs\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Komponent">
       <HintPath>Libs\Komponent.dll</HintPath>
+    </Reference>
+    <Reference Include="Komponent.Contract">
+      <HintPath>Libs\Komponent.Contract.dll</HintPath>
     </Reference>
     <Reference Include="Kompression">
       <HintPath>Libs\Kompression.dll</HintPath>
     </Reference>
-    <Reference Include="Kontract">
-      <HintPath>Libs\Kontract.dll</HintPath>
+    <Reference Include="Kompression.Contract">
+      <HintPath>Libs\Kompression.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Konnect">
+      <HintPath>Libs\Konnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Konnect.Contract">
+      <HintPath>Libs\Konnect.Contract.dll</HintPath>
     </Reference>
   </ItemGroup>
 

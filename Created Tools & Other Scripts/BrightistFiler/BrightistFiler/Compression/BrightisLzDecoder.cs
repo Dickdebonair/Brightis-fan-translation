@@ -1,5 +1,5 @@
-﻿using Kompression.IO;
-using Kontract.Kompression.Configuration;
+﻿using Kompression.Contract.Decoder;
+using Kompression.IO;
 
 namespace BrightistFiler.Compression
 {

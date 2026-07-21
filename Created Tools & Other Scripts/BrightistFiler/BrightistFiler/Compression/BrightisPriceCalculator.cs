@@ -1,8 +1,8 @@
-﻿using Kontract.Kompression;
+﻿using Kompression.Contract.Encoder.LempelZiv.PriceCalculator;
 
 namespace BrightistFiler.Compression
 {
-    internal class BrightisPriceCalculator : IPriceCalculator
+    internal class BrightisPriceCalculator : ILempelZivPriceCalculator
     {
         public int CalculateLiteralPrice(int value, int literalRunLength, bool firstLiteralRun)
         {

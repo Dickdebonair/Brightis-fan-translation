@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "BrightistFiler": {
-      "commandName": "Project",
-      "commandLineArgs": "-e E:\\reverse_engineering\\brightis_fraud\\game_files\\patch\\OVR_new.BIN"
-    }
-  }
-}

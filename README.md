@@ -1,4 +1,4 @@
-# This project is moving over to a [GitHub Organization](https://github.com/Brightis-Translation)! Check (https://github.com/Dickdebonair/Brightis-fan-translation/discussions/27) for more details!
+# This project has moved over to a [GitHub Organization](https://github.com/Brightis-Translation) and work is continuing! Check (https://github.com/Dickdebonair/Brightis-fan-translation/discussions/27) for more details!
 # Brightis-fan-translation
 
 A (partial) decompilation and eventual ~~translation~~ localization of the PSX game Brightis by fan(s)
